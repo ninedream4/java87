@@ -1,6 +1,8 @@
+var mainRow = document.getElementById("mainRow");
+mainRow.className = "row";
+
 var slideDiv = document.createElement("div");
 		slideDiv.className = "col-sm-4 slidelist-item";
-		
 		
 		var aTag = document.createElement("a");
 		aTag.href = "javascript:fn()";
@@ -14,13 +16,11 @@ var slideDiv = document.createElement("div");
 				
 					var iTag = document.createElement("i");
 					iTag.className = "fa fa-search-plus fa-3x";
-			
+					
 			var img = document.createElement("img");
 			img.src = "img/java/1.jpg";
 			img.className = "img-responsive";
 			img.alt="";
-		
-	var element = document.getElementById("mainrow");
 	
 	innerDiv.appendChild(iTag);
 	outerDiv.appendChild(innerDiv);
@@ -28,8 +28,7 @@ var slideDiv = document.createElement("div");
 	aTag.appendChild(outerDiv);
 	aTag.appendChild(img);
 	slideDiv.appendChild(aTag);
-	element.appendChild(slideDiv);
-	
+	mainRow.appendChild(slideDiv);
 	function fn() {
     	$("#modalView").modal();
     }

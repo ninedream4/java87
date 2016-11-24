@@ -12,10 +12,10 @@
     <title>Bit Share</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" id="css2">
 
     <!-- Theme CSS -->
-    <link href="css/freelancer.min.css" rel="stylesheet">
+    <link href="css/freelancer.min.css" rel="stylesheet" id="css1">
 
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -30,6 +30,9 @@
 <body id="page-top" class="index">
 <!-- Portfolio Modals -->
 	<div w3-include-html="content.html"></div> 
+	
+		
+
     <div class="portfolio-modal modal fade" id="modalView" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
@@ -41,10 +44,115 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
+                        <div id="modalBody">
+<!--                             <h2>Detail</h2> -->
+<!--                             <hr class="star-primary"> -->
+<!--                             <img src="img/java/1.jpg" class="img-responsive img-centered" alt=""> -->
+<!--                             <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p> -->
+<!--                             <br/> -->
+<!--                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="portfolio-modal modal fade" id="login" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <h2>Detail</h2>
+                            <h2>login</h2>
                             <hr class="star-primary">
-                            <img src="img/java/1.jpg" class="img-responsive img-centered" alt="">
+                           	 <form>
+		
+									<div class="form-group" style="width:40%; margin:auto;">
+									    <label for="inputEmail" style="font-size:20px;">Email address</label>
+									    <input type="email" class="form-control" id="inputEmail"  placeholder="Email">
+								  	</div>
+								  	
+									<br/>
+									
+									<div class="form-group" style="width:40%; margin:auto;">
+									    <label for="inputPassword" style="font-size:20px; ">Password</label>
+									    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+								  	</div>
+								  	
+								  	<br/><br/>
+								  	
+								  	<div style="width:50%; margin:auto;">
+								  		<button type="submit" class="form-control" style="width:35%; margin:auto;">Login</button>
+								  	</div>
+								  	
+							</form>
+							<br/><br/>  	
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="portfolio-modal modal fade" id="signup" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>signup</h2>
+                            <hr class="star-primary">
+                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <ul class="list-inline item-details">
+                                <li>Client:
+                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
+                                    </strong>
+                                </li>
+                                <li>Date:
+                                    <strong><a href="http://startbootstrap.com">April 2014</a>
+                                    </strong>
+                                </li>
+                                <li>Service:
+                                    <strong><a href="http://startbootstrap.com">Web Development</a>
+                                    </strong>
+                                </li>
+                            </ul>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="portfolio-modal modal fade" id="upload" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>upload</h2>
+                            <hr class="star-primary">
                             <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                             <ul class="list-inline item-details">
                                 <li>Client:
@@ -72,14 +180,14 @@
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom" style="background-color:black; width=100%">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <div class="navbar-header page-scroll" height=100%>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menuBar">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="index.html">Bit Share</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse" id="menuBar">
             
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hidden">
@@ -88,7 +196,7 @@
 					
                     <li class="dropdown">
 					  <button class="dropbtn">category</button>
-					  <div class="dropdown-content">
+					  <div class="dropdown-content" style="position:relative;">
 					    <a href="category.html">java</a>
 					    <a href="category.html">c/c++</a>
 					    <a href="category.html">windows</a>
@@ -96,15 +204,17 @@
 					</li>
 					
                     <li>
-                        <a href="upload.html">upload</a>
+                        <a data-toggle="modal" data-target="#upload">upload</a>
                     </li>
 
                     <li>
-                        <a href="login.html">login</a>
+                        <a data-toggle="modal" data-target="#login">login</a>
                     </li>
                     <li>
-                        <a href="signup.html">signup</a>
+                        <a data-toggle="modal" data-target="#signup">signup</a>
                     </li>
+                    
+                    
                 </ul>
             </div>
             
@@ -166,10 +276,7 @@
 	                    <hr class="star-primary">
 	                </div>
 	            </div>
-	            <div id="mainrow" class="row">
-	                
-	                
-	            </div>
+	            <div id="mainRow"></div>
 	        </div>
 	    </section>
 	</div>
@@ -218,6 +325,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="footer-below">
             <div class="container">
                 <div class="row">
@@ -235,10 +343,7 @@
             <i class="fa fa-chevron-up"></i>
         </a>
     </div>
-
-    
-    
-    
+	
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
 
@@ -254,7 +359,8 @@
 
     <!-- Theme JavaScript -->
     <script src="js/freelancer.min.js"></script>
-    <script src="js/mainModal.js"></script>
+    <script src="js/slide.js" id="slide"></script>
+    <script src="js/modal.js" id="modalView"></script>
 </body>
 
 </html>
