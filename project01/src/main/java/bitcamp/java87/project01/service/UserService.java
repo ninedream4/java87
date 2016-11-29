@@ -10,15 +10,15 @@ public interface UserService {
 	
 	public void addUser(User user) throws Exception;
 	
-	public User getUser(int userId) throws Exception;
+	public User getUser(String email) throws Exception;
 	
 	public Map<String , Object> getUserList(Search search) throws Exception;
 	
 	public void updateUser(User user) throws Exception;
 	
 	// ȸ�� ID �ߺ� Ȯ��
-	public boolean checkDuplication(String userId) throws Exception;
+	public boolean checkDuplication(String email) throws Exception;
 
-  public boolean checkDuplication(int userId) throws Exception;
+
 	
 }

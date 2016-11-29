@@ -30,6 +30,14 @@
 	rel="stylesheet" type="text/css">
 <link href="css/fileinputbutton.css" rel="stylesheet" type="text/css">
 
+
+<script type="text/javascript">
+
+function submit(){
+	document.addUserform.action='/user/addUser';
+	document.addUserform.submit();
+}
+</script>
 </head>
 
 <body id="page-top" class="index">
@@ -118,7 +126,7 @@
 					<h2 align="center">sign up</h2>
 					<hr class="star-primary">
 					 
-        <form name="addUserform" method="post"  action="/user/addUser">
+        <form name="addUserform" method="post" >
 					<div class="form-group" style="width: 70%; margin: auto;">
 						<label for="inputEmail" style="font-size: 20px;">Email address</label>
 						 <input type="text" class="form-control" name="email" id="Email"	placeholder="Email">
@@ -149,7 +157,7 @@
 					<br />
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" onclick="location.href='/project01/index.html' ">Sign Up</button>
+					<button type="button" class="btn btn-primary"  onclick="submit()">Sign Up</button>
 					
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>

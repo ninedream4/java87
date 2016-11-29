@@ -43,13 +43,13 @@ public class UserController {
 	
 	//@RequestMapping("/addUserView.do")
 	//public String addUserView() throws Exception {
-	@RequestMapping( value="addUser", method=RequestMethod.GET )
+/*	@RequestMapping( value="addUser", method=RequestMethod.GET )
 	public String addUser() throws Exception{
 	
 		System.out.println("/user/addUser : GET");
 		
 		return "redirect:/user/addUserView.jsp";
-	}
+	}*/
 	
 	//@RequestMapping("/addUser.do")
 	@RequestMapping( value="addUser", method=RequestMethod.POST )
@@ -58,30 +58,30 @@ public class UserController {
 		System.out.println("/user/addUser : POST");
 		//Business Logic
 		userService.addUser(user);
-		System.out.println("ddddddd");
-		return "redirect:/index.html";
+		
+		return "redirect:/index.jsp";
 	}
 	
 	//@RequestMapping("/getUser.do")
 	@RequestMapping( value="getUser", method=RequestMethod.GET )
-	public String getUser( @RequestParam("userId") int userId , Model model ) throws Exception {
+	public String getUser( @RequestParam("email") String email , Model model ) throws Exception {
 		
 		System.out.println("/user/getUser : GET");
 		//Business Logic
-		User user = userService.getUser(userId);
+		User user = userService.getUser(email);
 		model.addAttribute("user", user);
 		
-		return "forward:/user/getUser.jsp";
+		return "redirect:/index.jsp";
 	}
 	
 	//@RequestMapping("/updateUserView.do")
 	//public String updateUserView( @RequestParam("userId") String userId , Model model ) throws Exception{
 	@RequestMapping( value="updateUser", method=RequestMethod.GET )
-	public String updateUser( @RequestParam("userId") int userId , Model model ) throws Exception{
+	public String updateUser( @RequestParam("userId") String email , Model model ) throws Exception{
 
 		System.out.println("/user/updateUser : GET");
 		//Business Logic
-		User user = userService.getUser(userId);
+		User user = userService.getUser(email);
 		model.addAttribute("user", user);
 		
 		return "forward:/user/updateUser.jsp";
@@ -120,7 +120,7 @@ public class UserController {
 		
 		System.out.println("/user/login : POST");
 		//Business Logic
-		User dbUser=userService.getUser(user.getUserId());
+		User dbUser=userService.getUser(user.getEmail());
 		
 		if( user.getPwd().equals(dbUser.getPwd())){
 			session.setAttribute("user", dbUser);
@@ -137,19 +137,19 @@ public class UserController {
 		
 		session.invalidate();
 		
-		return "redirect:/index.jsp";
+		return "forward:/index.jsp";
 	}
 	
 	
 	//@RequestMapping("/checkDuplication.do")
 	@RequestMapping( value="checkDuplication", method=RequestMethod.POST )
-	public String checkDuplication( @RequestParam("userId") int userId , Model model ) throws Exception{
+	public String checkDuplication( @RequestParam("email") String email , Model model ) throws Exception{
 		
 		System.out.println("/user/checkDuplication : POST");
 		//Business Logic
-		boolean result=userService.checkDuplication(userId);
+		boolean result=userService.checkDuplication(email);
 		model.addAttribute("result", new Boolean(result));
-		model.addAttribute("userId", userId);
+		model.addAttribute("email", email);
 
 		return "forward:/user/checkDuplication.jsp";
 	}

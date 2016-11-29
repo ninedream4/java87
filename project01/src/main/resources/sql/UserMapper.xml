@@ -16,16 +16,16 @@
 	<!-- SQL : INSERT -->
 	<insert 	id="addUser"		parameterType="user" >
 	 	INSERT
-		INTO users( USER_ID , EMAIL,PWD) 
-		VALUES	 (	#{userId} ,  #{email},#{pwd}	 )
+		INTO users 
+		VALUES	 (	SEQ_USER.NEXTVAL ,  #{email}, #{pwd}	 )
 	 </insert>
 	 
 	 <!-- SQL : SELECT ONE -->
 	 <select 	id="getUser"	parameterType="string"	resultMap="userSelectMap">
 		SELECT
-		user_id , user_name , password , role ,  cell_phone ,  addr , email , reg_date 		
+		USER_ID, EMAIL, PWD
 		FROM users 
-		WHERE user_id = #{value}
+		WHERE EMAIL = #{value}
 	 </select>
 	 
 	 <!-- SQL : UPDATE -->

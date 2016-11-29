@@ -36,8 +36,8 @@ public class UserServiceImpl implements UserService{
 		userDao.addUser(user);
 	}
 
-	public User getUser(int userId) throws Exception {
-		return userDao.getUser(userId);
+	public User getUser(String email) throws Exception {
+		return userDao.getUser(email);
 	}
 
 	public Map<String , Object > getUserList(Search search) throws Exception {
@@ -55,20 +55,16 @@ public class UserServiceImpl implements UserService{
 		userDao.updateUser(user);
 	}
 
-	public boolean checkDuplication(int userId) throws Exception {
+	public boolean checkDuplication(String email) throws Exception {
 		boolean result=true;
-		User user=userDao.getUser(userId);
+		User user=userDao.getUser(email);
 		if(user != null) {
 			result=false;
 		}
 		return result;
 	}
 
-  @Override
-  public boolean checkDuplication(String userId) throws Exception {
-    // TODO Auto-generated method stub
-    return false;
-  }
+
 
 
 

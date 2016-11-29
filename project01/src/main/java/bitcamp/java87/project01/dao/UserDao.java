@@ -12,7 +12,7 @@ public interface UserDao {
 	public void addUser(User user) throws Exception ;
 
 	// SELECT ONE
-	public User getUser(int userId) throws Exception ;
+	public User getUser(String email) throws Exception ;
 
 	// SELECT LIST
 	public List<User> getUserList(Search search) throws Exception ;
