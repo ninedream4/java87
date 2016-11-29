@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService{
 		userDao.addUser(user);
 	}
 
-	public User getUser(String userId) throws Exception {
+	public User getUser(int userId) throws Exception {
 		return userDao.getUser(userId);
 	}
 
@@ -55,7 +55,7 @@ public class UserServiceImpl implements UserService{
 		userDao.updateUser(user);
 	}
 
-	public boolean checkDuplication(String userId) throws Exception {
+	public boolean checkDuplication(int userId) throws Exception {
 		boolean result=true;
 		User user=userDao.getUser(userId);
 		if(user != null) {
@@ -63,4 +63,14 @@ public class UserServiceImpl implements UserService{
 		}
 		return result;
 	}
+
+  @Override
+  public boolean checkDuplication(String userId) throws Exception {
+    // TODO Auto-generated method stub
+    return false;
+  }
+
+
+
+
 }

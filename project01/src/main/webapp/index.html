@@ -74,7 +74,7 @@
 						<h2 class="modal-title" id="myModalLabel">Login</h2>
 						<hr class="star-primary"></hr>
 						<br /> <br />
-						<form>
+						<form method="post" action="/user/login ">
 							<div class="form-group" style="width: 70%; margin: auto;">
 								<div align="left">
 									<label for="inputEmail" style="font-size: 20px;">Email
@@ -117,26 +117,25 @@
 				<div class="modal-body">
 					<h2 align="center">sign up</h2>
 					<hr class="star-primary">
-
+					 
+        <form name="addUserform" method="post"  action="/user/addUser">
 					<div class="form-group" style="width: 70%; margin: auto;">
-						<label for="inputEmail" style="font-size: 20px;">Email
-							address</label> <input type="email" class="form-control" id="inputEmail"
-							placeholder="Email">
+						<label for="inputEmail" style="font-size: 20px;">Email address</label>
+						 <input type="text" class="form-control" name="email" id="Email"	placeholder="Email">
 					</div>
 
 					<br />
 
 					<div class="form-group" style="width: 70%; margin: auto;">
 						<label for="inputPassword" style="font-size: 20px;">Password</label>
-						<input type="password" class="form-control" id="inputPassword"
-							placeholder="Password">
+						<input type="text" class="form-control" id="inputPassword"		name="pwd"			placeholder="Password">
 					</div>
 
 					<br />
 
 					<div class="form-group" style="width: 70%; margin: auto;">
-						<label for="inputConfirmPassowrd" style="font-size: 20px;">Email
-							address</label> <input type="password" class="form-control"
+						<label for="inputConfirmPassowrd" style="font-size: 20px;">Password Confirm
+							</label> <input type="password" class="form-control"
 							id="inputConfirmPassowrd" placeholder="ConfirmPassowrd">
 					</div>
 
@@ -146,12 +145,13 @@
 						<label for="inputTag" style="font-size: 20px;">Tag</label> <input
 							type="text" class="form-control" id="inputTag" placeholder="Tag">
 					</div>
-
+          </form>
 					<br />
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary">Sign Up</button>
-					<button type="button" class="btn btn-default">Close</button>
+					<button type="button" class="btn btn-primary" onclick="location.href='/project01/index.html' ">Sign Up</button>
+					
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
 			</div>
 		</div>
@@ -213,7 +213,7 @@
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-primary">Submit</button>
-					<button type="button" class="btn btn-default">Close</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
 			</div>
 		</div>

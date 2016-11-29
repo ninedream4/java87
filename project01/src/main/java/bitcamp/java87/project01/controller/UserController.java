@@ -58,13 +58,13 @@ public class UserController {
 		System.out.println("/user/addUser : POST");
 		//Business Logic
 		userService.addUser(user);
-		
-		return "redirect:/user/loginView.jsp";
+		System.out.println("ddddddd");
+		return "redirect:/index.html";
 	}
 	
 	//@RequestMapping("/getUser.do")
 	@RequestMapping( value="getUser", method=RequestMethod.GET )
-	public String getUser( @RequestParam("userId") String userId , Model model ) throws Exception {
+	public String getUser( @RequestParam("userId") int userId , Model model ) throws Exception {
 		
 		System.out.println("/user/getUser : GET");
 		//Business Logic
@@ -77,7 +77,7 @@ public class UserController {
 	//@RequestMapping("/updateUserView.do")
 	//public String updateUserView( @RequestParam("userId") String userId , Model model ) throws Exception{
 	@RequestMapping( value="updateUser", method=RequestMethod.GET )
-	public String updateUser( @RequestParam("userId") String userId , Model model ) throws Exception{
+	public String updateUser( @RequestParam("userId") int userId , Model model ) throws Exception{
 
 		System.out.println("/user/updateUser : GET");
 		//Business Logic
@@ -95,8 +95,8 @@ public class UserController {
 		//Business Logic
 		userService.updateUser(user);
 		
-		String sessionId=((User)session.getAttribute("user")).getUserId();
-		if(sessionId.equals(user.getUserId())){
+		int sessionId=((User)session.getAttribute("user")).getUserId();
+		if(sessionId==(user.getUserId())){
 			session.setAttribute("user", user);
 		}
 		
@@ -122,7 +122,7 @@ public class UserController {
 		//Business Logic
 		User dbUser=userService.getUser(user.getUserId());
 		
-		if( user.getPassword().equals(dbUser.getPassword())){
+		if( user.getPwd().equals(dbUser.getPwd())){
 			session.setAttribute("user", dbUser);
 		}
 		
@@ -143,7 +143,7 @@ public class UserController {
 	
 	//@RequestMapping("/checkDuplication.do")
 	@RequestMapping( value="checkDuplication", method=RequestMethod.POST )
-	public String checkDuplication( @RequestParam("userId") String userId , Model model ) throws Exception{
+	public String checkDuplication( @RequestParam("userId") int userId , Model model ) throws Exception{
 		
 		System.out.println("/user/checkDuplication : POST");
 		//Business Logic
