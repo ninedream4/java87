@@ -31,6 +31,42 @@
   rel="stylesheet" type="text/css">
 <link href="css/fileinputbutton.css" rel="stylesheet" type="text/css">
 
+<script type="text/javascript">
+
+function addUsersubmit(){  
+	/* var id=document.addUserform.email.value;
+	  var pw=document.addUserform.pwd.value;
+	  var pw_confirm=document.addUserform.pwd2.value;	  
+	  
+	  if(id == null || id.length <1){
+	    alert("이메일은 반드시 입력하셔야 합니다.");
+	    return;
+	  }
+	  if(pw == null || pw.length <1){
+	    alert("패스워드는  반드시 입력하셔야 합니다.");
+	    return;
+	  }
+	  if(pw_confirm == null || pw_confirm.length <1){
+	    alert("패스워드 확인은  반드시 입력하셔야 합니다.");
+	    return;
+	  }	  
+	  
+	  if(document.addUserform.password.value != document.addUserform.password2.value) {
+	    alert("비밀번호 확인이 일치하지 않습니다.");
+	    document.addUserform.password2.focus();
+	    return;
+	  } */
+	  
+	document.addUserform.submit(); 
+	
+}
+
+function loginsubmit(){
+	document.loginform.submit();		
+	 alert('success!!');
+}
+</script>
+
 </head>
 
 <body id="page-top" class="index">
@@ -63,8 +99,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal"
-            aria-label="Close">
+          <button type="button" class="close" data-dismiss="modal"   aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
 
@@ -75,20 +110,18 @@
             <h2 class="modal-title" id="myModalLabel">Login</h2>
             <hr class="star-primary"></hr>
             <br /> <br />
-            <form method="post" action="/user/login ">
+            <form name="loginform" method="post" action="/user/login ">
               <div class="form-group" style="width: 70%; margin: auto;">
                 <div align="left">
                   <label for="inputEmail" style="font-size: 20px;">Email
-                    address </label> <input type="email" class="form-control"
-                    id="inputEmail" placeholder="Email">
+                    address </label> <input type="email" class="form-control"  name="email" id="inputEmail" placeholder="Email">
                 </div>
               </div>
               <br />
               <div class="form-group" style="width: 70%; margin: auto;">
                 <div align="left">
                   <label for="inputPassword" style="font-size: 20px;">Password</label>
-                  <input type="password" class="form-control" id="inputPassword"
-                    placeholder="Password">
+                  <input type="password" class="form-control" name="pwd"  id="inputPassword"    placeholder="Password">
                 </div>
               </div>
             </form>
@@ -96,7 +129,7 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Login</button>
+          <button type="button" class="btn btn-primary" onclick='loginsubmit()'>Login</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -135,9 +168,8 @@
           <br />
 
           <div class="form-group" style="width: 70%; margin: auto;">
-            <label for="inputConfirmPassowrd" style="font-size: 20px;">Password Confirm
-              </label> <input type="password" class="form-control"
-              id="inputConfirmPassowrd" placeholder="ConfirmPassowrd">
+            <label for="inputConfirmPassowrd" style="font-size: 20px;">Password Confirm           </label> 
+            <input type="password" class="form-control"         id="inputConfirmPassowrd"  name="pwd2" placeholder="ConfirmPassowrd">
           </div>
 
           <br />
@@ -150,7 +182,7 @@
           <br />
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" onclick="location.href='/project01/index.html' ">Sign Up</button>
+        <button type="button" class="btn btn-primary"  onclick="addUsersubmit()">Sign Up</button>
           
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
