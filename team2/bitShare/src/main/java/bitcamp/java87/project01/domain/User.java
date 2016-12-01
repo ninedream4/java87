@@ -6,6 +6,7 @@ public class User {
   private int userId;
   private String email;
   private String pwd;
+  private String tag;
 	
 	////
 	public User(){ }
@@ -34,10 +35,19 @@ public class User {
     this.pwd = pwd;
   }
 
-  @Override
-  public String toString() {
-    return "User [userId=" + userId + ", email=" + email + ", pwd=" + pwd + "]";
-  }
+  public String getTag() {
+	return tag;
+}
+
+public void setTag(String tag) {
+	this.tag = tag;
+}
+
+@Override
+public String toString() {
+	return "User [userId=" + userId + ", email=" + email + ", pwd=" + pwd + ", tag=" + tag + "]";
+}
+
 
 
 }

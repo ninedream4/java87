@@ -69,6 +69,9 @@ function loginsubmit(){
 	document.loginform.submit();		
 	 alert('success!!');
 }
+function logoutUsersubmit(){
+	document.logoutform.submit();
+}
 </script>
 
 </head>
@@ -275,7 +278,7 @@ function loginsubmit(){
         <form name="updateUserform" method="post"  action="/user/updateUser">
         	<div class="form-group" style="width: 70%; margin: auto;">
 				<label for="inputEmail" style="font-size: 20px;">Email address</label>
-				<input type="hidden" class="form-control" name="email" id="Email"    value="${user.email }">
+				<input type="text" class="form-control" name="email" id="Email"    value="${user.email }" readonly>
           	</div>
 
          	 <br />
@@ -287,15 +290,15 @@ function loginsubmit(){
           <br />
 
           <div class="form-group" style="width: 70%; margin: auto;">
-            <label for="inputConfirmPassowrd" style="font-size: 20px;">Password Confirm           </label> 
+            <label for="inputConfirmPassowrd" style="font-size: 20px;">Password Confirm</label> 
             <input type="password" class="form-control" id="inputConfirmPassowrd"  name="pwd2" placeholder="ConfirmPassowrd">
           </div>
 
           <br />
 
           <div class="form-group" style="width: 70%; margin: auto;">
-            <label for="inputTag" style="font-size: 20px;">Tag</label> <input
-              type="text" class="form-control" id="inputTag" placeholder="Tag">
+            <label for="inputTag" style="font-size: 20px;">Tag</label> 
+            <input type="text" class="form-control" id="inputTag" placeholder="Tag">
           </div>
           </form>
           <br />
@@ -309,6 +312,33 @@ function loginsubmit(){
     </div>
   </div>
   
+    <div class="modal fade" id="logout" tabindex="-1" role="dialog"
+    aria-hidden="true" aria-labelledby="myModalLabel">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"
+            aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+        </div>
+        <div class="modal-body">
+        
+           
+        <form name="logoutform" method="post"  action="/user/logout">
+        	 로그아웃 하시겠 습니까(뺄생각임)
+        </form>
+          <br/>
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-primary"  onclick="logoutUsersubmit()">Log out</button>
+          
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- Navigation -->
   <nav id="mainNav"
     class="navbar navbar-default navbar-fixed-top navbar-custom"
@@ -318,8 +348,8 @@ function loginsubmit(){
       <div class="navbar-header page-scroll" height=100%>
         <button type="button" class="navbar-toggle" data-toggle="collapse"
           data-target="#menuBar">
-          <span class="sr-only">Toggle navigation</span> Menu <i
-            class="fa fa-bars"></i>
+          <span class="sr-only">Toggle navigation</span> Menu 
+          <i class="fa fa-bars"></i>
         </button>
         <a class="navbar-brand" href="index.html">Bit Share</a>
       </div>
@@ -329,6 +359,9 @@ function loginsubmit(){
         	
         	
           <li class="hidden"><a href="#page-top"></a></li>
+          
+          <li><span style="color:white">Welcome </br>${user.email }</span></li>
+          
           <li class="dropdown">
             <button class="dropbtn">category</button>
             <div class="dropdown-content" style="position: relative;">
@@ -338,14 +371,15 @@ function loginsubmit(){
           </li>
           
           <li><a data-toggle="modal" data-target="#upload">upload</a></li>
-           <li class="dropdown">
-            <button class="dropbtn">MYPAGE</button>
-            <div class="dropdown-content" style="position: relative;">
-            <a data-toggle="modal" data-target="#mypage">정보 수정</a>
-            <a data-toggle="modal" data-target="#mypage">게시물 수정</a>
-              
+           
+          <li class="dropdown">
+          	<button class="dropbtn">MYPAGE</button>
+            	<div class="dropdown-content" style="position: relative;">
+            	<a data-toggle="modal" data-target="#mypage">정보 수정</a>
+            	<a data-toggle="modal" data-target="#mypage">게시물 수정</a>
           </li>
-       
+		  
+		  <li><a data-toggle="modal" data-target="#logout">logout</a></li>
              
         </div>
       </li>
