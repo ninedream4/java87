@@ -31,52 +31,13 @@
   rel="stylesheet" type="text/css">
 <link href="css/fileinputbutton.css" rel="stylesheet" type="text/css">
 
-<script type="text/javascript">
-
-function addUsersubmit(){  
-	/* var id=document.addUserform.email.value;
-	  var pw=document.addUserform.pwd.value;
-	  var pw_confirm=document.addUserform.pwd2.value;	  
-	  
-	  if(id == null || id.length <1){
-	    alert("이메일은 반드시 입력하셔야 합니다.");
-	    return;
-	  }
-	  if(pw == null || pw.length <1){
-	    alert("패스워드는  반드시 입력하셔야 합니다.");
-	    return;
-	  }
-	  if(pw_confirm == null || pw_confirm.length <1){
-	    alert("패스워드 확인은  반드시 입력하셔야 합니다.");
-	    return;
-	  }	  
-	  
-	  if(document.addUserform.password.value != document.addUserform.password2.value) {
-	    alert("비밀번호 확인이 일치하지 않습니다.");
-	    document.addUserform.password2.focus();
-	    return;
-	  } */
-	  
-	document.addUserform.submit(); 
-	
-}
-
-function updateUsersubmit(){
-	document.updateUserform.submit();	
-}
-
-function loginsubmit(){
-	document.loginform.submit();		
-	 alert('success!!');
-}
-</script>
 
 </head>
+
 
 <body id="page-top" class="index">
   <!-- Portfolio Modals -->
   <div w3-include-html="content.html"></div>
-
 
 
   <div class="portfolio-modal modal fade" id="modalView" tabindex="-1"
@@ -133,7 +94,7 @@ function loginsubmit(){
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" onclick='loginsubmit()'>Login</button>
+          <button type="button" class="btn btn-primary" onclick='loginSubmit()'>Login</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -186,7 +147,7 @@ function loginsubmit(){
           <br />
         </div>
         <div class="modal-footer">
-        <button type="button" class="btn btn-primary"  onclick="addUsersubmit()">Sign Up</button>
+        <button type="button" class="btn btn-primary"  onclick="addUserSubmit()">Sign Up</button>
           
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
@@ -301,7 +262,7 @@ function loginsubmit(){
           <br />
         </div>
         <div class="modal-footer">
-        <button type="button" class="btn btn-primary"  onclick="updateUsersubmit()">Submit</button>
+        <button type="button" class="btn btn-primary"  onclick="updateUserSubmit()">Submit</button>
           
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
@@ -473,8 +434,8 @@ function loginsubmit(){
   <!-- Theme JavaScript -->
   <script src="js/freelancer.min.js"></script>
   <script src="js/slide.js" id="slide"></script>
-  <script src="js/modal.js" id="modalView"></script>
-  
+  <script src="js/modal.js" id="modalView"></script>  
   <script type="js/fileUploadButton.js" id="input_file"></script>
+  <script src="js/userSubmit.js"  id="addUser"></script>
 </body>
 </html>

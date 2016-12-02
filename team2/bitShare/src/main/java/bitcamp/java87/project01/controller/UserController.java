@@ -40,18 +40,7 @@ public class UserController {
 	@Value("#{commonProperties['pageSize']}")
 	int pageSize;
 	
-	
-	//@RequestMapping("/addUserView.do")
-	//public String addUserView() throws Exception {
-/*	@RequestMapping( value="addUser", method=RequestMethod.GET )
-	public String addUser() throws Exception{
-	
-		System.out.println("/user/addUser : GET");
-		
-		return "redirect:/user/addUserView.jsp";
-	}*/
-	
-	//@RequestMapping("/addUser.do")
+
 	@RequestMapping( value="addUser", method=RequestMethod.POST )
 	public String addUser( @ModelAttribute("user") User user ) throws Exception {
 
@@ -62,7 +51,7 @@ public class UserController {
 		return "redirect:/index.jsp";
 	}
 	
-	//@RequestMapping("/getUser.do")
+	
 	@RequestMapping( value="getUser", method=RequestMethod.GET )
 	public String getUser( @RequestParam("email") String email , Model model ) throws Exception {
 		
@@ -74,20 +63,7 @@ public class UserController {
 		return "redirect:/index.jsp";
 	}
 	
-	//@RequestMapping("/updateUserView.do")
-	//public String updateUserView( @RequestParam("userId") String userId , Model model ) throws Exception{
-	@RequestMapping( value="updateUser", method=RequestMethod.GET )
-	public String updateUser( @RequestParam("userId") String email , Model model ) throws Exception{
 
-		System.out.println("/user/updateUser : GET");
-		//Business Logic
-		User user = userService.getUser(email);
-		model.addAttribute("user", user);
-		
-		return "forward:/user/updateUser.jsp";
-	}
-	
-	//@RequestMapping("/updateUser.do")
 	@RequestMapping( value="updateUser", method=RequestMethod.POST )
 	public String updateUser( @ModelAttribute("user") User user , Model model , HttpSession session) throws Exception{
 
@@ -104,15 +80,8 @@ public class UserController {
 		return "redirect:/login.jsp";
 	}
 	
-	//@RequestMapping("/loginView.do")
-	//public String loginView() throws Exception{
-	@RequestMapping( value="login", method=RequestMethod.GET )
-	public String login() throws Exception{
-		
-		System.out.println("/user/logon : GET");
+	
 
-		return "redirect:/user/loginView.jsp";
-	}
 	
 	//@RequestMapping("/login.do")
 	@RequestMapping( value="login", method=RequestMethod.POST )

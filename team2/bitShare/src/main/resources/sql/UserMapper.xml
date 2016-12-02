@@ -31,8 +31,7 @@
 	 <!-- SQL : UPDATE -->
 	 <update	id="updateUser"	parameterType="user" >
 	   	UPDATE users
-	   	<set>
-	   		
+	   	<set>	   		
 			pwd	=#{pwd}
 	   	</set>
 	   	WHERE  email= #{email}
