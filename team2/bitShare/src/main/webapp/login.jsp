@@ -31,8 +31,6 @@
   rel="stylesheet" type="text/css">
 <link href="css/fileinputbutton.css" rel="stylesheet" type="text/css">
 
-<<<<<<< HEAD
-=======
 <script type="text/javascript">
 
 function addUsersubmit(){  
@@ -75,14 +73,13 @@ function logoutUsersubmit(){
 	document.logoutform.submit();
 }
 </script>
->>>>>>> a86258e73523da89c2061593d62b235ee0863c3a
 
 </head>
-
 
 <body id="page-top" class="index">
   <!-- Portfolio Modals -->
   <div w3-include-html="content.html"></div>
+
 
 
   <div class="portfolio-modal modal fade" id="modalView" tabindex="-1"
@@ -139,7 +136,7 @@ function logoutUsersubmit(){
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" onclick='loginSubmit()'>Login</button>
+          <button type="button" class="btn btn-primary" onclick='loginsubmit()'>Login</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -192,7 +189,7 @@ function logoutUsersubmit(){
           <br />
         </div>
         <div class="modal-footer">
-        <button type="button" class="btn btn-primary"  onclick="addUserSubmit()">Sign Up</button>
+        <button type="button" class="btn btn-primary"  onclick="addUsersubmit()">Sign Up</button>
           
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
@@ -307,7 +304,7 @@ function logoutUsersubmit(){
           <br />
         </div>
         <div class="modal-footer">
-        <button type="button" class="btn btn-primary"  onclick="updateUserSubmit()">Submit</button>
+        <button type="button" class="btn btn-primary"  onclick="updateUsersubmit()">Submit</button>
           
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
@@ -510,8 +507,8 @@ function logoutUsersubmit(){
   <!-- Theme JavaScript -->
   <script src="js/freelancer.min.js"></script>
   <script src="js/slide.js" id="slide"></script>
-  <script src="js/modal.js" id="modalView"></script>  
+  <script src="js/modal.js" id="modalView"></script>
+  
   <script type="js/fileUploadButton.js" id="input_file"></script>
-  <script src="js/userSubmit.js"  id="addUser"></script>
 </body>
 </html>

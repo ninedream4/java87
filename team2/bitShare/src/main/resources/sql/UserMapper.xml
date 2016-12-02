@@ -13,19 +13,24 @@
 		<result property="tag"  column=" TAG_NAME"     jdbcType="VARCHAR" /> 
 		
 
+	
 	</resultMap>
+	
 	
 	<!-- SQL : INSERT -->
 	<insert 	id="addUser"		parameterType="user" >
 	 	INSERT
-		INTO USERS (EMAIL, PWD)
-		VALUES	 (#{EMAIL}, #{PWD} )
+		INTO USERS (USER_ID,EMAIL, PWD)
+		VALUES	 (SEQ_USER.nextval,#{email}, #{pwd} )
 	 </insert>
 	 
-	 <insert 	id="addUserTag"		parameterType="String" >
+	 <insert 	id="addUserTag"		parameterType="user" >
 	 	INSERT
-		INTO USER_TAG (TAG_NAME)
-		VALUES	 (#{value} )
+		INTO USER_TAG (TAG_ID,USER_ID,TAG_NAME)
+		VALUES	 (SEQ_USER_TAG.NEXTVAL,#{userId},#{tag:VARCHAR})
+		
+		
+		
 	 </insert>
 	 
 	 
@@ -41,7 +46,8 @@
 	 <!-- SQL : UPDATE -->
 	 <update	id="updateUser"	parameterType="user" >
 	   	UPDATE users
-	   	<set>	   		
+	   	<set>
+	   		
 			pwd	=#{pwd}
 	   	</set>
 	   	WHERE  email= #{email}

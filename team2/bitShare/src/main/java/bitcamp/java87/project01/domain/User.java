@@ -7,11 +7,20 @@ public class User {
   private String email;
   private String pwd;
   private String tag;
+  private boolean active=false;
 	
 	////
 	public User(){ }
 
-  public int getUserId() {
+  public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
+public int getUserId() {
     return userId;
   }
 

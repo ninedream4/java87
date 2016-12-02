@@ -40,25 +40,35 @@ public class UserController {
 	@Value("#{commonProperties['pageSize']}")
 	int pageSize;
 	
-
+	
+	//@RequestMapping("/addUserView.do")
+	//public String addUserView() throws Exception {
+/*	@RequestMapping( value="addUser", method=RequestMethod.GET )
+	public String addUser() throws Exception{
+	
+		System.out.println("/user/addUser : GET");
+		
+		return "redirect:/user/addUserView.jsp";
+	}*/
+	
+	//@RequestMapping("/addUser.do")
 	@RequestMapping( value="addUser", method=RequestMethod.POST )
 	public String addUser( @ModelAttribute("user") User user ) throws Exception {
-
+		
 		System.out.println("/user/addUser : POST");
 		//Business Logic
 		userService.addUser(user);
-		userService.addUserTag(user);
-
+		if(user.isActive()){
+			//this.addUserTag(user);
+		}
 		return "redirect:/index.jsp";
 	}
+	public void addUserTag(User user) throws Exception{
+		userService.addUserTag(user);
+	}
 	
-<<<<<<< HEAD
-	
-	@RequestMapping( value="getUser", method=RequestMethod.GET )
-=======
 	//@RequestMapping("/getUser.do")
 	/*@RequestMapping( value="getUser", method=RequestMethod.GET )
->>>>>>> a86258e73523da89c2061593d62b235ee0863c3a
 	public String getUser( @RequestParam("email") String email , Model model ) throws Exception {
 		
 		System.out.println("/user/getUser : GET");
@@ -69,9 +79,6 @@ public class UserController {
 		return "redirect:/index.jsp";
 	}*/
 	
-<<<<<<< HEAD
-
-=======
 	//@RequestMapping("/updateUserView.do")
 	//public String updateUserView( @RequestParam("userId") String userId , Model model ) throws Exception{
 	/*@RequestMapping( value="updateUser", method=RequestMethod.GET )
@@ -86,7 +93,6 @@ public class UserController {
 	}*/
 	
 	//@RequestMapping("/updateUser.do")
->>>>>>> a86258e73523da89c2061593d62b235ee0863c3a
 	@RequestMapping( value="updateUser", method=RequestMethod.POST )
 	public String updateUser( @ModelAttribute("user") User user , Model model , HttpSession session) throws Exception{
 
@@ -103,10 +109,6 @@ public class UserController {
 		return "redirect:/login.jsp";
 	}
 	
-<<<<<<< HEAD
-	
-
-=======
 	//@RequestMapping("/loginView.do")
 	//public String loginView() throws Exception{
 	/*@RequestMapping( value="login", method=RequestMethod.GET )
@@ -116,7 +118,6 @@ public class UserController {
 
 		return "redirect:/user/loginView.jsp";
 	}*/
->>>>>>> a86258e73523da89c2061593d62b235ee0863c3a
 	
 	//@RequestMapping("/login.do")
 	@RequestMapping( value="login", method=RequestMethod.POST )
