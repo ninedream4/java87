@@ -35,6 +35,10 @@ public class UserServiceImpl implements UserService{
 	public void addUser(User user) throws Exception {
 		userDao.addUser(user);
 	}
+	@Override
+	public void addUserTag(User user) throws Exception {
+		userDao.addUserTag(user.getTag());
+	}
 
 	public User getUser(String email) throws Exception {
 		return userDao.getUser(email);
@@ -64,6 +68,9 @@ public class UserServiceImpl implements UserService{
 		return result;
 	}
 
+	
+
+	
 
 
 

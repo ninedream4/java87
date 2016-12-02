@@ -10,6 +10,8 @@
 		<result property="userId" 			column="USER_ID" 			jdbcType="NUMERIC"/>		
 		<result property="email" 			column="EMAIL" 				jdbcType="VARCHAR"  />
 		<result property="pwd"  column=" PWD"     jdbcType="VARCHAR" /> 
+		<result property="tag"  column=" TAG_NAME"     jdbcType="VARCHAR" /> 
+		
 
 	</resultMap>
 	
@@ -17,8 +19,16 @@
 	<insert 	id="addUser"		parameterType="user" >
 	 	INSERT
 		INTO USERS (EMAIL, PWD)
-		VALUES	 (#{email}, #{pwd}	 )
+		VALUES	 (#{EMAIL}, #{PWD} )
 	 </insert>
+	 
+	 <insert 	id="addUserTag"		parameterType="String" >
+	 	INSERT
+		INTO USER_TAG (TAG_NAME)
+		VALUES	 (#{value} )
+	 </insert>
+	 
+	 
 	 
 	 <!-- SQL : SELECT ONE -->
 	 <select 	id="getUser"	parameterType="string"	resultMap="userSelectMap">

@@ -146,6 +146,7 @@
 
 						<br />
 
+<<<<<<< HEAD
 						<div class="form-group" style="width: 70%; margin: auto;">
 							<label for="inputTag" style="font-size: 20px;">Tag</label> <input
 								type="text" class="form-control" id="inputTag" placeholder="Tag">
@@ -160,6 +161,23 @@
 			</div>
 		</div>
 	</div>
+=======
+          <div class="form-group" style="width: 70%; margin: auto;">
+            <label for="inputTag" style="font-size: 20px;">Tag</label> <input
+              type="text" class="form-control" id="inputTag" name="tag" placeholder="Tag">
+          </div>
+          </form>
+          <br />
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-primary"  onclick="addUsersubmit()">Sign Up</button>
+          
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+>>>>>>> a86258e73523da89c2061593d62b235ee0863c3a
 
 	<div class="modal fade" id="upload" " tabindex="-1" role="dialog"
 		aria-hidden="true" aria-labelledby="myModalLabel">
