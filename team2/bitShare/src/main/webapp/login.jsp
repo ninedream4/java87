@@ -6,7 +6,7 @@
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-sc=1">
 <meta name="description" content="">
 <meta name="author" content="">
 
@@ -31,48 +31,6 @@
   rel="stylesheet" type="text/css">
 <link href="css/fileinputbutton.css" rel="stylesheet" type="text/css">
 
-<script type="text/javascript">
-
-function addUsersubmit(){  
-	/* var id=document.addUserform.email.value;
-	  var pw=document.addUserform.pwd.value;
-	  var pw_confirm=document.addUserform.pwd2.value;	  
-	  
-	  if(id == null || id.length <1){
-	    alert("이메일은 반드시 입력하셔야 합니다.");
-	    return;
-	  }
-	  if(pw == null || pw.length <1){
-	    alert("패스워드는  반드시 입력하셔야 합니다.");
-	    return;
-	  }
-	  if(pw_confirm == null || pw_confirm.length <1){
-	    alert("패스워드 확인은  반드시 입력하셔야 합니다.");
-	    return;
-	  }	  
-	  
-	  if(document.addUserform.password.value != document.addUserform.password2.value) {
-	    alert("비밀번호 확인이 일치하지 않습니다.");
-	    document.addUserform.password2.focus();
-	    return;
-	  } */
-	  
-	document.addUserform.submit(); 
-	
-}
-
-function updateUsersubmit(){
-	document.updateUserform.submit();	
-}
-
-function loginsubmit(){
-	document.loginform.submit();		
-	 alert('success!!');
-}
-function logoutUsersubmit(){
-	document.logoutform.submit();
-}
-</script>
 
 </head>
 
@@ -275,7 +233,7 @@ function logoutUsersubmit(){
           <h2 align="center">My Page</h2>
           <hr class="star-primary">
            
-        <form name="updateUserform" method="post"  action="/user/updateUser">
+        <form name="updateUserForm" method="post"  action="/user/updateUser">
         	<div class="form-group" style="width: 70%; margin: auto;">
 				<label for="inputEmail" style="font-size: 20px;">Email address</label>
 				<input type="text" class="form-control" name="email" id="Email"    value="${user.email }" readonly>
@@ -304,7 +262,7 @@ function logoutUsersubmit(){
           <br />
         </div>
         <div class="modal-footer">
-        <button type="button" class="btn btn-primary"  onclick="updateUsersubmit()">Submit</button>
+        <button type="button" class="btn btn-primary"  onclick="updateUserSubmit()">Submit</button>
           
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
@@ -326,13 +284,13 @@ function logoutUsersubmit(){
         <div class="modal-body">
         
            
-        <form name="logoutform" method="post"  action="/user/logout">
+        <form name="logoutForm" method="post"  action="/user/logout">
         	 로그아웃 하시겠 습니까(뺄생각임)
         </form>
           <br/>
         </div>
         <div class="modal-footer">
-        <button type="button" class="btn btn-primary"  onclick="logoutUsersubmit()">Log out</button>
+        <button type="button" class="btn btn-primary"  onclick="logoutUserSubmit()">Log out</button>
           
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
@@ -494,10 +452,12 @@ function logoutUsersubmit(){
       class="fa fa-chevron-up"></i>
     </a>
   </div>
-  <!-- jQuery -->
+<!-- jQuery -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <!-- Bootstrap Core JavaScript -->
   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <!--jQuery.validation  -->
+  <script src="vendor/jquery/jquery.validate.js"></script>
   <!-- Plugin JavaScript -->
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
@@ -507,8 +467,9 @@ function logoutUsersubmit(){
   <!-- Theme JavaScript -->
   <script src="js/freelancer.min.js"></script>
   <script src="js/slide.js" id="slide"></script>
-  <script src="js/modal.js" id="modalView"></script>
-  
-  <script type="js/fileUploadButton.js" id="input_file"></script>
+  <script src="js/modal.js" id="modalView"></script>  
+  <script src="js/fileUploadButton.js" id="input_file"></script>
+  <script src="js/userSubmit.js"></script>
+  <script src="js/userValidationCheck.js"></script>
 </body>
 </html>
