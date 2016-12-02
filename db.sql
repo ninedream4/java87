@@ -43,7 +43,7 @@ ALTER TABLE USERS
 /* 게시물 */
 CREATE TABLE BRDS (
 	BRD_ID INTEGER NOT NULL, /* 게시물 일련번호 */
-	USER_ID INTEGER NOT NULL, /* 사용자 일련번호 */
+	USER_ID INTEGER NULL, /* 사용자 일련번호 */
 	TLE VARCHAR2(50) NOT NULL, /* 제목 */
 	DES       CLOB         NULL, /* 내용 */
 	FILE_PATH VARCHAR2(255) NOT NULL, /* 파일경로 */
