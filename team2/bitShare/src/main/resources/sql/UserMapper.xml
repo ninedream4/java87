@@ -18,7 +18,7 @@
 	
 	
 	<!-- SQL : INSERT -->
-	<insert 	id="addUser"		parameterType="user" >
+	<insert 	id="addUser"		parameterType="user" keyColumn="USER_ID" keyProperty="userId" useGeneratedKeys="true" >
 	 	INSERT
 		INTO USERS (USER_ID,EMAIL, PWD)
 		VALUES	 (SEQ_USER.nextval,#{email}, #{pwd} )

@@ -76,7 +76,7 @@ public class ContentController {
     contentService.updateContent(content);
     
     //Business Logic
-    content = contentService.updateContent(content.getContentId());
+    content = contentService.getContent(content.getTitle());
     model.addAttribute("content", content);
     
     return "forward:/index.jsp";

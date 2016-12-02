@@ -6,11 +6,21 @@ public class User {
   private int userId;
   private String email;
   private String pwd;
+  private String tag;
+  private boolean active=false;
 	
 	////
 	public User(){ }
 
-  public int getUserId() {
+  public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
+public int getUserId() {
     return userId;
   }
 
@@ -34,10 +44,19 @@ public class User {
     this.pwd = pwd;
   }
 
-  @Override
-  public String toString() {
-    return "User [userId=" + userId + ", email=" + email + ", pwd=" + pwd + "]";
-  }
+  public String getTag() {
+	return tag;
+}
+
+public void setTag(String tag) {
+	this.tag = tag;
+}
+
+@Override
+public String toString() {
+	return "User [userId=" + userId + ", email=" + email + ", pwd=" + pwd + ", tag=" + tag + "]";
+}
+
 
 
 }

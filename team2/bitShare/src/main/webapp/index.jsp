@@ -175,22 +175,22 @@
             <h2>upload</h2>
           </div>
           <hr class="star-primary">
-          <form>
+          <form name="addContentForm" method="post" action="/content/addContent">
             <div class="form-group" style="width: 70%; margin: auto;">
               <div style="text-align: left">
                 <label for="inputTilte" style="font-size: 20px;">Title</label> <input
-                  type="textarea" class="form-control" id="inputTitle"
+                  type="textarea" class="form-control" id="inputTitle" name="title"
                   placeholder="Title">
               </div>
             </div>
             <br />
             <div class="form-group" style="width: 70%; margin: auto;">
               <div style="text-align: left">
-              <label for="inputTilte" style="font-size: 20px;">Upload</label></br>
+                <label for="inputTilte" style="font-size: 20px;">Upload</label></br>
                 <div class="filebox">
                   <input class="upload-name" value="file...." disabled="disabled">
                   <label for="ex_filename">Upload</label> <input type="file"
-                    id="ex_filename" class="upload-hidden">
+                    id="ex_filename" class="upload-hidden" name="filePath">
                 </div>
               </div>
             </div>
@@ -199,7 +199,7 @@
               <div style="text-align: left">
                 <label for="inputTilte" style="font-size: 20px;">Description</label></br>
                 <textarea rows="5" cols="30" name="contents"
-                  class="form-control" id="inputTitle">Description</textarea>
+                  class="form-control" id="inputTitle" name="fileDesc">Description</textarea>
               </div>
             </div>
             <br />
@@ -207,14 +207,14 @@
               <div style="text-align: left">
                 <label for="inputTilte" style="font-size: 20px;">Tags</label> <input
                   type="text" class="form-control" id="inputTitle"
-                  placeholder="Tags">
+                  placeholder="Tags" name="tag">
               </div>
             </div>
             <br />
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Submit</button>
+          <button type="button" class="btn btn-primary" onclick="addContentSubmit()">Submit</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -373,7 +373,7 @@
   <script src="js/freelancer.min.js"></script>
   <script src="js/slide.js" ></script>
   <script src="js/fileUploadButton.js"  ></script>
-  <script type="text/javascript"  src="js/userSubmit.js"></script>
+  <script type="text/javascript"  src="js/submit.js"></script>
   <script type="text/javascript"  src="js/userValidationCheck.js"></script>
 
 

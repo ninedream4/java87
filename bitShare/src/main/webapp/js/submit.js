@@ -12,3 +12,9 @@ function loginSubmit(){
 function logoutUserSubmit(){
 	document.logoutForm.submit();
 }
+
+function addContentSubmit() {
+
+	document.addContentForm.submit();
+
+}

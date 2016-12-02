@@ -10,15 +10,30 @@
 		<result property="userId" 			column="USER_ID" 			jdbcType="NUMERIC"/>		
 		<result property="email" 			column="EMAIL" 				jdbcType="VARCHAR"  />
 		<result property="pwd"  column=" PWD"     jdbcType="VARCHAR" /> 
+		<result property="tag"  column=" TAG_NAME"     jdbcType="VARCHAR" /> 
+		
 
+	
 	</resultMap>
 	
+	
 	<!-- SQL : INSERT -->
-	<insert 	id="addUser"		parameterType="user" >
+	<insert 	id="addUser"		parameterType="user" keyColumn="USER_ID" keyProperty="userId" useGeneratedKeys="true" >
 	 	INSERT
-		INTO USERS (EMAIL, PWD)
-		VALUES	 (#{email}, #{pwd}	 )
+		INTO USERS (USER_ID,EMAIL, PWD)
+		VALUES	 (SEQ_USER.nextval,#{email}, #{pwd} )
 	 </insert>
+	 
+	 <insert 	id="addUserTag"		parameterType="user" >
+	 	INSERT
+		INTO USER_TAG (TAG_ID,USER_ID,TAG_NAME)
+		VALUES	 (SEQ_USER_TAG.NEXTVAL,#{userId},#{tag:VARCHAR})
+		
+		
+		
+	 </insert>
+	 
+	 
 	 
 	 <!-- SQL : SELECT ONE -->
 	 <select 	id="getUser"	parameterType="string"	resultMap="userSelectMap">
@@ -32,12 +47,10 @@
 	 <update	id="updateUser"	parameterType="user" >
 	   	UPDATE users
 	   	<set>
-	   		user_name 	= #{userName} ,
-			cell_phone	= #{phone},
-			addr 				= #{addr} ,
-			email				=	#{email}
+	   		
+			pwd	=#{pwd}
 	   	</set>
-	   	WHERE user_id = #{userId}
+	   	WHERE  email= #{email}
 	 </update>
 		 
 	<!-- SQL : SELECT LIST -->

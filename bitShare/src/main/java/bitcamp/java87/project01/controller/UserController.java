@@ -54,16 +54,21 @@ public class UserController {
 	//@RequestMapping("/addUser.do")
 	@RequestMapping( value="addUser", method=RequestMethod.POST )
 	public String addUser( @ModelAttribute("user") User user ) throws Exception {
-
+		
 		System.out.println("/user/addUser : POST");
 		//Business Logic
 		userService.addUser(user);
-		
+		if(user.isActive()){
+			//this.addUserTag(user);
+		}
 		return "redirect:/index.jsp";
+	}
+	public void addUserTag(User user) throws Exception{
+		userService.addUserTag(user);
 	}
 	
 	//@RequestMapping("/getUser.do")
-	@RequestMapping( value="getUser", method=RequestMethod.GET )
+	/*@RequestMapping( value="getUser", method=RequestMethod.GET )
 	public String getUser( @RequestParam("email") String email , Model model ) throws Exception {
 		
 		System.out.println("/user/getUser : GET");
@@ -72,11 +77,11 @@ public class UserController {
 		model.addAttribute("user", user);
 		
 		return "redirect:/index.jsp";
-	}
+	}*/
 	
 	//@RequestMapping("/updateUserView.do")
 	//public String updateUserView( @RequestParam("userId") String userId , Model model ) throws Exception{
-	@RequestMapping( value="updateUser", method=RequestMethod.GET )
+	/*@RequestMapping( value="updateUser", method=RequestMethod.GET )
 	public String updateUser( @RequestParam("userId") String email , Model model ) throws Exception{
 
 		System.out.println("/user/updateUser : GET");
@@ -85,7 +90,7 @@ public class UserController {
 		model.addAttribute("user", user);
 		
 		return "forward:/user/updateUser.jsp";
-	}
+	}*/
 	
 	//@RequestMapping("/updateUser.do")
 	@RequestMapping( value="updateUser", method=RequestMethod.POST )
@@ -95,24 +100,24 @@ public class UserController {
 		//Business Logic
 		userService.updateUser(user);
 		
-		int sessionId=((User)session.getAttribute("user")).getUserId();
-		if(sessionId==(user.getUserId())){
+		String sessionId=((User)session.getAttribute("user")).getEmail();
+		if(sessionId.equals(user.getEmail())){
 			session.setAttribute("user", user);
 		}
 		
 		//return "redirect:/getUser.do?userId="+user.getUserId();
-		return "redirect:/user/getUser?userId="+user.getUserId();
+		return "redirect:/login.jsp";
 	}
 	
 	//@RequestMapping("/loginView.do")
 	//public String loginView() throws Exception{
-	@RequestMapping( value="login", method=RequestMethod.GET )
+	/*@RequestMapping( value="login", method=RequestMethod.GET )
 	public String login() throws Exception{
 		
 		System.out.println("/user/logon : GET");
 
 		return "redirect:/user/loginView.jsp";
-	}
+	}*/
 	
 	//@RequestMapping("/login.do")
 	@RequestMapping( value="login", method=RequestMethod.POST )
@@ -126,18 +131,18 @@ public class UserController {
 			session.setAttribute("user", dbUser);
 		}
 		
-		return "redirect:/index.jsp";
+		return "redirect:/login.jsp";
 	}
 	
 	//@RequestMapping("/logout.do")
-	@RequestMapping( value="logout", method=RequestMethod.GET )
+	@RequestMapping( value="logout", method=RequestMethod.POST )
 	public String logout(HttpSession session ) throws Exception{
 		
 		System.out.println("/user/logout : POST");
 		
 		session.invalidate();
 		
-		return "forward:/index.jsp";
+		return "redirect:/index.jsp";
 	}
 	
 	
