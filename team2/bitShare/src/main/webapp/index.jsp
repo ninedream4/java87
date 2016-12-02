@@ -31,43 +31,10 @@
   rel="stylesheet" type="text/css">
 <link href="css/fileinputbutton.css" rel="stylesheet" type="text/css">
 
-<script type="text/javascript">
 
-function addUsersubmit(){  
-	/* var id=document.addUserform.email.value;
-	  var pw=document.addUserform.pwd.value;
-	  var pw_confirm=document.addUserform.pwd2.value;	  
-	  
-	  if(id == null || id.length <1){
-	    alert("이메일은 반드시 입력하셔야 합니다.");
-	    return;
-	  }
-	  if(pw == null || pw.length <1){
-	    alert("패스워드는  반드시 입력하셔야 합니다.");
-	    return;
-	  }
-	  if(pw_confirm == null || pw_confirm.length <1){
-	    alert("패스워드 확인은  반드시 입력하셔야 합니다.");
-	    return;
-	  }	  
-	  
-	  if(document.addUserform.password.value != document.addUserform.password2.value) {
-	    alert("비밀번호 확인이 일치하지 않습니다.");
-	    document.addUserform.password2.focus();
-	    return;
-	  } */
-	  
-	document.addUserform.submit(); 
-	
-}
-
-function loginsubmit(){
-	document.loginform.submit();		
-	 alert('success!!');
-}
-</script>
 
 </head>
+
 
 <body id="page-top" class="index">
   <!-- Portfolio Modals -->
@@ -111,7 +78,7 @@ function loginsubmit(){
             <hr class="star-primary"></hr>
             <br /> <br />
             
-            <form name="loginform" method="post" action="/user/login ">
+            <form name="loginForm" method="post" action="/user/login ">
               <div class="form-group" style="width: 70%; margin: auto;">
                 <div align="left">
                   <label for="inputEmail" style="font-size: 20px;">Email
@@ -130,7 +97,7 @@ function loginsubmit(){
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" onclick='loginsubmit()'>Login</button>
+          <button type="button" class="btn btn-primary" onclick='loginSubmit()'>Login</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -153,24 +120,24 @@ function loginsubmit(){
           <h2 align="center">sign up</h2>
           <hr class="star-primary">
            
-        <form name="addUserform" method="post"  action="/user/addUser">
+        <form name="addUserForm" id="addUserForm" method="post"  action="/user/addUser">
           <div class="form-group" style="width: 70%; margin: auto;">
             <label for="inputEmail" style="font-size: 20px;">Email address</label>
-             <input type="text" class="form-control" name="email" id="Email"  placeholder="Email">
+             <input type="text" class="form-control" name="email" id="email"  placeholder="email">
           </div>
 
           <br />
 
           <div class="form-group" style="width: 70%; margin: auto;">
             <label for="inputPassword" style="font-size: 20px;">Password</label>
-            <input type="password" class="form-control" id="inputPassword"    name="pwd"      placeholder="Password">
+            <input type="password" class="form-control" id="pwd"    name="pwd"    placeholder="Password">
           </div>
 
           <br />
 
           <div class="form-group" style="width: 70%; margin: auto;">
             <label for="inputConfirmPassowrd" style="font-size: 20px;">Password Confirm           </label> 
-            <input type="password" class="form-control"         id="inputConfirmPassowrd"  name="pwd2" placeholder="ConfirmPassowrd">
+            <input type="password" class="form-control"    id="confirmPwd"  name="confirmPwd" placeholder="ConfirmPassowrd">
           </div>
 
           <br />
@@ -180,10 +147,11 @@ function loginsubmit(){
               type="text" class="form-control" id="inputTag" name="tag" placeholder="Tag">
           </div>
           </form>
+          
           <br />
         </div>
         <div class="modal-footer">
-        <button type="button" class="btn btn-primary"  onclick="addUsersubmit()">Sign Up</button>
+        <button type="button" class="btn btn-primary"  onclick="addUserSubmit()">Sign Up</button>
           
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
@@ -390,9 +358,11 @@ function loginsubmit(){
     </a>
   </div>
   <!-- jQuery -->
-  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/jquery/jquery.js"></script>
   <!-- Bootstrap Core JavaScript -->
   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <!--jQuery.validation  -->
+  <script src="vendor/jquery/jquery.validate.js"></script>
   <!-- Plugin JavaScript -->
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
@@ -401,9 +371,12 @@ function loginsubmit(){
   <script src="js/contact_me.js"></script>
   <!-- Theme JavaScript -->
   <script src="js/freelancer.min.js"></script>
-  <script src="js/slide.js" id="slide"></script>
-  <script src="js/modal.js" id="modalView"></script>
-  
-  <script type="js/fileUploadButton.js" id="input_file"></script>
+  <script src="js/slide.js" ></script>
+  <script src="js/fileUploadButton.js"  ></script>
+  <script type="text/javascript"  src="js/userSubmit.js"></script>
+  <script type="text/javascript"  src="js/userValidationCheck.js"></script>
+
+
+
 </body>
 </html>
