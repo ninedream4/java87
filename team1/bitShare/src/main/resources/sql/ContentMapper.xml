@@ -7,10 +7,10 @@
 <mapper namespace="ContentMapper">
   
   <resultMap id="ContentSelectMap" type="content">
-    <result property="contentId"       column="CONTENT_ID"          jdbcType="NUMERIC"/>
-    <result property="title"   column="TITLE"        jdbcType="VARCHAR" />
-    <result property="fileDesc"     column="FILE_DESC"        jdbcType="VARCHAR" />
-    <result property="category"     column="CATEGORY"  jdbcType="VARCHAR" />
+    <result property="contentId"       column="BRD_ID"          jdbcType="NUMERIC"/>
+    <result property="title"   column="TLE"        jdbcType="VARCHAR" />
+    <result property="fileDesc"     column="DES"        jdbcType="VARCHAR" />
+    <result property="category"     column="CATE"  jdbcType="VARCHAR" />
     <result property="filePath"     column="FILE_PATH"         jdbcType="VARCHAR"  />
     <result property="regDate"      column="REG_DATE"           jdbcType="DATE" />
   </resultMap>
@@ -18,10 +18,33 @@
   <!-- SQL : INSERT --> <!-- seq_content_brd_id.NEXTVAL -->
   <insert   id="addContent"   parameterType="content" >
     INSERT
-    INTO CONTENT( TITLE , FILE_DESC , FILE_PATH , REG_DATE) 
-    VALUES   (#{title:VARCHAR} , #{fileDesc} , #{filePath:VARCHAR}, SYSDATE )
+    INTO BRDS( TLE , DES , FILE_PATH , CATE , REG_DATE) 
+    VALUES   (#{title:VARCHAR} , #{fileDesc:VARCHAR} , #{filePath:VARCHAR}, #{category:VARCHAR} , SYSDATE )
    </insert>
    
+   <!-- SQL : SELECT ONE -->
+   <select  id="getContent" parameterType="string"  resultMap="contentSelectMap">
+    SELECT
+    BRD_ID , USER_ID , TLE , DES , FILE_PATH ,  CATE , REG_DATE     
+    FROM BRDS 
+    WHERE contentId = #{value}
+   </select>
 
-   
+   <!-- delete -->
+  <delete id="deleteContent" parameterType="int">
+    DELETE BRDS
+    WHERE BRD_ID = #{value}
+  </delete>
+  
+  <!-- SQL : UPDATE -->
+  <update  id="updateContent"  parameterType="content" >
+   UPDATE CONTENT
+   <set>
+    TLE =  #{title} , 
+    DES = #{fileDesc} ,
+    CATE = #{category} 
+   </set>
+    WHERE BRD_ID = #{contentId}
+   </update>
+  
 </mapper>

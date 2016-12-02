@@ -186,7 +186,7 @@ function submit(){
 							<div style="text-align: left">
 								<label for="inputTilte" style="font-size: 20px;">Title</label> <input
 									type="textarea" class="form-control" id="inputTitle"
-									placeholder="Title">
+									placeholder="Title" name="title">
 							</div>
 						</div>
 						<br />
@@ -196,7 +196,7 @@ function submit(){
 								<div class="filebox">
 									<input class="upload-name" value="file...." disabled="disabled">
 									<label for="ex_filename">Upload</label> <input type="file"
-										id="ex_filename" class="upload-hidden">
+										id="ex_filename" class="upload-hidden" name="filePath">
 								</div>
 							</div>
 						</div>
@@ -205,7 +205,7 @@ function submit(){
 							<div style="text-align: left">
 								<label for="inputTilte" style="font-size: 20px;">Description</label></br>
 								<textarea rows="5" cols="30" name="contents"
-									class="form-control" id="inputTitle">Description</textarea>
+									class="form-control" id="inputTitle" name="fileDesc">Description</textarea>
 							</div>
 						</div>
 						<br />
@@ -213,14 +213,14 @@ function submit(){
 							<div style="text-align: left">
 								<label for="inputTilte" style="font-size: 20px;">Tags</label> <input
 									type="text" class="form-control" id="inputTitle"
-									placeholder="Tags">
+									placeholder="Tags" name="tag">
 							</div>
 						</div>
 						<br />
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-primary">Submit</button>
+					<button type="button" class="btn btn-primary"  onclick="submit()">Submit</button>
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
 			</div>

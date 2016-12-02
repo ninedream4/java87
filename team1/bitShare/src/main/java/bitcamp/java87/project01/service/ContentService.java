@@ -11,7 +11,9 @@ public interface ContentService {
 //
   public void addContent(Content content) throws Exception;
 //
-//  public Product getProduct(int prodNo) throws Exception;
+  public Content getContent(String title) throws Exception;
+  
+  public Content deleteContent(int contentId)throws Exception;
 //
-//  public void updateProduct(Product product) throws Exception;
+  public void updateContent(Content content) throws Exception;
 }

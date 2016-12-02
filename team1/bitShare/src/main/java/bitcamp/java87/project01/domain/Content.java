@@ -35,7 +35,7 @@ public class Content {
     return fileDesc;
   }
 
-  public void setDesc(String fileDesc) {
+  public void setFileDesc(String fileDesc) {
     this.fileDesc = fileDesc;
   }
 

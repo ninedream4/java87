@@ -22,7 +22,8 @@ public class ContentServiceImpl implements ContentService {
   @Qualifier("contentDaoImpl")
   private ContentDao contentDao;
 
-  public void setContentDao(ContentDao contentDao) { // xml bean get占쏙옙 占쏙옙占�
+  public void setContentDao(ContentDao contentDao) { // xml bean get������
+                                                     // ��������占�
     this.contentDao = contentDao;
   }
 
@@ -33,12 +34,22 @@ public class ContentServiceImpl implements ContentService {
 
   /// Method
   public void addContent(Content content) throws Exception {
+    System.out.println("contentService==========================addcontent");
     contentDao.addContent(content);
   }
-  //
-  // public User getUser(String userId) throws Exception {
-  // return userDao.getUser(userId);
-  // }
+
+  public Content getContent(String title) throws Exception {
+    return contentDao.getContent(title);
+  }
+
+  public Content deleteContent(int contentId) throws Exception {
+    return contentDao.deleteContent(contentId);
+  }
+
+  public void updateContent(Content content) throws Exception {
+  // TODO Auto-generated method stub
+  contentDao.updateContent(content);
+  }
 
   // public Map<String , Object > getProductList(Search search) throws Exception
   // {
@@ -58,10 +69,6 @@ public class ContentServiceImpl implements ContentService {
   // return productDao.getProduct(prodNo);
   // }
   //
-  // @Override
-  // public void updateProduct(Product product) throws Exception {
-  // // TODO Auto-generated method stub
-  // productDao.updateProduct(product);
-  // }
+  
 
 }

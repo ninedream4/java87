@@ -1,29 +1,29 @@
 
-/* °Ô½Ã¹°ÅÂ±× */
+/* ï¿½Ô½Ã¹ï¿½ï¿½Â±ï¿½ */
 DROP TABLE BRD_TAG 
 	CASCADE CONSTRAINTS;
 
-/* »ç¿ëÀÚÅÂ±× */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â±ï¿½ */
 DROP TABLE USER_TAG 
 	CASCADE CONSTRAINTS;
 	
-/* ´ñ±Û */
+/* ï¿½ï¿½ï¿½ */
 DROP TABLE CMTS 
 	CASCADE CONSTRAINTS;
 	
-/* °Ô½Ã¹° */
+/* ï¿½Ô½Ã¹ï¿½ */
 DROP TABLE BRDS 
 	CASCADE CONSTRAINTS;
 	
-/* »ç¿ëÀÚ */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ */
 DROP TABLE USERS 
 	CASCADE CONSTRAINTS;
 	
-/* »ç¿ëÀÚ */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ */
 CREATE TABLE USERS (
-	USER_ID INTEGER NOT NULL, /* »ç¿ëÀÚ ÀÏ·Ã¹øÈ£ */
-	EMAIL VARCHAR2(40) NOT NULL, /* ÀÌ¸ÞÀÏ */
-	PWD VARCHAR(255) NOT NULL /* ºñ¹Ð¹øÈ£ */
+	USER_ID INTEGER NOT NULL, /* ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·Ã¹ï¿½È£ */
+	EMAIL VARCHAR2(40) NOT NULL, /* ï¿½Ì¸ï¿½ï¿½ï¿½ */
+	PWD VARCHAR(255) NOT NULL /* ï¿½ï¿½Ð¹ï¿½È£ */
 );
 
 ALTER TABLE USERS
@@ -40,15 +40,15 @@ ALTER TABLE USERS
 			EMAIL
 		);
 
-/* °Ô½Ã¹° */
+/* ï¿½Ô½Ã¹ï¿½ */
 CREATE TABLE BRDS (
-	BRD_ID INTEGER NOT NULL, /* °Ô½Ã¹° ÀÏ·Ã¹øÈ£ */
-	USER_ID INTEGER NOT NULL, /* »ç¿ëÀÚ ÀÏ·Ã¹øÈ£ */
-	TLE VARCHAR2(50) NOT NULL, /* Á¦¸ñ */
-	DES       CLOB         NULL, /* ³»¿ë */
-	FILE_PATH VARCHAR2(255) NOT NULL, /* ÆÄÀÏ°æ·Î */
-	CATE VARCHAR2(50), /* Ä«Å×°í¸® */
-	REG_DATE DATE NOT NULL /* µî·Ï½Ã°£ */
+	BRD_ID INTEGER NOT NULL, /* ï¿½Ô½Ã¹ï¿½ ï¿½Ï·Ã¹ï¿½È£ */
+	USER_ID INTEGER NULL, /* ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·Ã¹ï¿½È£ */
+	TLE VARCHAR2(50) NOT NULL, /* ï¿½ï¿½ï¿½ï¿½ */
+	DES       CLOB         NULL, /* ï¿½ï¿½ï¿½ï¿½ */
+	FILE_PATH VARCHAR2(255) NOT NULL, /* ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ */
+	CATE VARCHAR2(50), /* Ä«ï¿½×°ï¿½ */
+	REG_DATE DATE NOT NULL /* ï¿½ï¿½Ï½Ã°ï¿½ */
 );
 
 ALTER TABLE BRDS
@@ -65,13 +65,13 @@ ALTER TABLE BRDS
 			TLE
 		);
 
-/* ´ñ±Û */
+/* ï¿½ï¿½ï¿½ */
 CREATE TABLE CMTS (
-	CMT_ID INTEGER NOT NULL, /* ´ñ±Û ÀÏ·Ã¹øÈ£ */
-	USER_ID INTEGER NOT NULL, /* »ç¿ëÀÚ ÀÏ·Ã¹øÈ£ */
-	BRD_ID INTEGER NOT NULL, /* °Ô½Ã¹° ÀÏ·Ã¹øÈ£ */
-	DES      CLOB    NOT NULL, /* ³»¿ë */
-	REG_DATE DATE NOT NULL /* µî·Ï½Ã°£ */
+	CMT_ID INTEGER NOT NULL, /* ï¿½ï¿½ï¿½ ï¿½Ï·Ã¹ï¿½È£ */
+	USER_ID INTEGER NOT NULL, /* ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·Ã¹ï¿½È£ */
+	BRD_ID INTEGER NOT NULL, /* ï¿½Ô½Ã¹ï¿½ ï¿½Ï·Ã¹ï¿½È£ */
+	DES      CLOB    NOT NULL, /* ï¿½ï¿½ï¿½ï¿½ */
+	REG_DATE DATE NOT NULL /* ï¿½ï¿½Ï½Ã°ï¿½ */
 );
 
 ALTER TABLE CMTS
@@ -81,11 +81,11 @@ ALTER TABLE CMTS
 			CMT_ID
 		);
 
-/* °Ô½Ã¹°ÅÂ±× */
+/* ï¿½Ô½Ã¹ï¿½ï¿½Â±ï¿½ */
 CREATE TABLE BRD_TAG (
-	TAG_ID INTEGER NOT NULL, /* ÅÂ±× ÀÏ·Ã¹øÈ£ */
-	BRD_ID INTEGER NOT NULL, /* °Ô½Ã¹° ÀÏ·Ã¹øÈ£ */
-	TAG_NAME VARCHAR2(50) /* ÅÂ±×¸í */
+	TAG_ID INTEGER NOT NULL, /* ï¿½Â±ï¿½ ï¿½Ï·Ã¹ï¿½È£ */
+	BRD_ID INTEGER NOT NULL, /* ï¿½Ô½Ã¹ï¿½ ï¿½Ï·Ã¹ï¿½È£ */
+	TAG_NAME VARCHAR2(50) /* ï¿½Â±×¸ï¿½ */
 );
 
 ALTER TABLE BRD_TAG
@@ -95,11 +95,11 @@ ALTER TABLE BRD_TAG
 			TAG_ID
 		);
 
-/* »ç¿ëÀÚÅÂ±× */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â±ï¿½ */
 CREATE TABLE USER_TAG (
-	TAG_ID INTEGER NOT NULL, /* ÅÂ±×ÀÏ·Ã¹øÈ£ */
-	USER_ID INTEGER NOT NULL, /* »ç¿ëÀÚ ÀÏ·Ã¹øÈ£ */
-	TAG_NAME VARCHAR2(50) /* ÅÂ±×¸í */
+	TAG_ID INTEGER NOT NULL, /* ï¿½Â±ï¿½ï¿½Ï·Ã¹ï¿½È£ */
+	USER_ID INTEGER NOT NULL, /* ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·Ã¹ï¿½È£ */
+	TAG_NAME VARCHAR2(50) /* ï¿½Â±×¸ï¿½ */
 );
 
 ALTER TABLE USER_TAG
