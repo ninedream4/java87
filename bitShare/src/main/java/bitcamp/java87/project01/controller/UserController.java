@@ -63,9 +63,6 @@ public class UserController {
 		}
 		return "redirect:/index.jsp";
 	}
-	public void addUserTag(User user) throws Exception{
-		userService.addUserTag(user);
-	}
 	
 	//@RequestMapping("/getUser.do")
 	/*@RequestMapping( value="getUser", method=RequestMethod.GET )

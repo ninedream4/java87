@@ -9,8 +9,6 @@ import bitcamp.java87.project01.domain.User;
 public interface UserService {
 	
 	public void addUser(User user) throws Exception;
-	public void addUserTag(User user) throws Exception;
-
 	
 	public User getUser(String email) throws Exception;
 	

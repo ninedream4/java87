@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import bitcamp.java87.project01.domain.Content;
-import bitcamp.java87.project01.domain.Product;
 import bitcamp.java87.project01.domain.User;
 import bitcamp.java87.project01.service.ContentService;
 

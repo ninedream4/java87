@@ -16,7 +16,7 @@
   </resultMap>
   
   <!-- SQL : INSERT --> <!-- seq_content_brd_id.NEXTVAL -->
-  <insert   id="addContent"   parameterType="content" >
+  <insert   id="addContent"   parameterType="content" keyColumn="BRD_ID" keyProperty="contentId" useGeneratedKeys="true">
     INSERT
     INTO BRDS( TLE , DES , FILE_PATH , CATE , REG_DATE) 
     VALUES   (#{title:VARCHAR} , #{fileDesc:VARCHAR} , #{filePath:VARCHAR}, #{category:VARCHAR} , SYSDATE )

@@ -12,7 +12,6 @@ import bitcamp.java87.project01.dao.ContentDao;
 import bitcamp.java87.project01.domain.Content;
 import bitcamp.java87.project01.domain.Search;
 import bitcamp.java87.project01.service.ContentService;
-import bitcamp.java87.project01.service.ProductService;
 
 @Service("contentServiceImpl")
 public class ContentServiceImpl implements ContentService {

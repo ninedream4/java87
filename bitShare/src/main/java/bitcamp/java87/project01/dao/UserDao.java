@@ -10,8 +10,6 @@ public interface UserDao {
 	
 	// INSERT
 	public void addUser(User user) throws Exception ;
-	public void addUserTag(String tag) throws Exception ;
-
 	
 	// SELECT ONE
 	public User getUser(String email) throws Exception ;
