@@ -14,7 +14,7 @@ import bitcamp.java87.project01.domain.Content;
 import bitcamp.java87.project01.service.ContentService;
 
 @Controller
-@RequestMapping("/content/*") //
+@RequestMapping("/content/*")
 public class ContentController {
 
 	/// Field

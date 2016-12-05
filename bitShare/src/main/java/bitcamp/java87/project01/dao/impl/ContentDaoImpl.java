@@ -11,48 +11,37 @@ import bitcamp.java87.project01.domain.Content;
 @Repository("contentDaoImpl")
 public class ContentDaoImpl implements ContentDao {
 
-  /// Field
-  @Autowired
-  @Qualifier("sqlSessionTemplate")
-  private SqlSession sqlSession;
-  public void setSqlSession(SqlSession sqlSession) {
-    this.sqlSession = sqlSession;
-  }
+	/// Field
+	@Autowired
+	@Qualifier("sqlSessionTemplate")
+	private SqlSession sqlSession;
 
-  /// Constructor
-  public ContentDaoImpl() {
-    System.out.println(this.getClass());
-  }
+	public void setSqlSession(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
+	}
 
-  // ///Method
-  public void addContent(Content content) throws Exception {
-    System.out.println("/content/addContent : contentDaoImpl " + content);
-    sqlSession.insert("ContentMapper.addContent", content);
-  }
+	/// Constructor
+	public ContentDaoImpl() {
+		System.out.println(this.getClass());
+	}
 
-  public Content getContent(String title) throws Exception {
-   return sqlSession.selectOne("ContentMapper.getContent", title);
-   }
+	/// Method
+	public void addContent(Content content) throws Exception {
+		System.out.println("/content/addContent : contentDaoImpl " + content);
+		sqlSession.insert("ContentMapper.addContent", content);
+	}
 
-  public Content deleteContent(int contentId) throws Exception {  
-    return sqlSession.selectOne("ContentMapper.deleteContent", contentId);
-   }
-  
-  @Override
-  public void updateContent(Content content) throws Exception {
-  // TODO Auto-generated method stub
-  sqlSession.update("ContentMapper.updateContent", content);
-  }
-  
-  
-  // public List<Product> getProductList(Search search) throws Exception {
-  // return sqlSession.selectList("ProductMapper.getProductList", search);
-  // }
-  //
-  // public int getTotalCount(Search search) throws Exception {
-  // return sqlSession.selectOne("ProductMapper.getTotalCount", search);
-  // }
-  //
+	public Content getContent(String title) throws Exception {
+		return sqlSession.selectOne("ContentMapper.getContent", title);
+	}
 
+	public Content deleteContent(int contentId) throws Exception {
+		return sqlSession.selectOne("ContentMapper.deleteContent", contentId);
+	}
+
+	@Override
+	public void updateContent(Content content) throws Exception {
+		sqlSession.update("ContentMapper.updateContent", content);
+	}
 
 }

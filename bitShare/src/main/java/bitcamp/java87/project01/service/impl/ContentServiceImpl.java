@@ -11,58 +11,35 @@ import bitcamp.java87.project01.service.ContentService;
 @Service("contentServiceImpl")
 public class ContentServiceImpl implements ContentService {
 
-  /// Field
-  @Autowired
-  @Qualifier("contentDaoImpl")
-  private ContentDao contentDao;
+	/// Field
+	@Autowired
+	@Qualifier("contentDaoImpl")
+	private ContentDao contentDao;
 
-  public void setContentDao(ContentDao contentDao) { // xml bean get������
-                                                     // ��������占�
-    this.contentDao = contentDao;
-  }
+	public void setContentDao(ContentDao contentDao) {
+		this.contentDao = contentDao;
+	}
 
-  /// Constructor
-  public ContentServiceImpl() {
-    System.out.println(this.getClass());
-  }
+	/// Constructor
+	public ContentServiceImpl() {
+		System.out.println(this.getClass());
+	}
 
-  /// Method
-  public void addContent(Content content) throws Exception {
-    System.out.println("contentService==========================addcontent");
-    contentDao.addContent(content);
-  }
+	/// Method
+	public void addContent(Content content) throws Exception {
+		contentDao.addContent(content);
+	}
 
-  public Content getContent(String title) throws Exception {
-    return contentDao.getContent(title);
-  }
+	public Content getContent(String title) throws Exception {
+		return contentDao.getContent(title);
+	}
 
-  public Content deleteContent(int contentId) throws Exception {
-    return contentDao.deleteContent(contentId);
-  }
+	public Content deleteContent(int contentId) throws Exception {
+		return contentDao.deleteContent(contentId);
+	}
 
-  public void updateContent(Content content) throws Exception {
-  // TODO Auto-generated method stub
-  contentDao.updateContent(content);
-  }
-
-  // public Map<String , Object > getProductList(Search search) throws Exception
-  // {
-  // List<Product> list= productDao.getProductList(search);
-  // int totalCount = productDao.getTotalCount(search);
-  //
-  // Map<String, Object> map = new HashMap<String, Object>();
-  // map.put("list", list );
-  // map.put("totalCount", new Integer(totalCount));
-  //
-  // return map;
-  // }
-  //
-  // @Override
-  // public Product getProduct(int prodNo) throws Exception {
-  // // TODO Auto-generated method stub
-  // return productDao.getProduct(prodNo);
-  // }
-  //
-  
+	public void updateContent(Content content) throws Exception {
+		contentDao.updateContent(content);
+	}
 
 }
