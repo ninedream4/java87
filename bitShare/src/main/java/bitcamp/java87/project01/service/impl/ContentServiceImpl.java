@@ -27,7 +27,9 @@ public class ContentServiceImpl implements ContentService {
 
 	/// Method
 	public void addContent(Content content) throws Exception {
+		content.setFilePath("asdf");
 		contentDao.addContent(content);
+		contentDao.addContentTag(content);
 	}
 
 	public Content getContent(String title) throws Exception {

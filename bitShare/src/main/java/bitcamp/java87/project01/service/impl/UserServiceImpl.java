@@ -33,14 +33,16 @@ public class UserServiceImpl implements UserService {
 
 	/// Method
 	public void addUser(User user) throws Exception {
-		userDao.addUser(user);
-
 		List<String> tag = new ArrayList<String>();
 		tag.add("aaa");
 		tag.add("bbb");
 		user.setTag(tag);
+		userDao.addUser(user);
+		System.out.println("========================");
+		System.out.println(user);
+		
 
-		userDao.addTag(user);
+		userDao.addUserTag(user);
 	}
 
 	public User getUser(String email) throws Exception {

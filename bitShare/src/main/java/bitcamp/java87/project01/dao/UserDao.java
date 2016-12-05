@@ -11,7 +11,7 @@ public interface UserDao {
 	public void addUser(User user) throws Exception;
 
 	// INSERT TAG
-	public void addTag(User user) throws Exception;
+	public void addUserTag(User user) throws Exception;
 
 	// SELECT ONE
 	public User getUser(String email) throws Exception;

@@ -1,16 +1,17 @@
 package bitcamp.java87.project01.domain;
 
 import java.util.Date;
+import java.util.List;
 
 public class Content {
 
 	private String title;
 	private int contentId;
 	private String fileDesc;
-	private String filePath = "1";
+	private String filePath;
 	private String category;
 	private Date regDate;
-	private String tag;
+	private List<String> tag;
 
 	public Content() {
 	}
@@ -63,11 +64,11 @@ public class Content {
 		this.regDate = regDate;
 	}
 
-	public String getTag() {
+	public List<String> getTag() {
 		return tag;
 	}
 
-	public void setTag(String tag) {
+	public void setTag(List<String> tag) {
 		this.tag = tag;
 	}
 

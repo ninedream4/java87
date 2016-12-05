@@ -5,46 +5,63 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="ContentMapper">
-  
-  <resultMap id="contentSelectMap" type="content">
-    <result property="contentId"       column="BRD_ID"          jdbcType="NUMERIC"/>
-    <result property="title"   column="TLE"        jdbcType="VARCHAR" />
-    <result property="fileDesc"     column="DES"        jdbcType="VARCHAR" />
-    <result property="category"     column="CATE"  jdbcType="VARCHAR" />
-    <result property="filePath"     column="FILE_PATH"         jdbcType="VARCHAR"  />
-    <result property="regDate"      column="REG_DATE"           jdbcType="DATE" />
-  </resultMap>
-  
-  <!-- SQL : INSERT --> <!-- seq_content_brd_id.NEXTVAL -->
-  <insert   id="addContent"   parameterType="content" keyColumn="BRD_ID" keyProperty="contentId" useGeneratedKeys="true">
-    INSERT
-    INTO BRDS( TLE , DES , FILE_PATH , CATE , REG_DATE) 
-    VALUES   (#{title:VARCHAR} , #{fileDesc:VARCHAR} , #{filePath:VARCHAR}, #{category:VARCHAR} , SYSDATE )
-   </insert>
-   
-   <!-- SQL : SELECT ONE -->
-   <select  id="getContent" parameterType="string"  resultMap="contentSelectMap">
-    SELECT
-    BRD_ID , USER_ID , TLE , DES , FILE_PATH ,  CATE , REG_DATE     
-    FROM BRDS 
-    WHERE contentId = #{value}
-   </select>
 
-   <!-- delete -->
-  <delete id="deleteContent" parameterType="int">
-    DELETE BRDS
-    WHERE BRD_ID = #{value}
-  </delete>
-  
-  <!-- SQL : UPDATE -->
-  <update  id="updateContent"  parameterType="content" >
-   UPDATE CONTENT
-   <set>
-    TLE =  #{title} , 
-    DES = #{fileDesc} ,
-    CATE = #{category} 
-   </set>
-    WHERE BRD_ID = #{contentId}
-   </update>
-  
+	<resultMap id="contentSelectMap" type="content">
+		<result property="contentId" column="BRD_ID" jdbcType="NUMERIC" />
+		<result property="title" column="TLE" jdbcType="VARCHAR" />
+		<result property="fileDesc" column="DES" jdbcType="VARCHAR" />
+		<result property="category" column="CATE" jdbcType="VARCHAR" />
+		<result property="filePath" column="FILE_PATH" jdbcType="VARCHAR" />
+		<result property="regDate" column="REG_DATE" jdbcType="DATE" />
+		<collection property="tag" column="TAG_NAME" javaType="java.util.List"
+			ofType="content"></collection>
+	</resultMap>
+
+	<!-- SQL : INSERT --> <!-- seq_content_brd_id.NEXTVAL -->
+	<insert id="addContent" parameterType="content" keyColumn="BRD_ID"
+		keyProperty="contentId" useGeneratedKeys="true">
+		INSERT
+		INTO BRDS( TLE , DES ,
+		FILE_PATH , CATE , REG_DATE)
+		VALUES (#{title:VARCHAR} ,
+		#{fileDesc:VARCHAR} , #{filePath:VARCHAR},
+		#{category:VARCHAR} ,
+		SYSDATE )
+	</insert>
+
+	<insert id="addContentTag" parameterType="content">
+		INSERT ALL
+		<foreach collection="tag" item="item" separator=" ">
+			INTO BRD_TAG
+			(BRD_ID, TAG_NAME) VALUES (#{contentId}, #{item})
+		</foreach>
+		SELECT * FROM DUAL
+	</insert>
+
+	<!-- SQL : SELECT ONE -->
+	<select id="getContent" parameterType="string" resultMap="contentSelectMap">
+		SELECT
+		BRD_ID , USER_ID , TLE , DES , FILE_PATH , CATE , REG_DATE
+		FROM BRDS
+		WHERE contentId = #{value}
+	</select>
+
+	<!-- delete -->
+	<delete id="deleteContent" parameterType="int">
+		DELETE BRDS
+		WHERE BRD_ID
+		= #{value}
+	</delete>
+
+	<!-- SQL : UPDATE -->
+	<update id="updateContent" parameterType="content">
+		UPDATE CONTENT
+		<set>
+			TLE = #{title} ,
+			DES = #{fileDesc} ,
+			CATE = #{category}
+		</set>
+		WHERE BRD_ID = #{contentId}
+	</update>
+
 </mapper>

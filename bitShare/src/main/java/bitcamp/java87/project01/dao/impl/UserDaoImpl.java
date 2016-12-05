@@ -32,7 +32,7 @@ public class UserDaoImpl implements UserDao {
 		sqlSession.insert("UserMapper.addUser", user);
 	}
 
-	public void addTag(User user) throws Exception {
+	public void addUserTag(User user) throws Exception {
 		sqlSession.insert("UserMapper.addUserTag", user);
 	}
 

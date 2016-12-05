@@ -27,10 +27,14 @@ public class ContentDaoImpl implements ContentDao {
 
 	/// Method
 	public void addContent(Content content) throws Exception {
-		System.out.println("/content/addContent : contentDaoImpl " + content);
 		sqlSession.insert("ContentMapper.addContent", content);
 	}
-
+	
+	@Override
+	public void addContentTag(Content content) throws Exception {
+		sqlSession.insert("ContentMapper.addContentTag", content);
+	}
+	
 	public Content getContent(String title) throws Exception {
 		return sqlSession.selectOne("ContentMapper.getContent", title);
 	}
