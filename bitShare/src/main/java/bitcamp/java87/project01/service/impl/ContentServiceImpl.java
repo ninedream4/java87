@@ -1,16 +1,11 @@
 package bitcamp.java87.project01.service.impl;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import bitcamp.java87.project01.dao.ContentDao;
 import bitcamp.java87.project01.domain.Content;
-import bitcamp.java87.project01.domain.Search;
 import bitcamp.java87.project01.service.ContentService;
 
 @Service("contentServiceImpl")

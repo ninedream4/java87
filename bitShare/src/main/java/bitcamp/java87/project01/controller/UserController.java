@@ -58,9 +58,7 @@ public class UserController {
 		System.out.println("/user/addUser : POST");
 		//Business Logic
 		userService.addUser(user);
-		if(user.isActive()){
-			//this.addUserTag(user);
-		}
+		
 		return "redirect:/index.jsp";
 	}
 	

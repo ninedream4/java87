@@ -7,30 +7,26 @@
 <mapper namespace="UserMapper">
  	
 	<resultMap id="userSelectMap" type="user">
-		<result property="userId" 			column="USER_ID" 			jdbcType="NUMERIC"/>		
-		<result property="email" 			column="EMAIL" 				jdbcType="VARCHAR"  />
-		<result property="pwd"  column=" PWD"     jdbcType="VARCHAR" /> 
-		<result property="tag"  column=" TAG_NAME"     jdbcType="VARCHAR" /> 
-		
-
-	
+		<result property="userId" 	column="USER_ID" 	jdbcType="NUMERIC"/>		
+		<result property="email"	column="EMAIL" 		jdbcType="VARCHAR"  />
+		<result property="pwd"		column="PWD"		jdbcType="VARCHAR" /> 
+		<collection property="tag" column="TAG_NAME" javaType="java.util.List" ofType="user"></collection>
 	</resultMap>
 	
 	
 	<!-- SQL : INSERT -->
-	<insert 	id="addUser"		parameterType="user" keyColumn="USER_ID" keyProperty="userId" useGeneratedKeys="true" >
+	<insert id="addUser" parameterType="user" keyColumn="USER_ID" keyProperty="userId" useGeneratedKeys="true" >
 	 	INSERT
-		INTO USERS (USER_ID,EMAIL, PWD)
-		VALUES	 (SEQ_USER.nextval,#{email}, #{pwd} )
+		INTO USERS (EMAIL, PWD)
+		VALUES	 (#{email}, #{pwd} )
 	 </insert>
 	 
-	 <insert 	id="addUserTag"		parameterType="user" >
-	 	INSERT
-		INTO USER_TAG (TAG_ID,USER_ID,TAG_NAME)
-		VALUES	 (SEQ_USER_TAG.NEXTVAL,#{userId},#{tag:VARCHAR})
-		
-		
-		
+	 <insert id="addUserTag" parameterType="user" >
+	 	INSERT ALL
+	 	<foreach collection="tag" item="item" separator=" ">
+		INTO USER_TAG (USER_ID,TAG_NAME) VALUES (#{userId},#{item})
+		</foreach>
+		SELECT * FROM DUAL
 	 </insert>
 	 
 	 

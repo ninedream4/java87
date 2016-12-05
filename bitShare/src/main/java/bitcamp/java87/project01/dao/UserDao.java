@@ -5,11 +5,13 @@ import java.util.List;
 import bitcamp.java87.project01.domain.Search;
 import bitcamp.java87.project01.domain.User;
 
-
 public interface UserDao {
 	
-	// INSERT
+	// INSERT USER
 	public void addUser(User user) throws Exception ;
+	
+	// INSERT TAG
+	public void addTag(User user) throws Exception ;
 	
 	// SELECT ONE
 	public User getUser(String email) throws Exception ;
@@ -20,7 +22,7 @@ public interface UserDao {
 	// UPDATE
 	public void updateUser(User user) throws Exception ;
 	
-	// �Խ��� Page ó���� ���� ��üRow(totalCount)  return
+	// TOTAL COUNT
 	public int getTotalCount(Search search) throws Exception ;
 	
 }

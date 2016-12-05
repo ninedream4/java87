@@ -31,9 +31,12 @@ public class UserDaoImpl implements UserDao{
 	///Method
 	public void addUser(User user) throws Exception {
 		sqlSession.insert("UserMapper.addUser", user);
+	}
+	
+	public void addTag(User user) throws Exception {
 		sqlSession.insert("UserMapper.addUserTag", user);
 	}
-
+	
 	public User getUser(String email) throws Exception {
 		return sqlSession.selectOne("UserMapper.getUser", email);
 	}

@@ -15,7 +15,6 @@ public class ContentDaoImpl implements ContentDao {
   @Autowired
   @Qualifier("sqlSessionTemplate")
   private SqlSession sqlSession;
-
   public void setSqlSession(SqlSession sqlSession) {
     this.sqlSession = sqlSession;
   }
