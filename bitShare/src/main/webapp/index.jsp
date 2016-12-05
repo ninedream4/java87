@@ -209,8 +209,9 @@
 						<div class="form-group" style="width: 70%; margin: auto;">
 							<div style="text-align: left">
 								<label for="inputTitle" style="font-size: 20px;">Description</label></br>
-								<input type="textarea" rows="5" cols="30" name="contents"
-									class="form-control" id="inputTitle" name="fileDesc" placeholder="Description"></textarea>
+								<textarea rows="5" cols="30" class="form-control"
+									id="inputTitle" name="fileDesc" placeholder="Description">
+								</textarea>
 							</div>
 						</div>
 						<br />
