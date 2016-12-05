@@ -210,8 +210,7 @@
 							<div style="text-align: left">
 								<label for="inputTitle" style="font-size: 20px;">Description</label></br>
 								<textarea rows="5" cols="30" class="form-control"
-									id="inputTitle" name="fileDesc" placeholder="Description">
-								</textarea>
+									id="inputTitle" name="fileDesc" placeholder="Description"></textarea>
 							</div>
 						</div>
 						<br />
