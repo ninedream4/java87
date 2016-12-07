@@ -32,8 +32,7 @@
 <link href="css/fileinputbutton.css" rel="stylesheet" type="text/css">
 
 
-<link rel="stylesheet" type="text/css"
-	href="sliderengine/amazingslider-1.css">
+<link href="css/amazingslider-1.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -52,37 +51,7 @@
 					<div class="rl"></div>
 				</div>
 			</div>
-			<div id="amazingslider-wrapper-1"
-				style="display: block; position: relative; max-width: 500px; margin: 0px auto;">
-				<div id="amazingslider-1"
-					style="display: block; position: relative; margin: 0 auto;">
-					<ul class="amazingslider-slides" style="display: none;">
-						<li><img src="images/cabin.png" alt="cabin" title="cabin" />
-						</li>
-						<li><img src="images/cake.png" alt="cake" title="cake" /></li>
-						<li><img src="images/circus.png" alt="circus" title="circus" />
-						</li>
-						<li><img src="images/game.png" alt="game" title="game" /></li>
-						<li><img src="images/safe.png" alt="safe" title="safe" /></li>
-						<li><img src="images/submarine.png" alt="submarine"
-							title="submarine" /></li>
-					</ul>
-					<ul class="amazingslider-thumbnails" style="display: none;">
-						<li><img src="images/cabin-tn.png" alt="cabin" title="cabin" /></li>
-						<li><img src="images/cake-tn.png" alt="cake" title="cake" /></li>
-						<li><img src="images/circus-tn.png" alt="circus"
-							title="circus" /></li>
-						<li><img src="images/game-tn.png" alt="game" title="game" /></li>
-						<li><img src="images/safe-tn.png" alt="safe" title="safe" /></li>
-						<li><img src="images/submarine-tn.png" alt="submarine"
-							title="submarine" /></li>
-					</ul>
-					<div class="amazingslider-engine">
-						<a href="http://amazingslider.com"
-							title="Responsive jQuery Content Slider">Responsive jQuery
-							Content Slider</a>
-					</div>
-				</div>
+			
 
 
 				<div class="container">
@@ -423,7 +392,6 @@
 		<script src="js/fileUploadButton.js"></script>
 		<script type="text/javascript" src="js/submit.js"></script>
 		<script type="text/javascript" src="js/userValidationCheck.js"></script>
-
 
 		<script src="sliderengine/initslider-1.js"></script>
 		<script src="sliderengine/amazingslider.js"></script>
