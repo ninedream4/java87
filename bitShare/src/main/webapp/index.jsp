@@ -32,8 +32,6 @@
 <link href="css/fileinputbutton.css" rel="stylesheet" type="text/css">
 
 
-<link href="css/amazingslider-1.css" rel="stylesheet" type="text/css">
-
 </head>
 
 
@@ -393,7 +391,5 @@
 		<script type="text/javascript" src="js/submit.js"></script>
 		<script type="text/javascript" src="js/userValidationCheck.js"></script>
 
-		<script src="sliderengine/initslider-1.js"></script>
-		<script src="sliderengine/amazingslider.js"></script>
 </body>
 </html>
