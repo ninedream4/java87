@@ -39,7 +39,6 @@ public class UserController {
 	@Value("#{commonProperties['pageSize']}")
 	int pageSize;
 
-	// @RequestMapping("/addUser.do")
 	@RequestMapping(value = "addUser", method = RequestMethod.POST)
 	public String addUser(@ModelAttribute("user") User user) throws Exception {
 

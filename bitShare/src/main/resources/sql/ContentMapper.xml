@@ -39,20 +39,31 @@
 	</insert>
 
 	<!-- SQL : SELECT ONE -->
-	<select id="getContent" parameterType="string" resultMap="contentSelectMap">
+	<select id="getContent" parameterType="int" resultMap="contentSelectMap">
 		SELECT
 		BRD_ID , USER_ID , TLE , DES , FILE_PATH , CATE , REG_DATE
 		FROM BRDS
-		WHERE contentId = #{value}
+		WHERE BRD_ID = #{value}
 	</select>
 
-	<!-- delete -->
-	<delete id="deleteContent" parameterType="int">
-		DELETE BRDS
-		WHERE BRD_ID
-		= #{value}
-	</delete>
-
+	<!-- SQL : SELECT LIST -->
+	<select  id="getContentList"  parameterType="search"	resultMap="contentSelectMap">
+	  	SELECT *
+	  	FROM (	SELECT inner_table.* , ROWNUM AS row_seq
+	  					FROM		(	SELECT BRD_ID, USER_ID, TLE, DES, FILE_PATH, CATE, REG_DATE
+											FROM BRDS
+											<if test="searchCondition != null ">
+										 		<where> 
+											 		<if test="searchCondition == 0 and searchKeyword !='' ">
+											 		TLE like &apos;${searchKeyword}%&apos;
+											 		</if>
+										 		</where>
+											</if>
+											ORDER BY REG_DATE ) inner_table
+						WHERE ROWNUM &lt;= #{endRowNum} )
+		WHERE row_seq BETWEEN #{startRowNum} AND #{endRowNum} 
+	 </select>
+	 
 	<!-- SQL : UPDATE -->
 	<update id="updateContent" parameterType="content">
 		UPDATE CONTENT
@@ -63,5 +74,32 @@
 		</set>
 		WHERE BRD_ID = #{contentId}
 	</update>
+	
+	<!-- delete -->
+	<delete id="deleteContent" parameterType="int">
+		DELETE BRDS
+		WHERE BRD_ID
+		= #{value}
+	</delete>
+	
+	<delete id="deleteContentTag" parameterType="int">
+		DELETE BRD_TAG
+		WHERE BRD_ID
+		= #{value}
+	</delete>
 
+	<!-- SQL : SELECT ROW Count -->	 
+	 <select  id="getTotalCount"  parameterType="search"	 resultType="int">
+	  	SELECT COUNT(*)
+	  	FROM( SELECT BRD_ID, USER_ID, TLE, DES, FILE_PATH, CATE, REG_DATE
+											FROM BRDS
+											<if test="searchCondition != null ">
+										 		<where> 
+											 		<if test="searchCondition == 0 and searchKeyword !='' ">
+											 		TLE like &apos;${searchKeyword}%&apos;
+											 		</if>
+										 		</where>
+											</if>
+									) countTable						
+	 </select>
 </mapper>

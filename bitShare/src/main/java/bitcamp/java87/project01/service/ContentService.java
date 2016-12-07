@@ -8,7 +8,8 @@ public interface ContentService {
 
 	public Content getContent(String title) throws Exception;
 
-	public Content deleteContent(int contentId) throws Exception;
+	public void deleteContent(int contentId) throws Exception;
 
 	public void updateContent(Content content) throws Exception;
+	
 }

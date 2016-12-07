@@ -37,51 +37,51 @@
 		WHERE EMAIL = #{value}
 	 </select>
 	 
-	 <!-- SQL : UPDATE -->
-	 <update	id="updateUser"	parameterType="user" >
-	   	UPDATE users
-	   	<set>
-			pwd	=#{pwd}
-	   	</set>
-	   	WHERE  email= #{email}
-	 </update>
-		 
-	<!-- SQL : SELECT LIST -->
+	 <!-- SQL : SELECT LIST -->
 	<select  id="getUserList"  parameterType="search"	resultMap="userSelectMap">
 	  	SELECT *
 	  	FROM (	SELECT inner_table.* , ROWNUM AS row_seq
-	  					FROM		(	SELECT user_id , user_name , email
-											FROM users
-											<if test="searchCondition != null">
+	  					FROM		(	SELECT U.USER_ID , U.EMAIL, UT.TAG_NAME
+											FROM USERS U, USER_TAG UT 
 												<where>
-													<if test="searchCondition == 0 and searchKeyword !='' ">
-										 				user_id like &apos;${searchKeyword}%&apos;
-													</if>
-													<if test="searchCondition == 1 and searchKeyword !='' ">
-										 				user_name like &apos;${searchKeyword}%&apos;
+													<if test="searchKeyword !='' ">
+										 				EMAIL like &apos;${searchKeyword}%&apos;
+										 				OR 
+										 				TAG_NAME like &apos;%${searchKeyword}%&apos;
 													</if>
 												</where>
-											</if>
-											ORDER BY user_id ) inner_table
+											ORDER BY U.USER_ID ) inner_table
 						WHERE ROWNUM &lt;= #{endRowNum} )
 		WHERE row_seq BETWEEN #{startRowNum} AND #{endRowNum} 
 	 </select>
+	 
+	 <!-- SQL : UPDATE -->
+	 <update	id="updateUser"	parameterType="user" keyColumn="USER_ID" keyProperty="userId" useGeneratedKeys="true" >
+	   	UPDATE USERS
+	   	<set>
+			PWD	=#{pwd}
+	   	</set>
+	   	WHERE  EMAIL= #{email}
+	 </update>
+	 
+	 <delete	id="deleteUserTag"	parameterType="int" >
+	   	DELETE FROM USER_TAG
+	   	WHERE USER_ID=#{userId}
+	 </delete>
 	
 	<!-- SQL : SELECT ROW Count -->	 
 	 <select  id="getTotalCount"  parameterType="search"	 resultType="int">
 	  	SELECT COUNT(*)
-	  	FROM(	SELECT user_id , user_name , email
-						FROM users
-						<if test="searchCondition != null">
-							<where>
-								<if test="searchCondition == 0 and searchKeyword !='' ">
-						 			user_id like &apos;${searchKeyword}%&apos;
-								</if>
-								<if test="searchCondition == 1 and searchKeyword !='' ">
-						 		user_name like '${searchKeyword}%&apos;
-								</if>
-							</where>
-						</if> ) countTable						
+	  	FROM (	SELECT U.USER_ID , U.EMAIL, UT.TAG_NAME
+											FROM USERS U, USER_TAG UT 
+												<where>
+													<if test="searchKeyword !='' ">
+										 				EMAIL like &apos;${searchKeyword}%&apos;
+										 				OR 
+										 				TAG_NAME like &apos;%${searchKeyword}%&apos;
+													</if>
+												</where>
+											ORDER BY U.USER_ID ) countTable						
 	 </select>
 	 
 </mapper>

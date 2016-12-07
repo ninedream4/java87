@@ -35,17 +35,22 @@ public class ContentDaoImpl implements ContentDao {
 		sqlSession.insert("ContentMapper.addContentTag", content);
 	}
 	
-	public Content getContent(String title) throws Exception {
-		return sqlSession.selectOne("ContentMapper.getContent", title);
+	public Content getContent(int contentId) throws Exception {
+		return sqlSession.selectOne("ContentMapper.getContent", contentId);
 	}
 
-	public Content deleteContent(int contentId) throws Exception {
-		return sqlSession.selectOne("ContentMapper.deleteContent", contentId);
+	public void deleteContent(int contentId) throws Exception {
+		sqlSession.selectOne("ContentMapper.deleteContent", contentId);
 	}
 
 	@Override
 	public void updateContent(Content content) throws Exception {
 		sqlSession.update("ContentMapper.updateContent", content);
+	}
+
+	@Override
+	public void deleteContentTag(int contentId) throws Exception {
+		sqlSession.delete("ContentMapper.deleteContentTag", contentId);
 	}
 
 }

@@ -40,15 +40,22 @@ public class UserDaoImpl implements UserDao {
 		return sqlSession.selectOne("UserMapper.getUser", email);
 	}
 
+	public List<User> getUserList(Search search) throws Exception {
+		return sqlSession.selectList("UserMapper.getUserList", search);
+	}
+	
 	public void updateUser(User user) throws Exception {
 		sqlSession.update("UserMapper.updateUser", user);
 	}
 
-	public List<User> getUserList(Search search) throws Exception {
-		return sqlSession.selectList("UserMapper.getUserList", search);
+	@Override
+	public void deleteUserTag(int userId) throws Exception {
+		sqlSession.delete("UserMapper.deleteUserTag", userId);
 	}
-
+	
 	public int getTotalCount(Search search) throws Exception {
 		return sqlSession.selectOne("UserMapper.getTotalCount", search);
 	}
+
+	
 }

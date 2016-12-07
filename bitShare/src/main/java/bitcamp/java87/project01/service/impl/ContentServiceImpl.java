@@ -27,21 +27,24 @@ public class ContentServiceImpl implements ContentService {
 
 	/// Method
 	public void addContent(Content content) throws Exception {
-		content.setFilePath("asdf");
 		contentDao.addContent(content);
 		contentDao.addContentTag(content);
 	}
 
-	public Content getContent(String title) throws Exception {
-		return contentDao.getContent(title);
+	public Content getContent(int contentId) throws Exception {
+		Content content = contentDao.getContent(contentId);
+		content.setTag(contentDao.getContentTag(title));
+		return 
 	}
 
-	public Content deleteContent(int contentId) throws Exception {
-		return contentDao.deleteContent(contentId);
+	public void deleteContent(int contentId) throws Exception {
+		contentDao.deleteContent(contentId);
 	}
 
 	public void updateContent(Content content) throws Exception {
 		contentDao.updateContent(content);
+		contentDao.deleteContentTag(content.getContentId());
+		contentDao.addContentTag(content);
 	}
 
 }

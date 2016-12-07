@@ -33,15 +33,7 @@ public class UserServiceImpl implements UserService {
 
 	/// Method
 	public void addUser(User user) throws Exception {
-		List<String> tag = new ArrayList<String>();
-		tag.add("aaa");
-		tag.add("bbb");
-		user.setTag(tag);
 		userDao.addUser(user);
-		System.out.println("========================");
-		System.out.println(user);
-		
-
 		userDao.addUserTag(user);
 	}
 
@@ -62,6 +54,8 @@ public class UserServiceImpl implements UserService {
 
 	public void updateUser(User user) throws Exception {
 		userDao.updateUser(user);
+		userDao.deleteUserTag(user.getUserId());
+		userDao.addUserTag(user);
 	}
 
 	public boolean checkDuplication(String email) throws Exception {
