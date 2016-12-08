@@ -31,11 +31,12 @@ public class UserDaoImpl implements UserDao{
 	///Method
 	public void addUser(User user) throws Exception {
 		int x =sqlSession.insert("UserMapper.addUser", user);
-		System.out.println("123"+x+user.getUserId());
+		
+		
 		if(x==1){
 			User user1 = new User();
 			user1=sqlSession.selectOne("UserMapper.getUser", user.getEmail());		
-			System.out.println("커밋하고???"+user1.getUserId());
+			
 			user.setActive(true);
 			user1.setTag(user.getTag());
 			sqlSession.insert("UserMapper.addUserTag", user1);
