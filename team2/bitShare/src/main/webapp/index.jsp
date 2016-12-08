@@ -30,25 +30,11 @@
   href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
   rel="stylesheet" type="text/css">
 <link href="css/fileinputbutton.css" rel="stylesheet" type="text/css">
-<!-- 리스트 css -->
-<!-- <link href="css/3-col-portfolio.css" rel="stylesheet" type="text/css"> -->
 
-<script type="text/javascript">
 
-function addUsersubmit(){  
-	
-	  
-	document.addUserform.submit(); 
-	
-}
-
-function loginsubmit(){
-	document.loginform.submit();		
-	 alert('success!!');
-}
-</script>
 
 </head>
+
 
 <body id="page-top" class="index">
   <!-- Portfolio Modals -->
@@ -56,7 +42,8 @@ function loginsubmit(){
 
 
 
-  <div class="portfolio-modal modal fade" id="modalView" tabindex="-1"  role="dialog" aria-hidden="true">
+  <div class="portfolio-modal modal fade" id="modalView" tabindex="-1"
+    role="dialog" aria-hidden="true">
     <div class="modal-content">
       <div class="close-modal" data-dismiss="modal">
         <div class="lr">
@@ -91,7 +78,7 @@ function loginsubmit(){
             <hr class="star-primary"></hr>
             <br /> <br />
             
-            <form name="loginform" method="post" action="/user/login ">
+            <form name="loginForm" method="post" action="/user/login ">
               <div class="form-group" style="width: 70%; margin: auto;">
                 <div align="left">
                   <label for="inputEmail" style="font-size: 20px;">Email
@@ -110,7 +97,7 @@ function loginsubmit(){
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" onclick='loginsubmit()'>Login</button>
+          <button type="button" class="btn btn-primary" onclick='loginSubmit()'>Login</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -133,24 +120,24 @@ function loginsubmit(){
           <h2 align="center">sign up</h2>
           <hr class="star-primary">
            
-        <form name="addUserform" method="post"  action="/user/addUser">
+        <form name="addUserForm" id="addUserForm" method="post"  action="/user/addUser">
           <div class="form-group" style="width: 70%; margin: auto;">
             <label for="inputEmail" style="font-size: 20px;">Email address</label>
-             <input type="text" class="form-control" name="email" id="Email"  placeholder="Email">
+             <input type="text" class="form-control" name="email" id="email"  placeholder="email">
           </div>
 
           <br />
 
           <div class="form-group" style="width: 70%; margin: auto;">
             <label for="inputPassword" style="font-size: 20px;">Password</label>
-            <input type="password" class="form-control" id="inputPassword"    name="pwd"      placeholder="Password">
+            <input type="password" class="form-control" id="pwd"    name="pwd"    placeholder="Password">
           </div>
 
           <br />
 
           <div class="form-group" style="width: 70%; margin: auto;">
             <label for="inputConfirmPassowrd" style="font-size: 20px;">Password Confirm           </label> 
-            <input type="password" class="form-control"         id="inputConfirmPassowrd"  name="pwd2" placeholder="ConfirmPassowrd">
+            <input type="password" class="form-control"    id="confirmPwd"  name="confirmPwd" placeholder="ConfirmPassowrd">
           </div>
 
           <br />
@@ -160,10 +147,11 @@ function loginsubmit(){
               type="text" class="form-control" id="inputTag" name="tag" placeholder="Tag">
           </div>
           </form>
+          
           <br />
         </div>
         <div class="modal-footer">
-        <button type="button" class="btn btn-primary"  onclick="addUsersubmit()">Sign Up</button>
+        <button type="button" class="btn btn-primary"  onclick="addUserSubmit()">Sign Up</button>
           
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
@@ -187,22 +175,22 @@ function loginsubmit(){
             <h2>upload</h2>
           </div>
           <hr class="star-primary">
-          <form>
+          <form name="addContentForm" method="post" action="/content/addContent">
             <div class="form-group" style="width: 70%; margin: auto;">
               <div style="text-align: left">
                 <label for="inputTilte" style="font-size: 20px;">Title</label> <input
-                  type="textarea" class="form-control" id="inputTitle"
+                  type="textarea" class="form-control" id="inputTitle" name="title"
                   placeholder="Title">
               </div>
             </div>
             <br />
             <div class="form-group" style="width: 70%; margin: auto;">
               <div style="text-align: left">
-              <label for="inputTilte" style="font-size: 20px;">Upload</label></br>
+                <label for="inputTilte" style="font-size: 20px;">Upload</label></br>
                 <div class="filebox">
                   <input class="upload-name" value="file...." disabled="disabled">
                   <label for="ex_filename">Upload</label> <input type="file"
-                    id="ex_filename" class="upload-hidden">
+                    id="ex_filename" class="upload-hidden" name="filePath">
                 </div>
               </div>
             </div>
@@ -211,7 +199,7 @@ function loginsubmit(){
               <div style="text-align: left">
                 <label for="inputTilte" style="font-size: 20px;">Description</label></br>
                 <textarea rows="5" cols="30" name="contents"
-                  class="form-control" id="inputTitle">Description</textarea>
+                  class="form-control" id="inputTitle" name="fileDesc">Description</textarea>
               </div>
             </div>
             <br />
@@ -219,14 +207,14 @@ function loginsubmit(){
               <div style="text-align: left">
                 <label for="inputTilte" style="font-size: 20px;">Tags</label> <input
                   type="text" class="form-control" id="inputTitle"
-                  placeholder="Tags">
+                  placeholder="Tags" name="tag">
               </div>
             </div>
             <br />
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Submit</button>
+          <button type="button" class="btn btn-primary" onclick="addContentSubmit()">Submit</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -257,9 +245,9 @@ function loginsubmit(){
               <a href="category.html">windows</a>
             </div>
           </li>
-          <li><a data-toggle="modal" data-target="#upload" style="cursor:pointer">upload</a></li>
-          <li><a data-toggle="modal" data-target="#login" style="cursor:pointer">login</a></li>
-          <li><a data-toggle="modal" data-target="#signup" style="cursor:pointer">signup</a></li>
+          <li><a data-toggle="modal" data-target="#upload">upload</a></li>
+          <li><a data-toggle="modal" data-target="#login">login</a></li>
+          <li><a data-toggle="modal" data-target="#signup">signup</a></li>
         </ul>
       </div>
       <!-- /.navbar-collapse -->
@@ -370,9 +358,11 @@ function loginsubmit(){
     </a>
   </div>
   <!-- jQuery -->
-  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/jquery/jquery.js"></script>
   <!-- Bootstrap Core JavaScript -->
   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <!--jQuery.validation  -->
+  <script src="vendor/jquery/jquery.validate.js"></script>
   <!-- Plugin JavaScript -->
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
@@ -381,11 +371,12 @@ function loginsubmit(){
   <script src="js/contact_me.js"></script>
   <!-- Theme JavaScript -->
   <script src="js/freelancer.min.js"></script>
-  <script src="js/slide.js" id="slide"></script>
-  <script src="js/modal.js" id="modalView"></script>
-  
-  <script type="js/fileUploadButton.js" id="input_file"></script>
- <!--  <script type="text/javascript" src="js/slidename.js"></script> -->
-  
+  <script src="js/slide.js" ></script>
+  <script src="js/fileUploadButton.js"  ></script>
+  <script type="text/javascript"  src="js/submit.js"></script>
+  <script type="text/javascript"  src="js/userValidationCheck.js"></script>
+
+
+
 </body>
 </html>

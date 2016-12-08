@@ -7,10 +7,10 @@
 <mapper namespace="UserMapper">
  	
 	<resultMap id="userSelectMap" type="user">
-		<result property="userId" 	column="USER_ID" 		jdbcType="NUMERIC"/>		
-		<result property="email" 	column="EMAIL" 			jdbcType="VARCHAR"  />
-		<result property="pwd"  	column=" PWD"     		jdbcType="VARCHAR" /> 
-		<result property="tag"  	column=" TAG_NAME"   	jdbcType="VARCHAR" /> 
+		<result property="userId" 			column="USER_ID" 			jdbcType="NUMERIC"/>		
+		<result property="email" 			column="EMAIL" 				jdbcType="VARCHAR"  />
+		<result property="pwd"  column=" PWD"     jdbcType="VARCHAR" /> 
+		<result property="tag"  column=" TAG_NAME"     jdbcType="VARCHAR" /> 
 		
 
 	
@@ -18,16 +18,19 @@
 	
 	
 	<!-- SQL : INSERT -->
-	<insert 	id="addUser"		parameterType="user" keyColumn="USER_ID" keyProperty="userId" useGeneratedKeys="true">
+	<insert 	id="addUser"		parameterType="user" keyColumn="USER_ID" keyProperty="userId" useGeneratedKeys="true" >
 	 	INSERT
 		INTO USERS (USER_ID,EMAIL, PWD)
-		VALUES	 (SEQ_USER.NEXTVAL,#{email}, #{pwd} )
-	</insert>
+		VALUES	 (SEQ_USER.nextval,#{email}, #{pwd} )
+	 </insert>
 	 
 	 <insert 	id="addUserTag"		parameterType="user" >
 	 	INSERT
 		INTO USER_TAG (TAG_ID,USER_ID,TAG_NAME)
-		VALUES	 (SEQ_USER.NEXTVAL,#{userId},#{tag:VARCHAR})
+		VALUES	 (SEQ_USER_TAG.NEXTVAL,#{userId},#{tag:VARCHAR})
+		
+		
+		
 	 </insert>
 	 
 	 
@@ -68,7 +71,7 @@
 											</if>
 											ORDER BY user_id ) inner_table
 						WHERE ROWNUM &lt;= #{endRowNum} )
-		WHERE row_seq BETWEEN #{startRowNum} AND #{endRowNum}
+		WHERE row_seq BETWEEN #{startRowNum} AND #{endRowNum} 
 	 </select>
 	 	<!--  위 두번째 subQuery 의  
 	 			WHERE ROWNUM &lt;= #{endRowNum} ) 는
