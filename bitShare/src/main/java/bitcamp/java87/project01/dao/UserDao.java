@@ -11,8 +11,8 @@ public interface UserDao {
 
 	public void addUserTag(User user) throws Exception;
 
-	public User getUser(String email) throws Exception;
-
+	public User getUser(User user) throws Exception;
+	
 	public List<String> getUserTag(int userId) throws Exception;
 
 	public List<User> getUserList(Search search) throws Exception;
@@ -22,5 +22,7 @@ public interface UserDao {
 	public void deleteUserTag(int userId) throws Exception;
 
 	public int getTotalCount(Search search) throws Exception;
+	
+	public boolean checkDuplication(String email) throws Exception;
 
 }

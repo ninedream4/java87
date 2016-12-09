@@ -30,38 +30,47 @@
 	 </insert>
 	 
 	 <!-- SQL : SELECT ONE -->
-	 <select 	id="getUser"	parameterType="string"	resultMap="userSelectMap">
+	 <select 	id="getUser"	parameterType="user"	resultMap="userSelectMap">
 		SELECT
 		USER_ID, EMAIL, PWD
 		FROM USERS 
-		WHERE EMAIL = #{value}
+		WHERE EMAIL = #{email}
+	 </select>
+	 
+	 <select 	id="getUserTag"	parameterType="int"	resultType="string">
+		SELECT
+		TAG_NAME
+		FROM USER_TAG 
+		WHERE USER_ID = #{value}
 	 </select>
 	 
 	 <!-- SQL : SELECT LIST -->
 	<select  id="getUserList"  parameterType="search"	resultMap="userSelectMap">
 	  	SELECT *
-	  	FROM (	SELECT inner_table.* , ROWNUM AS row_seq
-	  					FROM		(	SELECT U.USER_ID , U.EMAIL, UT.TAG_NAME
-											FROM USERS U, USER_TAG UT 
-												<where>
-													<if test="searchKeyword !='' ">
-										 				EMAIL like &apos;${searchKeyword}%&apos;
-										 				OR 
-										 				TAG_NAME like &apos;%${searchKeyword}%&apos;
-													</if>
-												</where>
-											ORDER BY U.USER_ID ) inner_table
+	  	FROM (	SELECT INNER_TABLE.*, ROWNUM AS row_seq
+	  					FROM	(SELECT * FROM
+									(SELECT U.USER_ID , U.EMAIL, UT.TAG_NAME FROM USERS U, USER_TAG UT 
+										WHERE 
+										U.USER_ID = UT.USER_ID) SELECT_TABLE
+									<where>
+										<if test="searchKeyword !='' ">
+											TAG_NAME LIKE &apos;${searchKeyword}%&apos;
+											
+											OR EMAIL LIKE &apos;${searchKeyword}%&apos;
+										</if>
+									</where>
+									) INNER_TABLE
 						WHERE ROWNUM &lt;= #{endRowNum} )
 		WHERE row_seq BETWEEN #{startRowNum} AND #{endRowNum} 
 	 </select>
 	 
 	 <!-- SQL : UPDATE -->
-	 <update	id="updateUser"	parameterType="user" keyColumn="USER_ID" keyProperty="userId" useGeneratedKeys="true" >
+	 <update	id="updateUser"	parameterType="user" >
 	   	UPDATE USERS
-	   	<set>
-			PWD	=#{pwd}
-	   	</set>
-	   	WHERE  EMAIL= #{email}
+	   	SET
+	   		EMAIL = #{email},
+			PWD	= #{pwd}
+	   	WHERE  USER_ID= #{userId}
 	 </update>
 	 
 	 <delete	id="deleteUserTag"	parameterType="int" >
@@ -72,16 +81,27 @@
 	<!-- SQL : SELECT ROW Count -->	 
 	 <select  id="getTotalCount"  parameterType="search"	 resultType="int">
 	  	SELECT COUNT(*)
-	  	FROM (	SELECT U.USER_ID , U.EMAIL, UT.TAG_NAME
-											FROM USERS U, USER_TAG UT 
-												<where>
-													<if test="searchKeyword !='' ">
-										 				EMAIL like &apos;${searchKeyword}%&apos;
-										 				OR 
-										 				TAG_NAME like &apos;%${searchKeyword}%&apos;
-													</if>
-												</where>
-											ORDER BY U.USER_ID ) countTable						
+	  	FROM (	SELECT INNER_TABLE.*, ROWNUM AS row_seq
+	  					FROM	(SELECT * FROM
+									(SELECT U.USER_ID , U.EMAIL, UT.TAG_NAME FROM USERS U, USER_TAG UT 
+										WHERE 
+										U.USER_ID = UT.USER_ID) SELECT_TABLE
+									<where>
+										<if test="searchKeyword !='' ">
+											TAG_NAME LIKE &apos;${searchKeyword}%&apos;
+											
+											OR EMAIL LIKE &apos;${searchKeyword}%&apos;
+										</if>
+									</where> ) INNER_TABLE
+								 ) COUNT_TABLE						
+	 </select>
+	 
+	 <!-- SQL : SELECT ONE -->
+	 <select 	id="checkDuplication"	parameterType="string" resultMap="userSelectMap" >
+		SELECT
+		EMAIL
+		FROM USERS
+		WHERE EMAIL = #{email}
 	 </select>
 	 
 </mapper>

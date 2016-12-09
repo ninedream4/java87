@@ -9,7 +9,7 @@ public interface UserService {
 
 	public void addUser(User user) throws Exception;
 
-	public User getUser(String email) throws Exception;
+	public User getUser(String email, String pwd) throws Exception;
 
 	public Map<String, Object> getUserList(Search search) throws Exception;
 

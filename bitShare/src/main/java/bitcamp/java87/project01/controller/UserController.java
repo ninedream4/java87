@@ -68,14 +68,17 @@ public class UserController {
 	public String login(@ModelAttribute("user") User user, HttpSession session) throws Exception {
 
 		System.out.println("/user/login : POST");
+		
 		// Business Logic
-		User dbUser = userService.getUser(user.getEmail());
-
-		if (user.getPwd().equals(dbUser.getPwd())) {
+		User dbUser = userService.getUser(user.getEmail(), user.getPwd());
+		
+		if(dbUser != null) {
 			session.setAttribute("user", dbUser);
+			return "redirect:/login.jsp";
 		}
-
-		return "redirect:/login.jsp";
+		
+		return "redirect:/common/error.jsp";
+	
 	}
 
 	@RequestMapping(value = "logout", method = RequestMethod.POST)
@@ -92,6 +95,7 @@ public class UserController {
 	public String checkDuplication(@RequestParam("email") String email, Model model) throws Exception {
 
 		System.out.println("/user/checkDuplication : POST");
+		
 		// Business Logic
 		boolean result = userService.checkDuplication(email);
 		model.addAttribute("result", new Boolean(result));
@@ -100,8 +104,8 @@ public class UserController {
 		return "forward:/user/checkDuplication.jsp";
 	}
 
-	@RequestMapping(value = "listUser")
-	public String listUser(@ModelAttribute("search") Search search, Model model, HttpServletRequest request)
+	@RequestMapping(value = "listUserByTag")
+	public String listUserByTag(@ModelAttribute("search") Search search, Model model, HttpServletRequest request)
 			throws Exception {
 
 		System.out.println("/user/listUser : GET / POST");

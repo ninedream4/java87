@@ -37,8 +37,14 @@ public class UserServiceImpl implements UserService {
 		userDao.addUserTag(user);
 	}
 
-	public User getUser(String email) throws Exception {
-		return userDao.getUser(email);
+	public User getUser(String email, String pwd) throws Exception {
+		User user = new User();
+		user.setEmail(email);
+		user.setPwd(pwd);
+		
+		user = userDao.getUser(user);
+		user.setTag(userDao.getUserTag(user.getUserId()));
+		return user;
 	}
 
 	public Map<String, Object> getUserList(Search search) throws Exception {
@@ -59,12 +65,11 @@ public class UserServiceImpl implements UserService {
 	}
 
 	public boolean checkDuplication(String email) throws Exception {
-		boolean result = true;
-		User user = userDao.getUser(email);
-		if (user != null) {
-			result = false;
+		if (userDao.checkDuplication(email)) {
+			return true;
 		}
-		return result;
+		
+		return false;
 	}
 
 }

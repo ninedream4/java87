@@ -81,7 +81,7 @@
 							<hr class="star-primary"></hr>
 							<br /> <br />
 
-							<form name="loginForm" method="post" action="/user/login ">
+							<form name="loginForm" method="post" action="/user/login">
 								<div class="form-group" style="width: 70%; margin: auto;">
 									<div align="left">
 										<label for="inputEmail" style="font-size: 20px;">Email
@@ -126,8 +126,7 @@
 						<h2 align="center">sign up</h2>
 						<hr class="star-primary">
 
-						<form name="addUserForm" id="addUserForm" method="post"
-							action="/user/addUser">
+						<form name="addUserForm" method="post" action="/user/addUser">
 							<div class="form-group" style="width: 70%; margin: auto;">
 								<label for="inputEmail" style="font-size: 20px;">Email
 									address</label> <input type="text" class="form-control" name="email"
@@ -187,24 +186,23 @@
 							<h2>upload</h2>
 						</div>
 						<hr class="star-primary">
-						<form name="addContentForm" method="post"
-							action="/content/addContent">
+						<form name="addContentForm" id="addContentForm" method="post"	action="/content/addContent">
 							<div class="form-group" style="width: 70%; margin: auto;">
 								<div style="text-align: left">
-									<label for="inputTitle" style="font-size: 20px;">Title</label>
-									<input type="textarea" class="form-control" id="inputTitle"
+									<label for="title" style="font-size: 20px;">Title</label>
+									<input type="textarea" class="form-control" id="title"
 										name="title" placeholder="Title">
 								</div>
 							</div>
 							<br />
 							<div class="form-group" style="width: 70%; margin: auto;">
 								<div style="text-align: left">
-									<label for="inputTitle" style="font-size: 20px;">Upload</label></br>
+									<label for="upload-name" style="font-size: 20px;">Upload</label></br>
 									<div class="filebox">
-										<input class="upload-name" value="file...."
-											disabled="disabled"> <label for="ex_filename">Upload</label>
-										<input type="file" id="ex_filename" class="upload-hidden"
-											name="filePath">
+										<input class="upload-name" value="upload file" disabled="disabled">
+										<label for="file">upload</label>
+										<input type="file" id="file" class="upload-hidden"
+											name="file">
 									</div>
 								</div>
 							</div>
@@ -228,8 +226,7 @@
 						</form>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-primary"
-							onclick="addContentSubmit()">Submit</button>
+						<button type="button" class="btn btn-primary" onclick="addContentSubmit()">Submit</button>
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					</div>
 				</div>

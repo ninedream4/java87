@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import bitcamp.java87.project01.domain.Content;
 import bitcamp.java87.project01.service.ContentService;
@@ -31,13 +32,13 @@ public class ContentController {
 
 	@Value("#{commonProperties['pageSize']}")
 	int pageSize;
-
+	
 	@RequestMapping(value = "addContent", method = RequestMethod.POST)
-	public String addContent(@ModelAttribute("content") Content content) throws Exception {
-
+	public String addContent(@ModelAttribute("content") Content content, @RequestParam("file") MultipartFile file) throws Exception {
+		
 		System.out.println("/content/addContent : POST");
 		// Business Logic
-		contentService.addContent(content);
+		contentService.addContent(content, file);
 		
 		return "redirect:/index.jsp";
 	}
@@ -53,16 +54,16 @@ public class ContentController {
 		return "redirect:/index.jsp";
 	}
 
-	@RequestMapping(value = "deleteContent", method = RequestMethod.GET)
-	public String deleteContent(@RequestParam("contentId") int contentId, Model model) throws Exception {
-
-		System.out.println("/content/deleteContent : GET");
-		// Business Logic
-		Content content = contentService.deleteContent(contentId);
-		model.addAttribute("content", content);
-
-		return "redirect:/index.jsp";
-	}
+//	@RequestMapping(value = "deleteContent", method = RequestMethod.GET)
+//	public String deleteContent(@RequestParam("contentId") int contentId, Model model) throws Exception {
+//
+//		System.out.println("/content/deleteContent : GET");
+//		// Business Logic
+//		Content content = contentService.deleteContent(contentId);
+//		model.addAttribute("content", content);
+//
+//		return "redirect:/index.jsp";
+//	}
 
 	@RequestMapping(value = "updateContent", method = RequestMethod.POST)
 	public String updateContent(@ModelAttribute() Content content, Model model) throws Exception {

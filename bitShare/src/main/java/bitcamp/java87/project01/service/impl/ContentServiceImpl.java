@@ -3,7 +3,9 @@ package bitcamp.java87.project01.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import bitcamp.java87.project01.common.Upload;
 import bitcamp.java87.project01.dao.ContentDao;
 import bitcamp.java87.project01.domain.Content;
 import bitcamp.java87.project01.service.ContentService;
@@ -15,7 +17,8 @@ public class ContentServiceImpl implements ContentService {
 	@Autowired
 	@Qualifier("contentDaoImpl")
 	private ContentDao contentDao;
-
+	private Upload upload = new Upload();
+	
 	public void setContentDao(ContentDao contentDao) {
 		this.contentDao = contentDao;
 	}
@@ -26,15 +29,17 @@ public class ContentServiceImpl implements ContentService {
 	}
 
 	/// Method
-	public void addContent(Content content) throws Exception {
+	public void addContent(Content content, MultipartFile file) throws Exception {
 		contentDao.addContent(content);
+		upload.uploadFile(file, content.getTitle(), file.getName());
+		
 		contentDao.addContentTag(content);
 	}
 
 	public Content getContent(int contentId) throws Exception {
 		Content content = contentDao.getContent(contentId);
-		content.setTag(contentDao.getContentTag(title));
-		return 
+		content.setTag(contentDao.getContentTag(contentId));
+		return content;
 	}
 
 	public void deleteContent(int contentId) throws Exception {
@@ -45,6 +50,12 @@ public class ContentServiceImpl implements ContentService {
 		contentDao.updateContent(content);
 		contentDao.deleteContentTag(content.getContentId());
 		contentDao.addContentTag(content);
+	}
+
+	@Override
+	public Content getContent(String title) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

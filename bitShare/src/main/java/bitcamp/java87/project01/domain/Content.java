@@ -3,6 +3,8 @@ package bitcamp.java87.project01.domain;
 import java.util.Date;
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Content {
 
 	private String title;
@@ -12,7 +14,8 @@ public class Content {
 	private String category;
 	private Date regDate;
 	private List<String> tag;
-
+	private MultipartFile file;
+	 
 	public Content() {
 	}
 
@@ -72,6 +75,14 @@ public class Content {
 		this.tag = tag;
 	}
 
+	public MultipartFile getFile() {
+        return file;
+    }
+ 
+    public void setFile(MultipartFile file) {
+        this.file = file;
+    }
+    
 	@Override
 	public String toString() {
 		return "Content [title=" + title + ", contentId=" + contentId + ", fileDesc=" + fileDesc + ", filePath="

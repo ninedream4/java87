@@ -27,23 +27,33 @@ public class UserDaoImpl implements UserDao {
 		System.out.println(this.getClass());
 	}
 
-	/// Method
+	@Override
 	public void addUser(User user) throws Exception {
 		sqlSession.insert("UserMapper.addUser", user);
 	}
-
+	
+	@Override
 	public void addUserTag(User user) throws Exception {
 		sqlSession.insert("UserMapper.addUserTag", user);
 	}
-
-	public User getUser(String email) throws Exception {
-		return sqlSession.selectOne("UserMapper.getUser", email);
+	
+	@Override
+	public User getUser(User user) throws Exception {
+		user = sqlSession.selectOne("UserMapper.getUser", user);
+		return user;
 	}
-
+	
+	@Override
+	public List<String> getUserTag(int userId) throws Exception {
+		return sqlSession.selectList("UserMapper.getUserTag", userId);
+	}
+	
+	@Override
 	public List<User> getUserList(Search search) throws Exception {
 		return sqlSession.selectList("UserMapper.getUserList", search);
 	}
 	
+	@Override
 	public void updateUser(User user) throws Exception {
 		sqlSession.update("UserMapper.updateUser", user);
 	}
@@ -57,5 +67,12 @@ public class UserDaoImpl implements UserDao {
 		return sqlSession.selectOne("UserMapper.getTotalCount", search);
 	}
 
-	
+	@Override
+	public boolean checkDuplication(String email) throws Exception {
+		if(sqlSession.selectOne("UserMapper.checkDuplication", email)==null) {
+			return true;
+		}
+		return false;
+	}
+
 }
