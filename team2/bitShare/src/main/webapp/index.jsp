@@ -30,11 +30,12 @@
   href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
   rel="stylesheet" type="text/css">
 <link href="css/fileinputbutton.css" rel="stylesheet" type="text/css">
+<!-- 리스트 css -->
+<!-- <link href="css/3-col-portfolio.css" rel="stylesheet" type="text/css"> -->
 
 
 
 </head>
-
 
 <body id="page-top" class="index">
   <!-- Portfolio Modals -->
@@ -42,8 +43,7 @@
 
 
 
-  <div class="portfolio-modal modal fade" id="modalView" tabindex="-1"
-    role="dialog" aria-hidden="true">
+  <div class="portfolio-modal modal fade" id="modalView" tabindex="-1"  role="dialog" aria-hidden="true">
     <div class="modal-content">
       <div class="close-modal" data-dismiss="modal">
         <div class="lr">
@@ -61,6 +61,7 @@
   </div>
 
 
+  
   <div class="login modal fade" id="login" tabindex="-1" role="dialog"
     aria-hidden="true">
     <div class="modal-dialog">
@@ -104,7 +105,6 @@
     </div>
   </div>
 
-
   <div class="modal fade" id="signup" tabindex="-1" role="dialog"
     aria-hidden="true" aria-labelledby="myModalLabel">
     <div class="modal-dialog">
@@ -120,24 +120,27 @@
           <h2 align="center">sign up</h2>
           <hr class="star-primary">
            
-        <form name="addUserForm" id="addUserForm" method="post"  action="/user/addUser">
+         <form name="addUserForm" id="addUserForm" method="post"  action="/user/addUser">
           <div class="form-group" style="width: 70%; margin: auto;">
             <label for="inputEmail" style="font-size: 20px;">Email address</label>
              <input type="text" class="form-control" name="email" id="email"  placeholder="email">
+             <span id="errorEmail" style="display:none;color:red;">Check your Input</span>
           </div>
 
           <br />
 
-          <div class="form-group" style="width: 70%; margin: auto;">
+         <div class="form-group" style="width: 70%; margin: auto;">
             <label for="inputPassword" style="font-size: 20px;">Password</label>
             <input type="password" class="form-control" id="pwd"    name="pwd"    placeholder="Password">
+            
           </div>
 
           <br />
 
           <div class="form-group" style="width: 70%; margin: auto;">
-            <label for="inputConfirmPassowrd" style="font-size: 20px;">Password Confirm           </label> 
+            <label for="inputConfirmPassowrd" style="font-size: 20px;">Password Confirm </label> 
             <input type="password" class="form-control"    id="confirmPwd"  name="confirmPwd" placeholder="ConfirmPassowrd">
+             <span id="errorPwd" style="display:none;color:red;">Check your Input</span>
           </div>
 
           <br />
@@ -147,7 +150,6 @@
               type="text" class="form-control" id="inputTag" name="tag" placeholder="Tag">
           </div>
           </form>
-          
           <br />
         </div>
         <div class="modal-footer">
@@ -175,22 +177,22 @@
             <h2>upload</h2>
           </div>
           <hr class="star-primary">
-          <form name="addContentForm" method="post" action="/content/addContent">
+        	<form name="addContentForm" id="addContentForm" method="post" action="/content/addContent">
             <div class="form-group" style="width: 70%; margin: auto;">
               <div style="text-align: left">
                 <label for="inputTilte" style="font-size: 20px;">Title</label> <input
-                  type="textarea" class="form-control" id="inputTitle" name="title"
+                  type="textarea" class="form-control" id="inputTitle"
                   placeholder="Title">
               </div>
             </div>
             <br />
             <div class="form-group" style="width: 70%; margin: auto;">
               <div style="text-align: left">
-                <label for="inputTilte" style="font-size: 20px;">Upload</label></br>
+              <label for="inputTilte" style="font-size: 20px;">Upload</label></br>
                 <div class="filebox">
                   <input class="upload-name" value="file...." disabled="disabled">
                   <label for="ex_filename">Upload</label> <input type="file"
-                    id="ex_filename" class="upload-hidden" name="filePath">
+                    id="ex_filename" class="upload-hidden">
                 </div>
               </div>
             </div>
@@ -199,7 +201,7 @@
               <div style="text-align: left">
                 <label for="inputTilte" style="font-size: 20px;">Description</label></br>
                 <textarea rows="5" cols="30" name="contents"
-                  class="form-control" id="inputTitle" name="fileDesc">Description</textarea>
+                  class="form-control" id="inputTitle">Description</textarea>
               </div>
             </div>
             <br />
@@ -207,14 +209,14 @@
               <div style="text-align: left">
                 <label for="inputTilte" style="font-size: 20px;">Tags</label> <input
                   type="text" class="form-control" id="inputTitle"
-                  placeholder="Tags" name="tag">
+                  placeholder="Tags">
               </div>
             </div>
             <br />
           </form>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" onclick="addContentSubmit()">Submit</button>
+          <button type="button" class="btn btn-primary"onclick="addContentSubmit()">Submit</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -245,9 +247,9 @@
               <a href="category.html">windows</a>
             </div>
           </li>
-          <li><a data-toggle="modal" data-target="#upload">upload</a></li>
-          <li><a data-toggle="modal" data-target="#login">login</a></li>
-          <li><a data-toggle="modal" data-target="#signup">signup</a></li>
+          <li><a data-toggle="modal" data-target="#upload" style="cursor:pointer">upload</a></li>
+          <li><a data-toggle="modal" data-target="#login" style="cursor:pointer">login</a></li>
+          <li><a data-toggle="modal" data-target="#signup" style="cursor:pointer">signup</a></li>
         </ul>
       </div>
       <!-- /.navbar-collapse -->
@@ -358,11 +360,11 @@
     </a>
   </div>
   <!-- jQuery -->
-  <script src="vendor/jquery/jquery.js"></script>
+  <script src="vendor/jquery/jquery.min.js"></script>
   <!-- Bootstrap Core JavaScript -->
   <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-  <!--jQuery.validation  -->
-  <script src="vendor/jquery/jquery.validate.js"></script>
+    <!-- ValidationCheck -->
+ <script src="vendor/jquery/jquery.validate.js"></script>
   <!-- Plugin JavaScript -->
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
@@ -371,12 +373,15 @@
   <script src="js/contact_me.js"></script>
   <!-- Theme JavaScript -->
   <script src="js/freelancer.min.js"></script>
-  <script src="js/slide.js" ></script>
-  <script src="js/fileUploadButton.js"  ></script>
-  <script type="text/javascript"  src="js/submit.js"></script>
-  <script type="text/javascript"  src="js/userValidationCheck.js"></script>
+  <script src="js/slide.js" id="slide"></script>
+<!--   <script src="js/modal.js" id="modalView"></script>
+ -->  
+  <script type="js/fileUploadButton.js" id="input_file"></script>
 
-
-
+  <script type="text/javascript" src="js/userValidationCheck.js"></script>
+  <script type="text/javascript" src="js/submit.js"></script>
+ 
+ <!--  <script type="text/javascript" src="js/slidename.js"></script> -->
+  
 </body>
 </html>

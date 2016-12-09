@@ -41,15 +41,6 @@ public class UserController {
 	int pageSize;
 	
 	
-	//@RequestMapping("/addUserView.do")
-	//public String addUserView() throws Exception {
-/*	@RequestMapping( value="addUser", method=RequestMethod.GET )
-	public String addUser() throws Exception{
-	
-		System.out.println("/user/addUser : GET");
-		
-		return "redirect:/user/addUserView.jsp";
-	}*/
 	
 	//@RequestMapping("/addUser.do")
 	@RequestMapping( value="addUser", method=RequestMethod.POST )
@@ -160,7 +151,7 @@ public class UserController {
 	}
 	
 	//@RequestMapping("/listUser.do")
-	@RequestMapping( value="listUser" )
+	@RequestMapping( value="listContent" )
 	public String listUser( @ModelAttribute("search") Search search , Model model , HttpServletRequest request) throws Exception{
 		
 		System.out.println("/user/listUser : GET / POST");
@@ -179,6 +170,30 @@ public class UserController {
 		model.addAttribute("resultPage", resultPage);
 		model.addAttribute("search", search);
 		
-		return "forward:/user/listUser.jsp";
+		return "forward:search.jsp";
 	}
+	
+	/*//@RequestMapping("/listUser.do")
+		@RequestMapping( value="listUser" )
+		public String listUser( @ModelAttribute("search") Search search , Model model , HttpServletRequest request) throws Exception{
+			
+			System.out.println("/user/listUser : GET / POST");
+			
+			if(search.getCurrentPage() ==0 ){
+				search.setCurrentPage(1);
+			}
+			search.setPageSize(pageSize);
+			
+			Map<String , Object> map=userService.getUserList(search);
+			
+			Page resultPage = new Page( search.getCurrentPage(), ((Integer)map.get("totalCount")).intValue(), pageUnit, pageSize);
+			System.out.println(resultPage);
+			
+			model.addAttribute("list", map.get("list"));
+			model.addAttribute("resultPage", resultPage);
+			model.addAttribute("search", search);
+			
+			return "forward:/user/listUser.jsp";
+		}*/
+	
 }

@@ -16,6 +16,8 @@
 		<result property="regDate" 			column="REG_DATE" 					jdbcType="DATE" />
 	</resultMap>
 	
+	
+	
 	<!-- SQL : INSERT --> <!-- seq_product_prod_no.NEXTVAL --> <!--  #{ssn:VARCHAR} ,  -->
 	<insert 	id="addProduct"		parameterType="product" >
 	 	INSERT
