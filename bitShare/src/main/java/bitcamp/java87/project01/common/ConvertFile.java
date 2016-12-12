@@ -14,7 +14,10 @@ import org.ghost4j.renderer.SimpleRenderer;
 
 public class ConvertFile {
 	public void convertFileToJpg(String filePath, String fileName) throws Exception {
+		System.out.println("convertFileToJpg() start...");
+		
 		FileOutputStream fos = null;
+		System.out.println(filePath+fileName);
 		
 		try {
 			PDFDocument document = new PDFDocument();
@@ -23,7 +26,7 @@ public class ConvertFile {
 			 SimpleRenderer renderer = new SimpleRenderer();
 
 			    // set resolution (in DPI)
-			    renderer.setResolution(300);
+			    renderer.setResolution(150);
 			    
 			    List<Image> images = renderer.render(document);
 			    

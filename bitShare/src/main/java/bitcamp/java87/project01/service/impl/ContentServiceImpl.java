@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import bitcamp.java87.project01.common.ConvertFile;
 import bitcamp.java87.project01.common.Upload;
 import bitcamp.java87.project01.dao.ContentDao;
 import bitcamp.java87.project01.domain.Content;
@@ -17,7 +18,9 @@ public class ContentServiceImpl implements ContentService {
 	@Autowired
 	@Qualifier("contentDaoImpl")
 	private ContentDao contentDao;
+	
 	private Upload upload = new Upload();
+	private ConvertFile convertFile = new ConvertFile();
 	
 	public void setContentDao(ContentDao contentDao) {
 		this.contentDao = contentDao;
@@ -30,9 +33,12 @@ public class ContentServiceImpl implements ContentService {
 
 	/// Method
 	public void addContent(Content content, MultipartFile file) throws Exception {
-		contentDao.addContent(content);
-		upload.uploadFile(file, content.getTitle(), file.getName());
 		
+		upload.uploadFile(file, content);
+		
+		System.out.println("content : "+content);
+		convertFile.convertFileToJpg(content.getFilePath(), content.getFileName());
+		contentDao.addContent(content);
 		contentDao.addContentTag(content);
 	}
 

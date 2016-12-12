@@ -5,17 +5,21 @@ import java.io.FileOutputStream;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import bitcamp.java87.project01.domain.Content;
+
 public class Upload {
 	private FileOutputStream fos;
     private ConvertFile convertFile;
     private String filePath;
+    private String fileName;
     
-    public void uploadFile(MultipartFile file, String title, String fileName) {
+    public void uploadFile(MultipartFile file, Content content) {
          
         try{
         	
             byte fileData[] = file.getBytes();
-             filePath = "c:/bitshare/"+ title + "/";
+             filePath = "c:/bitshare/"+ content.getTitle() + "/";
+             fileName = file.getOriginalFilename();
              
              File dir = new File(filePath);
              
@@ -26,7 +30,10 @@ public class Upload {
             fos = new FileOutputStream(filePath + fileName);
              
             fos.write(fileData);
-         
+            
+            content.setFilePath(filePath);
+            content.setFileName(fileName);
+            
         }catch(Exception e){
              
             e.printStackTrace();
@@ -37,7 +44,6 @@ public class Upload {
                  
                 try{
                     fos.close();
-                    convertFile.convertFileToJpg(filePath, fileName);
                 }catch(Exception e){}
                  
                 }

@@ -14,7 +14,5 @@ function logoutUserSubmit(){
 }
 
 function addContentSubmit() {
-
 	document.addContentForm.submit();
-
 }

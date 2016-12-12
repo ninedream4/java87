@@ -86,9 +86,6 @@
 					<div class="rl"></div>
 				</div>
 			</div>
-			
-  
-
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-8 col-lg-offset-2">
@@ -208,7 +205,7 @@
 			</div>
 		</div>
 
-		<div class="modal fade" id="upload" " tabindex="-1" role="dialog"
+		<div class="modal fade" id="upload" tabindex="-1" role="dialog"
 			aria-hidden="true" aria-labelledby="myModalLabel">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -224,7 +221,7 @@
 							<h2>upload</h2>
 						</div>
 						<hr class="star-primary">
-						<form name="addContentForm" id="addContentForm" method="post"	action="/content/addContent">
+						<form name="addContentForm" id="addContentForm" method="post" action="/content/addContent" enctype="multipart/form-data">
 							<div class="form-group" style="width: 70%; margin: auto;">
 								<div style="text-align: left">
 									<label for="title" style="font-size: 20px;">Title</label>
@@ -237,7 +234,7 @@
 								<div style="text-align: left">
 									<label for="upload-name" style="font-size: 20px;">Upload</label></br>
 									<div class="filebox">
-										<input class="upload-name" value="upload file" disabled="disabled">
+										<input class="upload-name" value="upload" disabled="disabled">
 										<label for="file">upload</label>
 										<input type="file" id="file" class="upload-hidden"
 											name="file">

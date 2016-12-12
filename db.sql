@@ -47,6 +47,7 @@ CREATE TABLE BRDS (
 	TLE VARCHAR2(50) NOT NULL, /* 제목 */
 	DES       CLOB         NULL, /* 내용 */
 	FILE_PATH VARCHAR2(255) NOT NULL, /* 파일경로 */
+	FILE_NAME VARCHAR2(255) NOT NULL, /* 파일경로 */
 	CATE VARCHAR2(50), /* 카테고리 */
 	REG_DATE DATE NOT NULL /* 등록시간 */
 );
