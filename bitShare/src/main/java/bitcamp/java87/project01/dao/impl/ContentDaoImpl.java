@@ -38,8 +38,8 @@ public class ContentDaoImpl implements ContentDao {
 		sqlSession.insert("ContentMapper.addContentTag", content);
 	}
 	
-	public Content getContent(int contentId) throws Exception {
-		return sqlSession.selectOne("ContentMapper.getContent", contentId);
+	public Content getContent(String title) throws Exception {
+		return sqlSession.selectOne("ContentMapper.getContent", title);
 	}
 
 	public void deleteContent(int contentId) throws Exception {

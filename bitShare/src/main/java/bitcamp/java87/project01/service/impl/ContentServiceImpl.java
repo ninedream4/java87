@@ -41,11 +41,10 @@ public class ContentServiceImpl implements ContentService {
 		contentDao.addContent(content);
 		contentDao.addContentTag(content);
 	}
-
-	public Content getContent(int contentId) throws Exception {
-		Content content = contentDao.getContent(contentId);
-		content.setTag(contentDao.getContentTag(contentId));
-		return content;
+	
+	@Override
+	public Content getContent(String title) throws Exception {
+		return contentDao.getContent(title);
 	}
 
 	public void deleteContent(int contentId) throws Exception {
@@ -58,10 +57,5 @@ public class ContentServiceImpl implements ContentService {
 		contentDao.addContentTag(content);
 	}
 
-	@Override
-	public Content getContent(String title) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+	
 }

@@ -11,7 +11,7 @@ public interface ContentDao {
 
 	public void addContentTag(Content content) throws Exception;
 
-	public Content getContent(int contentId) throws Exception;
+	public Content getContent(String title) throws Exception;
 
 	public List<String> getContentTag(int contentId) throws Exception;
 

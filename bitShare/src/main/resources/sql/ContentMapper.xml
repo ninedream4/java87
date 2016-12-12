@@ -40,18 +40,18 @@
 	</insert>
 
 	<!-- SQL : SELECT ONE -->
-	<select id="getContent" parameterType="int" resultMap="contentSelectMap">
+	<select id="getContent" parameterType="string" resultMap="contentSelectMap">
 		SELECT
-		BRD_ID , USER_ID , TLE , DES , FILE_PATH , CATE , REG_DATE
+		BRD_ID , USER_ID , TLE , DES , FILE_PATH , FILE_NAME, CATE , REG_DATE
 		FROM BRDS
-		WHERE BRD_ID = #{value}
+		WHERE TLE = #{value}
 	</select>
 
 	<!-- SQL : SELECT LIST -->
 	<select  id="getContentList"  parameterType="search"	resultMap="contentSelectMap">
 	  	SELECT *
 	  	FROM (	SELECT inner_table.* , ROWNUM AS row_seq
-	  					FROM		(	SELECT BRD_ID, USER_ID, TLE, DES, FILE_PATH, CATE, REG_DATE
+	  					FROM		(	SELECT BRD_ID, USER_ID, TLE, DES, FILE_PATH, FILE_NAME, CATE, REG_DATE
 											FROM BRDS
 											<if test="searchCondition != null ">
 										 		<where> 
@@ -92,7 +92,7 @@
 	<!-- SQL : SELECT ROW Count -->	 
 	 <select  id="getTotalCount"  parameterType="search"	 resultType="int">
 	  	SELECT COUNT(*)
-	  	FROM( SELECT BRD_ID, USER_ID, TLE, DES, FILE_PATH, CATE, REG_DATE
+	  	FROM( SELECT BRD_ID
 											FROM BRDS
 											<if test="searchCondition != null ">
 										 		<where> 
