@@ -40,6 +40,43 @@
 	<div w3-include-html="content.html"></div>
 
 
+    <div class="login modal fade" id="modalView" tabindex="-1" role="dialog"
+    aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"
+            aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div align="center">
+          <div class="modal-body">
+            <br /> <br /> <br /> <br />
+            <div style="width: 450px; height: 300px; overflow: hidden">
+           <div class="cycle-slideshow" data-cycle-fx="scrollHorz"
+            data-cycle-timeout="0"  data-cycle-prev="#prev" data-cycle-next="#next" align="center">
+            <img src="img/portfolio/cabin.png" style="width: 450px; height: 300px; title="cabin" />
+            <img src="img/portfolio/cake.png" style="width: 450px; height: 300px; alt="cake" />
+            <img src="img/portfolio/circus.png" style="width: 450px; height: 300px; alt="circus" />
+            <img src="img/portfolio/game.png" style="width: 450px; height: 300px; alt="game" />
+            <img src="img/portfolio/safe.png" style="width: 450px; height: 300px; alt="safe" />
+            <img src="img/portfolio/submarine.png" style="width: 450px; height: 300px; alt="submarine" />
+            </div>
+            </div>
+            <div class="center">
+              <a href=# id="prev">Prev</a>
+              <a href=# id="next">Next</a>
+            </div>
+            <br /> <br /> <br /> <br /> <br /> <br />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 	<div class="portfolio-modal modal fade" id="modalView" tabindex="-1"
 		role="dialog" aria-hidden="true">
@@ -50,7 +87,7 @@
 				</div>
 			</div>
 			
-
+  
 
 				<div class="container">
 					<div class="row">
@@ -126,19 +163,20 @@
 						<h2 align="center">sign up</h2>
 						<hr class="star-primary">
 
-						<form name="addUserForm" method="post" action="/user/addUser">
+						     <form name="addUserForm" id="addUserForm" method="post"  action="/user/addUser">
 							<div class="form-group" style="width: 70%; margin: auto;">
 								<label for="inputEmail" style="font-size: 20px;">Email
 									address</label> <input type="text" class="form-control" name="email"
 									id="email" placeholder="email">
+									 <span id="errorEmail" style="display:none;color:red;">Check your Input</span>
 							</div>
 
 							<br />
 
 							<div class="form-group" style="width: 70%; margin: auto;">
 								<label for="inputPassword" style="font-size: 20px;">Password</label>
-								<input type="password" class="form-control" id="pwd" name="pwd"
-									placeholder="Password">
+								<input type="password" class="form-control" id="pwd" name="pwd"			placeholder="Password">
+									   <span id="errorPwd" style="display:none;color:red;">Check your Input</span>
 							</div>
 
 							<br />
@@ -231,7 +269,10 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>		
+	
+
+		
 		<!-- Navigation -->
 		<nav id="mainNav"
 			class="navbar navbar-default navbar-fixed-top navbar-custom"
@@ -387,6 +428,7 @@
 		<script src="js/fileUploadButton.js"></script>
 		<script type="text/javascript" src="js/submit.js"></script>
 		<script type="text/javascript" src="js/userValidationCheck.js"></script>
-
+     <!-- Slider JavaScript -->
+  <script src="js/jquery.cycle2.js"></script>
 </body>
 </html>

@@ -39,7 +39,7 @@ public class UserController {
 	@Value("#{commonProperties['pageSize']}")
 	int pageSize;
 
-	@RequestMapping(value = "addUser", method = RequestMethod.POST)
+	@RequestMapping(value="addUser", method=RequestMethod.POST)
 	public String addUser(@ModelAttribute("user") User user) throws Exception {
 
 		System.out.println("/user/addUser : POST");
@@ -49,7 +49,7 @@ public class UserController {
 		return "redirect:/index.jsp";
 	}
 
-	@RequestMapping(value = "updateUser", method = RequestMethod.POST)
+	@RequestMapping(value="updateUser", method = RequestMethod.POST)
 	public String updateUser(@ModelAttribute("user") User user, Model model, HttpSession session) throws Exception {
 
 		System.out.println("/user/updateUser : POST");
@@ -64,7 +64,7 @@ public class UserController {
 		return "redirect:/login.jsp";
 	}
 
-	@RequestMapping(value = "login", method = RequestMethod.POST)
+	@RequestMapping(value="login", method=RequestMethod.POST)
 	public String login(@ModelAttribute("user") User user, HttpSession session) throws Exception {
 
 		System.out.println("/user/login : POST");
@@ -81,7 +81,7 @@ public class UserController {
 	
 	}
 
-	@RequestMapping(value = "logout", method = RequestMethod.POST)
+	@RequestMapping(value="logout", method=RequestMethod.POST)
 	public String logout(HttpSession session) throws Exception {
 
 		System.out.println("/user/logout : POST");
@@ -91,7 +91,7 @@ public class UserController {
 		return "redirect:/index.jsp";
 	}
 
-	@RequestMapping(value = "checkDuplication", method = RequestMethod.POST)
+	@RequestMapping(value="checkDuplication", method=RequestMethod.POST)
 	public String checkDuplication(@RequestParam("email") String email, Model model) throws Exception {
 
 		System.out.println("/user/checkDuplication : POST");
@@ -104,7 +104,7 @@ public class UserController {
 		return "forward:/user/checkDuplication.jsp";
 	}
 
-	@RequestMapping(value = "listUserByTag")
+	@RequestMapping(value="listUserByTag")
 	public String listUserByTag(@ModelAttribute("search") Search search, Model model, HttpServletRequest request)
 			throws Exception {
 

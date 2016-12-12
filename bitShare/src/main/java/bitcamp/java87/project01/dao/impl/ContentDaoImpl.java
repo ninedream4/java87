@@ -1,5 +1,7 @@
 package bitcamp.java87.project01.dao.impl;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -7,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import bitcamp.java87.project01.dao.ContentDao;
 import bitcamp.java87.project01.domain.Content;
+import bitcamp.java87.project01.domain.Search;
 
 @Repository("contentDaoImpl")
 public class ContentDaoImpl implements ContentDao {
@@ -52,5 +55,23 @@ public class ContentDaoImpl implements ContentDao {
 	public void deleteContentTag(int contentId) throws Exception {
 		sqlSession.delete("ContentMapper.deleteContentTag", contentId);
 	}
+
+  @Override
+  public List<String> getContentTag(int contentId) throws Exception {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public List<Content> getContentList(Search search) throws Exception {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public int getTotalCount(Search search) throws Exception {
+    // TODO Auto-generated method stub
+    return 0;
+  }
 
 }
