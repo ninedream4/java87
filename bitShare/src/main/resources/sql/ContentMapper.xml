@@ -12,6 +12,7 @@
 		<result property="fileDesc" column="DES" jdbcType="VARCHAR" />
 		<result property="category" column="CATE" jdbcType="VARCHAR" />
 		<result property="filePath" column="FILE_PATH" jdbcType="VARCHAR" />
+		<result property="fileName" column="FILE_NAME" jdbcType="VARCHAR" />
 		<result property="regDate" column="REG_DATE" jdbcType="DATE" />
 		<collection property="tag" column="TAG_NAME" javaType="java.util.List"
 			ofType="content"></collection>
@@ -22,10 +23,10 @@
 		keyProperty="contentId" useGeneratedKeys="true">
 		INSERT
 		INTO BRDS( TLE , DES ,
-		FILE_PATH , CATE , REG_DATE)
+		FILE_PATH , FILE_NAME, CATE , REG_DATE)
 		VALUES (#{title:VARCHAR} ,
 		#{fileDesc:VARCHAR} , #{filePath:VARCHAR},
-		#{category:VARCHAR} ,
+		#{fileName:VARCHAR} , #{category:VARCHAR} ,
 		SYSDATE )
 	</insert>
 
