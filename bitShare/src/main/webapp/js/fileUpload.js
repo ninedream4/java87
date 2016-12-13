@@ -17,7 +17,7 @@ $(function(){
                  statustxt.html(percentVal).css('text-align', 'center');
             	 return true;
              },
-             uploadProgress: function(event, position, total, percentComplete) { //on progress
+             uploadProgress: function(event, position, total, percentComplete) { 
             	 percentVal = percentComplete.toString() + '%';
             	 var percentVal = percentComplete + '%';
             	 progressbar.width(percentVal);
@@ -25,7 +25,7 @@ $(function(){
              },
              success: function(response,status){
                  submitbutton.removeAttr('disabled');
-                 $('#success').modal();
+                 $('#successCheck').modal();
                  $('#upload').modal('toggle');
                  
              },
