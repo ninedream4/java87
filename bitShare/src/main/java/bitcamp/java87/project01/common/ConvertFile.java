@@ -13,7 +13,7 @@ import org.ghost4j.document.PDFDocument;
 import org.ghost4j.renderer.SimpleRenderer;
 
 public class ConvertFile {
-	public void convertFileToJpg(String filePath, String fileName) throws Exception {
+	public static void convertFileToJpg(String filePath, String fileName) throws Exception {
 		
 		FileOutputStream fos = null;
 		System.out.println(filePath+fileName);
@@ -30,7 +30,7 @@ public class ConvertFile {
 		    List<Image> images = renderer.render(document);
 		    
 		    for (int i = 0; i < images.size(); i++) {
-                ImageIO.write((RenderedImage) images.get(i), "png", new File(filePath + (i + 1) + ".png"));
+                ImageIO.write((RenderedImage) images.get(i), "png", new File(filePath + "img/" + (i + 1) + ".png"));
             }
 		    
 		}catch (Exception e) { 

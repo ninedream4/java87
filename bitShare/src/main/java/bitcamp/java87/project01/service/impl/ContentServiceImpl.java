@@ -20,7 +20,6 @@ public class ContentServiceImpl implements ContentService {
 	private ContentDao contentDao;
 	
 	private Upload upload = new Upload();
-	private ConvertFile convertFile = new ConvertFile();
 	
 	public void setContentDao(ContentDao contentDao) {
 		this.contentDao = contentDao;
@@ -37,9 +36,11 @@ public class ContentServiceImpl implements ContentService {
 		upload.uploadFile(file, content);
 		
 		System.out.println("content : "+content);
-		convertFile.convertFileToJpg(content.getFilePath(), content.getFileName());
+		
 		contentDao.addContent(content);
 		contentDao.addContentTag(content);
+		
+		new PdfToJpegConverter(content.getFilePath(), content.getFileName()).start();
 	}
 	
 	@Override
@@ -55,6 +56,26 @@ public class ContentServiceImpl implements ContentService {
 		contentDao.updateContent(content);
 		contentDao.deleteContentTag(content.getContentId());
 		contentDao.addContentTag(content);
+	}
+	
+	class PdfToJpegConverter extends Thread {
+		String filePath;
+		String fileName;
+		
+		public PdfToJpegConverter(String filePath, String fileName) {
+			super();
+			this.filePath = filePath;
+			this.fileName = fileName;
+		}
+
+		@Override
+		public void run() {
+			try {
+				ConvertFile.convertFileToJpg(filePath, fileName);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	
