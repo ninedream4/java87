@@ -26,8 +26,9 @@
 /* named upload */
 .filebox .upload-name {
   display: inline-block;
-  padding: .5em .75em;  /* labelÀÇ ÆÐµù°ª°ú ÀÏÄ¡ */
+  padding: .5em .75em;  /* labelï¿½ï¿½ ï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ */
   font-size: inherit;
+  font-color: #C7C7CD;
   font-family: inherit;
   line-height: normal;
   vertical-align: middle;
@@ -35,7 +36,7 @@
   border: 1px solid #ebebeb;
   border-bottom-color: #e2e2e2;
   border-radius: .25em;
-  -webkit-appearance: none; /* ³×ÀÌÆ¼ºê ¿ÜÇü °¨Ãß±â */
+  -webkit-appearance: none; /* ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ß±ï¿½ */
   -moz-appearance: none;
   appearance: none;
 }

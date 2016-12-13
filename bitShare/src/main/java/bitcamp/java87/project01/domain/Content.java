@@ -81,11 +81,12 @@ public class Content {
 		this.tag = tag;
 	}
 
-    
 	@Override
 	public String toString() {
 		return "Content [title=" + title + ", contentId=" + contentId + ", fileDesc=" + fileDesc + ", filePath="
-				+ filePath + ", category=" + category + ", regDate=" + regDate + ", tag=" + tag + "]";
+				+ filePath + ", fileName=" + fileName + ", category=" + category + ", regDate=" + regDate + ", tag="
+				+ tag + "]";
 	}
 
+    
 }

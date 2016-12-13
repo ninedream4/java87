@@ -95,7 +95,25 @@
 				</div>
 			</div>
 		</div>
-
+		
+		<div class="modal fade" id="success" tabindex="-1" role="dialog"
+			aria-hidden="true">
+			
+			<div class="modal-dialog">
+				<div class="modal-content">
+					
+					<div align="center">
+						<div class="modal-body">
+							<br /> <br /> <br /> <br />
+							<h2 class="modal-title" id="myModalLabel">upload success!</h2>
+							<hr class="star-primary"></hr>
+							<button type="button" class="btn btn-default" style="text-size:20px" data-dismiss="modal">  ok!  </button>
+							<br/><br/><br/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 		<div class="login modal fade" id="login" tabindex="-1" role="dialog"
 			aria-hidden="true">
@@ -234,7 +252,7 @@
 								<div style="text-align: left">
 									<label for="upload-name" style="font-size: 20px;">Upload</label></br>
 									<div class="filebox">
-										<input class="upload-name" value="upload" disabled="disabled">
+										<input class="upload-name" value="file..." disabled="disabled">
 										<label for="file">upload</label>
 										<input type="file" id="file" class="upload-hidden"
 											name="file">
@@ -246,7 +264,7 @@
 								</div>
 							</div>
 							<br />
-							<div class="form-group" style="width: 70%; margin: auto;">
+							<div class="form-group" style="width:70%; margin: auto;">
 								<div style="text-align: left">
 									<label for="inputTitle" style="font-size: 20px;">Description</label></br>
 									<textarea rows="5" cols="30" class="form-control"
@@ -254,7 +272,7 @@
 								</div>
 							</div>
 							<br />
-							<div class="form-group" style="width: 70%; margin: auto;">
+							<div class="form-group" style="width:70%; margin: auto;">
 								<div style="text-align: left">
 									<label for="inputTitle" style="font-size: 20px;">Tags</label> <input
 										type="text" class="form-control" id="inputTitle"
@@ -295,16 +313,10 @@
 			<div class="collapse navbar-collapse" id="menuBar">
 				<ul class="nav navbar-nav navbar-right">
 					<li class="hidden"><a href="#page-top"></a></li>
-					<li class="dropdown">
-						<button class="dropbtn">category</button>
-						<div class="dropdown-content" style="position: relative;">
-							<a href="category.html">java</a> <a href="category.html">c/c++</a>
-							<a href="category.html">windows</a>
-						</div>
-					</li>
-					<li><a data-toggle="modal" data-target="#upload">upload</a></li>
-					<li><a data-toggle="modal" data-target="#login">login</a></li>
-					<li><a data-toggle="modal" data-target="#signup">signup</a></li>
+					<li><a data-toggle="modal" style="cursor:pointer;" data-target="#category">category</a></li>
+					<li><a data-toggle="modal" style="cursor:pointer;" data-target="#upload">upload</a></li>
+					<li><a data-toggle="modal" style="cursor:pointer;" data-target="#login">login</a></li>
+					<li><a data-toggle="modal" style="cursor:pointer;" data-target="#signup">signup</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -382,23 +394,6 @@
 		</section>
 		<!-- Footer -->
 		<footer class="text-center">
-		<div class="footer-above">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12 text-center">
-						<h3>Contact Us</h3>
-						<ul class="list-inline">
-							<li><a href="" class="btn-social btn-outline"><i
-									class="fa fa-fw fa-facebook"></i></a></li>
-							<li><a href="" class="btn-social btn-outline"><i
-									class="fa fa-fw fa-google-plus"></i></a></li>
-							<li><a href="" class="btn-social btn-outline"><i
-									class="fa fa-fw fa-twitter"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
 		<div class="footer-below">
 			<div class="container">
 				<div class="row">

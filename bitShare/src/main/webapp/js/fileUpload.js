@@ -24,11 +24,12 @@ $(function(){
             	 statustxt.html(percentVal).css('text-align', 'center');
              },
              success: function(response,status){
-                 //성공후 서버에서 받은 데이터 처리
                  submitbutton.removeAttr('disabled');
+                 $('#success').modal();
+                 $('#upload').modal('toggle');
+                 
              },
              error: function(){
-                 //에러발생을 위한 code페이지
              }                               
          });   
          

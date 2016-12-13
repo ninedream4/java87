@@ -39,7 +39,7 @@ public class ContentController {
 		System.out.println("/content/addContent : POST");
 		// Business Logic
 		contentService.addContent(content, file);
-		
+		System.out.println("add finish!!");
 		return "redirect:/index.jsp";
 	}
 
