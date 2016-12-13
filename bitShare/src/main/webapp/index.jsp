@@ -30,7 +30,7 @@
 	href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
 	rel="stylesheet" type="text/css">
 <link href="css/fileinputbutton.css" rel="stylesheet" type="text/css">
-
+<link href="css/progress_style.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -221,7 +221,7 @@
 							<h2>upload</h2>
 						</div>
 						<hr class="star-primary">
-						<form name="addContentForm" id="addContentForm" method="post" action="/content/addContent" enctype="multipart/form-data">
+						<form name="addContentForm" id="addContentForm" method="post" action="/content/addContent">
 							<div class="form-group" style="width: 70%; margin: auto;">
 								<div style="text-align: left">
 									<label for="title" style="font-size: 20px;">Title</label>
@@ -239,6 +239,10 @@
 										<input type="file" id="file" class="upload-hidden"
 											name="file">
 									</div>
+									
+								</div>
+								<div id="progressbox">
+									  <div id="myBar"><div id="statustxt" >0%</div ></div>
 								</div>
 							</div>
 							<br />
@@ -258,12 +262,15 @@
 								</div>
 							</div>
 							<br />
+							
+							<div class="modal-footer">
+								<button type="submit" id="contentUpload" class="btn btn-primary">Submit</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							</div>
 						</form>
 					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-primary" onclick="addContentSubmit()">Submit</button>
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					</div>
+					
+					
 				</div>
 			</div>
 		</div>		
@@ -425,6 +432,8 @@
 		<script src="js/fileUploadButton.js"></script>
 		<script type="text/javascript" src="js/submit.js"></script>
 		<script type="text/javascript" src="js/userValidationCheck.js"></script>
+		<script type="text/javascript" src="js/jquery.form.min.js"></script>
+		<script type="text/javascript" src="js/fileUpload.js"></script>
      <!-- Slider JavaScript -->
   <script src="js/jquery.cycle2.js"></script>
 </body>
