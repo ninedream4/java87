@@ -3,7 +3,7 @@
 <div w3-include-html="content.html"></div>
 
 
-    <div class="login modal fade" id="modalView" tabindex="-1" role="dialog"
+<div class="slide modal" id="modalView" tabindex="-1" role="dialog"
     aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -13,33 +13,70 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div align="center">
           <div class="modal-body">
-            <br /> <br /> <br /> <br />
-            <div style="width: 450px; height: 300px; overflow: hidden">
-           <div class="cycle-slideshow" data-cycle-fx="scrollHorz"
-            data-cycle-timeout="0"  data-cycle-prev="#prev" data-cycle-next="#next" align="center">
-            <img src="img/portfolio/cabin.png" style="width: 450px; height: 300px; title="cabin" />
-            <img src="img/portfolio/cake.png" style="width: 450px; height: 300px; alt="cake" />
-            <img src="img/portfolio/circus.png" style="width: 450px; height: 300px; alt="circus" />
-            <img src="img/portfolio/game.png" style="width: 450px; height: 300px; alt="game" />
-            <img src="img/portfolio/safe.png" style="width: 450px; height: 300px; alt="safe" />
-            <img src="img/portfolio/submarine.png" style="width: 450px; height: 300px; alt="submarine" />
-            </div>
-            </div>
-            <div class="center">
-              <a href=# id="prev">Prev</a>
-              <a href=# id="next">Next</a>
-            </div>
-            <br /> <br /> <br /> <br /> <br /> <br />
+            <br />
+            <div align="center">
+            <h2>Title</h2>
+            <hr class="star-primary">
           </div>
-        </div>
+              <div style="width: 100% \9; height: auto; display: block;" >
+                <div class="cycle-slideshow" data-cycle-fx="scrollHorz"
+                  data-cycle-timeout="0" data-cycle-prev="#prev"
+                  data-cycle-next="#next" align="center">
+                  <img src="img/portfolio/cabin.png" style="width: auto; height: auto; display: block;"class="img-responsive" />
+                  <img src="img/portfolio/cake.png"
+                    style="width: auto; height: auto; display: block;"class="img-responsive"/> <img
+                    src="img/portfolio/circus.png"
+                    style="width: auto; height: auto; display: block;"class="img-responsive"/> <img
+                    src="img/portfolio/game.png"
+                    style="width: auto; height: auto; display: block;"class="img-responsive"/> <img
+                    src="img/portfolio/safe.png"
+                    style="width: auto9; height: auto; display: block;"class="img-responsive"/> <img
+                    src="img/portfolio/submarine.png"
+                    style="width: auto; height: auto; display: block;"class="img-responsive"/>
+                </div>
+              </div>
+          </div>
+          <!--  -->
+          <div class="class"  align="center">
+            <button type="button" href="#" id="prev" class="btn btn-default" >Prev</button>
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            <button type="button" href=# id="next" class="btn btn-default" >Next</button>
+            <br />
+            <br />
+            </div>
+            <div class="row" style="position:relative;padding-left: 30px; padding-right: 30px;">
+            <div align="left">
+              <div style="font-size: 20px;">Comment</div>
+              <label style="font-size: 20px; " align="left">Email</label>
+              <br>
+              
+              <div class="col-xs-8">
+                  <input type="text" class="form-control" placeholder="Share your through ....." >
+                </div>
+              <button type="button" class="btn btn-primary" onclick="addCommentSubmit()" align="left">Submit</button>
+              </div>
+              </div>
+              <div class=commentList style="position:relative;padding-left: 30px; padding-right: 30px;"align="left">
+              <a href="#" id="Email">Email</a>
+              <label for="inputComment" style="font-size: 20px; ">Comment</label>
+              <textarea name="comments" id="comments" cols="25" rows="3"></textarea>
+
+              
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
+          </div>
+          </div>
       </div>
     </div>
   </div>
+
+
+
+
 
 	<div class="portfolio-modal modal fade" id="modalView" tabindex="-1"
 		role="dialog" aria-hidden="true">
