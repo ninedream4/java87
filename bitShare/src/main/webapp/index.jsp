@@ -34,7 +34,6 @@
 
 </head>
 
-
 <body id="page-top" class="index">
 	<!-- Portfolio Modals -->
 	<jsp:include page="module/portfolioModal.jsp"/>
@@ -66,7 +65,6 @@
 			class="fa fa-chevron-up"></i>
 		</a>
 	</div>
-		
 		
 <!-- jQuery -->
 <script src="vendor/jquery/jquery.js"></script>
