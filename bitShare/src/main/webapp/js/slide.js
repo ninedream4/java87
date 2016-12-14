@@ -5,7 +5,7 @@ $(function(){
 		mainRow.className = "row";
 
 		var slideDiv = document.createElement("div");
-				slideDiv.className = "col-md-4 portfolio-item";
+				slideDiv.className = "col-md-4 slide-item";
 				
 				var aTag = document.createElement("a");
 				aTag.href = "javascript:fn()";

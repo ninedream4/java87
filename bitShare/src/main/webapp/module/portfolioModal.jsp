@@ -50,9 +50,10 @@
             </div>
             <div class="row" style="position:relative;padding-left: 30px; padding-right: 30px;">
             <div align="left">
-              <label for="inputComment" style="font-size: 20px;">Comment</label>
+              <div style="font-size: 20px;">Comment</div>
+              <label style="font-size: 20px; " align="left">Email</label>
               <br>
-              <img class="nickname" src="img/portfolio/cabin.png" style="position:relative;width: 45px;height: 35px" align="left">
+              
               <div class="col-xs-8">
                   <input type="text" class="form-control" placeholder="Share your through ....." >
                 </div>
@@ -61,7 +62,8 @@
               </div>
               <div class=commentList style="position:relative;padding-left: 30px; padding-right: 30px;"align="left">
               <a href="#" id="Email">Email</a>
-              Comments: <textarea name="comments" id="comments" cols="25" rows="3"></textarea>
+              <label for="inputComment" style="font-size: 20px; ">Comment</label>
+              <textarea name="comments" id="comments" cols="25" rows="3"></textarea>
 
               
         <div class="modal-footer">
