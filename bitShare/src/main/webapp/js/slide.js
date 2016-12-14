@@ -5,7 +5,7 @@ $(function(){
 		mainRow.className = "row";
 
 		var slideDiv = document.createElement("div");
-				slideDiv.className = "col-md-4 slide-item";
+				slideDiv.className = "col-md-4 slidelist-item";
 				
 				var aTag = document.createElement("a");
 				aTag.href = "javascript:fn()";
@@ -34,7 +34,7 @@ $(function(){
 			aTag.appendChild(img);
 			slideDiv.appendChild(aTag);
 			mainRow.appendChild(slideDiv);
-			aTag.after("드디어 됬다아!!!!!!!!!!!");
+			aTag.after("Title");
 
 		$("#mainRow").on("click",function(){
 			$("#modalView").modal();
