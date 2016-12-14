@@ -30,7 +30,7 @@ public class ConvertFile {
 		    List<Image> images = renderer.render(document);
 		    
 		    for (int i = 0; i < images.size(); i++) {
-                ImageIO.write((RenderedImage) images.get(i), "png", new File(filePath + "img/" + (i + 1) + ".png"));
+                ImageIO.write((RenderedImage) images.get(i), "png", new File(filePath + (i + 1) + ".png"));
             }
 		    
 		}catch (Exception e) { 
