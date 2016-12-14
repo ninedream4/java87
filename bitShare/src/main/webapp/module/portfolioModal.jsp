@@ -63,7 +63,7 @@
               <div class=commentList style="position:relative;padding-left: 30px; padding-right: 30px;"align="left">
               <a href="#" id="Email">Email</a>
               <label for="inputComment" style="font-size: 20px; ">Comment</label>
-              <textarea name="comments" id="comments" cols="25" rows="3"></textarea>
+              <text name="comments" id="comments" cols="25" rows="3"></text>
 
               
         <div class="modal-footer">
