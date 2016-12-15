@@ -14,10 +14,9 @@
 		<result property="filePath" column="FILE_PATH" jdbcType="VARCHAR" />
 		<result property="fileName" column="FILE_NAME" jdbcType="VARCHAR" />
 		<result property="regDate" column="REG_DATE" jdbcType="DATE" />
-		<collection property="tag" column="TAG_NAME" javaType="java.util.List"
-			ofType="content"></collection>
+		<association property="tag" column="BRD_ID" select="getContentTag" javaType="ArrayList"/>
 	</resultMap>
-
+	
 	<!-- SQL : INSERT --> <!-- seq_content_brd_id.NEXTVAL -->
 	<insert id="addContent" parameterType="content" keyColumn="BRD_ID"
 		keyProperty="contentId" useGeneratedKeys="true">
@@ -45,6 +44,12 @@
 		BRD_ID , USER_ID , TLE , DES , FILE_PATH , FILE_NAME, CATE , REG_DATE
 		FROM BRDS
 		WHERE TLE = #{value}
+	</select>
+
+	<select id="getContentTag" parameterType="int" resultType="string">
+		SELECT TAG_NAME
+		FROM BRD_TAG
+		WHERE BRD_ID = #{value}
 	</select>
 
 	<!-- SQL : SELECT LIST -->

@@ -7,9 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
-import bitcamp.java87.project01.common.Search;
 import bitcamp.java87.project01.dao.ContentDao;
 import bitcamp.java87.project01.domain.Content;
+import bitcamp.java87.project01.domain.Search;
 
 @Repository("contentDaoImpl")
 public class ContentDaoImpl implements ContentDao {
@@ -39,8 +39,17 @@ public class ContentDaoImpl implements ContentDao {
 	}
 	
 	public Content getContent(String title) throws Exception {
-		return sqlSession.selectOne("ContentMapper.getContent", title);
+		Content content = sqlSession.selectOne("ContentMapper.getContent", title);
+		System.out.println("너왜안뜨냐");
+		System.out.println(content);
+		return content;
 	}
+	
+	
+	
+	
+	
+	
 	
 	@Override
 	public List<Content> getContentList(Search search) throws Exception {

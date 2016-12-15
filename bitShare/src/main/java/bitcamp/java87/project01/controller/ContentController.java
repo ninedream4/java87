@@ -13,10 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import bitcamp.java87.project01.common.Page;
-
-import bitcamp.java87.project01.common.Search;
 import bitcamp.java87.project01.domain.Content;
+import bitcamp.java87.project01.domain.Page;
+import bitcamp.java87.project01.domain.Search;
 import bitcamp.java87.project01.service.ContentService;
 
 @Controller

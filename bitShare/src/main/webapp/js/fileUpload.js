@@ -27,7 +27,7 @@ $(function(){
                  submitbutton.removeAttr('disabled');
                  $('#successCheck').modal();
                  $('#upload').modal('toggle');
-                 loca
+                 location.href="/index.jsp";
              },
              error: function(){
              }                               

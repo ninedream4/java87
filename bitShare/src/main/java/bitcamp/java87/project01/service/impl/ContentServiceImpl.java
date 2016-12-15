@@ -10,10 +10,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import bitcamp.java87.project01.common.ConvertFile;
-import bitcamp.java87.project01.common.Search;
 import bitcamp.java87.project01.common.Upload;
 import bitcamp.java87.project01.dao.ContentDao;
 import bitcamp.java87.project01.domain.Content;
+import bitcamp.java87.project01.domain.Search;
 import bitcamp.java87.project01.service.ContentService;
 
 @Service("contentServiceImpl")
@@ -44,8 +44,10 @@ public class ContentServiceImpl implements ContentService {
 		
 		contentDao.addContent(content);
 		contentDao.addContentTag(content);
-		
+		contentDao.getContent(content.getTitle());
 		new PdfToJpegConverter(content.getFilePath(), content.getFileName()).start();
+		
+		
 	}
 	
 	@Override

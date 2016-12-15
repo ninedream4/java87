@@ -4,8 +4,8 @@ import java.util.Map;
 
 import org.springframework.web.multipart.MultipartFile;
 
-import bitcamp.java87.project01.common.Search;
 import bitcamp.java87.project01.domain.Content;
+import bitcamp.java87.project01.domain.Search;
 
 public interface ContentService {
 

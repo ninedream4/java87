@@ -2,8 +2,8 @@ package bitcamp.java87.project01.dao;
 
 import java.util.List;
 
-import bitcamp.java87.project01.common.Search;
 import bitcamp.java87.project01.domain.Content;
+import bitcamp.java87.project01.domain.Search;
 
 public interface ContentDao {
 

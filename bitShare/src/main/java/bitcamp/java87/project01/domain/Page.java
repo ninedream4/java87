@@ -1,4 +1,4 @@
-package bitcamp.java87.project01.common;
+package bitcamp.java87.project01.domain;
 
 
 public class Page {

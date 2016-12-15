@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
-import bitcamp.java87.project01.common.Search;
 import bitcamp.java87.project01.dao.UserDao;
+import bitcamp.java87.project01.domain.Search;
 import bitcamp.java87.project01.domain.User;
 
 @Repository("userDaoImpl")
