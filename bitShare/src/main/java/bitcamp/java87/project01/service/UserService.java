@@ -2,7 +2,7 @@ package bitcamp.java87.project01.service;
 
 import java.util.Map;
 
-import bitcamp.java87.project01.domain.Search;
+import bitcamp.java87.project01.common.Search;
 import bitcamp.java87.project01.domain.User;
 
 public interface UserService {

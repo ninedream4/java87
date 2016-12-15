@@ -1,11 +1,16 @@
 package bitcamp.java87.project01.service.impl;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import bitcamp.java87.project01.common.ConvertFile;
+import bitcamp.java87.project01.common.Search;
 import bitcamp.java87.project01.common.Upload;
 import bitcamp.java87.project01.dao.ContentDao;
 import bitcamp.java87.project01.domain.Content;
@@ -48,6 +53,23 @@ public class ContentServiceImpl implements ContentService {
 		return contentDao.getContent(title);
 	}
 
+	
+	@Override
+	public Map<String, Object> getContentList(Search search) throws Exception {
+		List<Content> list = contentDao.getContentList(search);
+		int totalCount = contentDao.getTotalCount(search);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("list", list);
+		
+		for(Content c : list)
+			System.out.println(c);
+		
+		map.put("totalCount", new Integer(totalCount));
+		
+		return map;
+	}
+	
 	public void deleteContent(int contentId) throws Exception {
 		contentDao.deleteContent(contentId);
 	}

@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import bitcamp.java87.project01.domain.Page;
-import bitcamp.java87.project01.domain.Search;
+import bitcamp.java87.project01.common.Page;
+import bitcamp.java87.project01.common.Search;
 import bitcamp.java87.project01.domain.User;
 import bitcamp.java87.project01.service.UserService;
 

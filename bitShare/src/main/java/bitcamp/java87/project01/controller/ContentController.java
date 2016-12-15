@@ -1,5 +1,7 @@
 package bitcamp.java87.project01.controller;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import bitcamp.java87.project01.common.Page;
+
+import bitcamp.java87.project01.common.Search;
 import bitcamp.java87.project01.domain.Content;
 import bitcamp.java87.project01.service.ContentService;
 
@@ -54,6 +59,24 @@ public class ContentController {
 		return "redirect:/index.jsp";
 	}
 
+	@RequestMapping(value = "getContentList", method = RequestMethod.GET)
+	public void getContentList(@RequestParam("search") Search search, Model model) throws Exception {
+		System.out.println("/content/getContentList : GET");
+		
+		if(search.getCurrentPage()==0 ){
+			search.setCurrentPage(1);
+		}
+		search.setPageSize(pageSize);
+		
+		Map<String, Object> map = contentService.getContentList(search);
+		
+		Page resultPage = new Page(search.getCurrentPage(), ((Integer)map.get("totalCount")).intValue(), pageUnit, pageSize);
+		
+		model.addAttribute("list", map.get("list"));
+		model.addAttribute("resultPage", resultPage);
+		model.addAttribute("search", search);
+	}
+	
 //	@RequestMapping(value = "deleteContent", method = RequestMethod.GET)
 //	public String deleteContent(@RequestParam("contentId") int contentId, Model model) throws Exception {
 //

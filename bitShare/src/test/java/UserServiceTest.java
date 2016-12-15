@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import bitcamp.java87.project01.domain.Page;
-import bitcamp.java87.project01.domain.Search;
+import bitcamp.java87.project01.common.Page;
+import bitcamp.java87.project01.common.Search;
 import bitcamp.java87.project01.domain.User;
 import bitcamp.java87.project01.service.UserService;
 

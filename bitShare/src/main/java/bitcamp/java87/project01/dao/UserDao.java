@@ -2,7 +2,7 @@ package bitcamp.java87.project01.dao;
 
 import java.util.List;
 
-import bitcamp.java87.project01.domain.Search;
+import bitcamp.java87.project01.common.Search;
 import bitcamp.java87.project01.domain.User;
 
 public interface UserDao {

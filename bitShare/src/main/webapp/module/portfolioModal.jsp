@@ -74,10 +74,6 @@
     </div>
   </div>
 
-
-
-
-
 	<div class="portfolio-modal modal fade" id="modalView" tabindex="-1"
 		role="dialog" aria-hidden="true">
 		<div class="modal-content">
