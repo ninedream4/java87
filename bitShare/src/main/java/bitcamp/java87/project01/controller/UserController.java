@@ -61,7 +61,7 @@ public class UserController {
 			session.setAttribute("user", user);
 		}
 
-		return "redirect:/login.jsp";
+		return "redirect:/index.jsp";
 	}
 
 	@RequestMapping(value="login", method=RequestMethod.POST)
@@ -74,7 +74,7 @@ public class UserController {
 		
 		if(dbUser != null) {
 			session.setAttribute("user", dbUser);
-			return "redirect:/login.jsp";
+			return "redirect:/index.jsp";
 		}
 		
 		return "redirect:/common/error.jsp";

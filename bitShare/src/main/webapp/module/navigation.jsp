@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <nav id="mainNav"
 			class="navbar navbar-default navbar-fixed-top navbar-custom"
 			style="background-color: black;">
@@ -17,10 +19,18 @@
 			<div class="collapse navbar-collapse" id="menuBar">
 				<ul class="nav navbar-nav navbar-right">
 					<li class="hidden"><a href="#page-top"></a></li>
+					
+					<c:if test="${empty user.email}">
 					<li><a data-toggle="modal" style="cursor:pointer;" data-target="#category">category</a></li>
-					<li><a data-toggle="modal" style="cursor:pointer;" data-target="#upload">upload</a></li>
 					<li><a data-toggle="modal" style="cursor:pointer;" data-target="#login">login</a></li>
 					<li><a data-toggle="modal" style="cursor:pointer;" data-target="#signup">signup</a></li>
+					</c:if>
+					<c:if test="${!empty user.email}">
+					<li><a data-toggle="modal" style="cursor:pointer;" data-target="#mypage" id="email1"></a></li>
+					<li><a data-toggle="modal" style="cursor:pointer;" data-target="#category">category</a></li>
+					<li><a data-toggle="modal" style="cursor:pointer;" data-target="#upload">upload</a></li>
+					<li><a data-toggle="modal" style="cursor:pointer;" data-target="#logout">logout</a></li>
+					</c:if>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -50,3 +60,13 @@
 			</div>
 		</div>
 		</nav>
+<script src="vendor/jquery/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	var email="${user.email}";
+	var resultEmail=email.split('@');
+	
+	console.log(resultEmail);
+	$("#email1").text("Welcome "+resultEmail[0]);
+});
+</script>
