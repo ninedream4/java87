@@ -6,6 +6,7 @@ import java.util.List;
 public class Content {
 
 	private String title;
+	private int userId;
 	private int contentId;
 	private String fileDesc;
 	private String filePath;
@@ -23,6 +24,14 @@ public class Content {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public int getContentId() {
@@ -83,10 +92,9 @@ public class Content {
 
 	@Override
 	public String toString() {
-		return "Content [title=" + title + ", contentId=" + contentId + ", fileDesc=" + fileDesc + ", filePath="
-				+ filePath + ", fileName=" + fileName + ", category=" + category + ", regDate=" + regDate + ", tag="
-				+ tag + "]";
+		return "Content [title=" + title + ", userId=" + userId + ", contentId=" + contentId + ", fileDesc=" + fileDesc
+				+ ", filePath=" + filePath + ", fileName=" + fileName + ", category=" + category + ", regDate="
+				+ regDate + ", tag=" + tag + "]";
 	}
 
-    
 }

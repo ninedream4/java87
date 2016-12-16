@@ -17,3 +17,6 @@ function addContentSubmit() {
 	document.addContentForm.submit();
 }
 
+function getContentListSubmit() {
+	document.getContentListForm.submit();
+}
