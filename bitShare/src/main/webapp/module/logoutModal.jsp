@@ -4,18 +4,12 @@
     aria-hidden="true" aria-labelledby="myModalLabel">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal"
-            aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-
-        </div>
         <div class="modal-body">
-        
+        <h2 align="center">logout</h2>
+        <hr class="star-primary">
            
         <form name="logoutForm" method="post"  action="/user/logout">
-        	 로그아웃 하시겠 습니까(뺄생각임)
+        	 <h3 align="center">Are you sure want to sign out?</h3>
         </form>
           <br/>
         </div>
@@ -27,3 +21,9 @@
       </div>
     </div>
   </div>
+  
+  <style>
+h3 {
+   text-transform: none;
+}
+</style>

@@ -2,11 +2,8 @@ package bitcamp.java87.project01.controller;
 
 import java.util.Map;
 
-<<<<<<< HEAD
 import javax.servlet.http.HttpServletRequest;
-=======
 import javax.servlet.http.HttpSession;
->>>>>>> 2b84cc91e554c6867f26c3b3c9ff8e4d6ff56d9e
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -122,20 +119,20 @@ public class ContentController {
 		}
 		search.setPageSize(pageSize);
 		
-		// Business logic ����
-		Map<String , Object> map=contentService.getContentList(search);
-		
-		System.out.println(" map : "+map);
-		Page resultPage = new Page( search.getCurrentPage(), ((Integer)map.get("totalCount")).intValue(), pageUnit, pageSize);
-		System.out.println(resultPage);
-		
-		// Model �� View ����
-		model.addAttribute("list", map.get("list"));
-		model.addAttribute("resultPage", resultPage);
-		model.addAttribute("search", search);
-		
-		System.out.println("contentlist 완료");
-		return "forward:/user/listUser.jsp";
+//		// Business logic ����
+//		Map<String , Object> map=contentService.getContentList(search);
+//		
+//		System.out.println(" map : "+map);
+//		Page resultPage = new Page( search.getCurrentPage(), ((Integer)map.get("totalCount")).intValue(), pageUnit, pageSize);
+//		System.out.println(resultPage);
+//		
+//		// Model �� View ����
+//		model.addAttribute("list", map.get("list"));
+//		model.addAttribute("resultPage", resultPage);
+//		model.addAttribute("search", search);
+//		
+//		System.out.println("contentlist 완료");
+		return "forward:/search.jsp";
 	}
 
 }
