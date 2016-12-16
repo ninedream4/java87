@@ -1,5 +1,0 @@
-bitShare(Slide)\src\main\webapp\js
-
-jquery.cycle2.js
-
-추가 했습니다.
