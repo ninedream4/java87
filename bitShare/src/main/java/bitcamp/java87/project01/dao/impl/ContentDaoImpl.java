@@ -39,7 +39,7 @@ public class ContentDaoImpl implements ContentDao {
 	}
 	
 	public Content getContent(String title) throws Exception {
-		Content content = sqlSession.selectOne("ContentMapper.getContent", title);
+		Content content = sqlSession.selectOne("ContentMapper.getContentList", title);
 		System.out.println("너왜안뜨냐");
 		System.out.println(content);
 		return content;

@@ -14,7 +14,7 @@
 		<result property="filePath" column="FILE_PATH" jdbcType="VARCHAR" />
 		<result property="fileName" column="FILE_NAME" jdbcType="VARCHAR" />
 		<result property="regDate" column="REG_DATE" jdbcType="DATE" />
-		<association property="tag" column="BRD_ID" select="getContentTag" javaType="ArrayList"/>
+		<association property="tag" column="BRD_ID" select="getContentTagByTitle" javaType="ArrayList"/>
 	</resultMap>
 	
 	<!-- SQL : INSERT --> <!-- seq_content_brd_id.NEXTVAL -->
@@ -38,20 +38,26 @@
 		SELECT * FROM DUAL
 	</insert>
 
-	<!-- SQL : SELECT ONE -->
+	<!-- SQL : SELECT ONE keyword = title -->
 	<select id="getContent" parameterType="string" resultMap="contentSelectMap">
 		SELECT
 		BRD_ID , USER_ID , TLE , DES , FILE_PATH , FILE_NAME, CATE , REG_DATE
 		FROM BRDS
 		WHERE TLE = #{value}
 	</select>
-
-	<select id="getContentTag" parameterType="int" resultType="string">
+	
+	<select id="getContentTagByTitle" parameterType="int" resultType="string">
 		SELECT TAG_NAME
 		FROM BRD_TAG
 		WHERE BRD_ID = #{value}
 	</select>
-
+	
+	<select id="getContentTagByTag" parameterType="string" resultType="string">
+		SELECT BRD_ID
+		FROM BRD_TAG
+		WHERE TAG_NAME = #{value}
+	</select>
+	
 	<!-- SQL : SELECT LIST -->
 	<select  id="getContentList"  parameterType="search"	resultMap="contentSelectMap">
 	  	SELECT *
@@ -76,7 +82,10 @@
 		<set>
 			TLE = #{title} ,
 			DES = #{fileDesc} ,
-			CATE = #{category}
+			FILE_PATH = #{filePath} ,
+			FILE_NAME = #{fileNanme} ,
+			CATE = #{category},
+			REG_DATE = SYSDATE
 		</set>
 		WHERE BRD_ID = #{contentId}
 	</update>
