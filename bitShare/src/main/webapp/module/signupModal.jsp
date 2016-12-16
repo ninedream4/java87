@@ -1,12 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+    
 <div class="modal fade" id="signup" tabindex="-1" role="dialog"
 			aria-hidden="true" aria-labelledby="myModalLabel">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
+						<button type="button" class="close" data-dismiss="modal"		aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 
@@ -17,10 +16,12 @@
 
 						     <form name="addUserForm" id="addUserForm" method="post"  action="/user/addUser">
 							<div class="form-group" style="width: 70%; margin: auto;">
-								<label for="inputEmail" style="font-size: 20px;">Email
-									address</label> <input type="text" class="form-control" name="email"
-									id="email" placeholder="email">
-									 <span id="errorEmail" style="display:none;color:red;">Check your Input</span>
+								<label for="inputEmail" style="font-size: 20px;">Email address</label> 
+								<input type="text" class="form-control" name="email"	id="email" placeholder="email"   value="${ ! empty result && result ? eamil : '' }" >
+							<button type="button" id="checkEmail" class="btn btn-primary" >CheckEmail</button>
+									 <span id="errorEmail" style="display:none;color:red;">Check your Email</span>
+									 <span id="checkEmail" style="display:none;color:red;">This email is already in use.</span>
+									 <span id="succsessEmail" style="display:none;color:blue;">Available email.</span>
 							</div>
 
 							<br />
@@ -51,9 +52,7 @@
 						<br />
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-primary"
-							onclick="addUserSubmit()">Sign Up</button>
-
+						<button type="button" class="btn btn-primary"	onclick="addUserSubmit()">Sign Up</button>
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 					</div>
 				</div>

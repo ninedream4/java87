@@ -34,7 +34,7 @@ $(function(){
 			aTag.appendChild(img);
 			slideDiv.appendChild(aTag);
 			mainRow.appendChild(slideDiv);
-			aTag.after("드디어 됬다아!!!!!!!!!!!");
+			aTag.after("TITLE");
 
 		$("#mainRow").on("click",function(){
 			$("#modalView").modal();
