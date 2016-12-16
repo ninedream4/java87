@@ -48,8 +48,7 @@
 	<jsp:include page="module/uploadModal.jsp"/>
 	<!-- logout Modal -->
 	<jsp:include page="module/logoutModal.jsp"/>
-	<!-- checkSuccess Modal -->
-	<jsp:include page="module/checkSuccess.jsp"/>
+
 		
 	<!-- Navigation -->
 	<jsp:include page="module/navigation.jsp"/>
