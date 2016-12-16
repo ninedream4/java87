@@ -46,15 +46,17 @@
 					<li class="page-scroll"><a href="#windows">Windows</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
+				<form name="getContentListForm" id="getContentListForm" method="post"  action="/content/contentList">
 					<div id="search">
-						<input id="input" placeholder="Search" />
-						<button id="button">
+						<input type="text" id="searchKeyword" name="searchKeyword" placeholder="Search" />
+						<button id="button" onclick='getContentListForm()'>
 							<i class="fa fa-search"></i>
 						</button>
 						<div class="spinner">
 							<i class="fa fa-spinner"></i>
 						</div>
 					</div>
+				</form>
 				</ul>
 				<script src="js/search.js"></script>
 			</div>
