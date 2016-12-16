@@ -17,10 +17,8 @@
 						     <form name="addUserForm" id="addUserForm" method="post"  action="/user/addUser">
 							<div class="form-group" style="width: 70%; margin: auto;">
 								<label for="inputEmail" style="font-size: 20px;">Email address</label> 
-								<input type="text" class="form-control" name="email"	id="email" placeholder="email"   value="${ ! empty result && result ? eamil : '' }" >
-							<button type="button" id="checkEmail" class="btn btn-primary" >CheckEmail</button>
-									 <span id="errorEmail" style="display:none;color:red;">Check your Email</span>
-									 <span id="checkEmail" style="display:none;color:red;">This email is already in use.</span>
+								<input type="text" class="form-control" name="email"	id="email" placeholder="email"   value="${ ! empty result && result ? email : '' }" >
+								 <span id="errorEmail" style="display:none;color:red;">Check your Email</span>									 
 									 <span id="succsessEmail" style="display:none;color:blue;">Available email.</span>
 							</div>
 
