@@ -33,8 +33,6 @@
 	rel="stylesheet" type="text/css">
 <link href="css/fileinputbutton.css" rel="stylesheet" type="text/css">
 <link href="css/progress_style.css" rel="stylesheet" type="text/css">
-<!-- Comment CSS -->
-<link href="css/comment.css" rel="stylesheet" type="text/css">
 
 </head>
 
@@ -95,7 +93,5 @@
 <script type="text/javascript" src="js/fileUpload.js"></script>
    <!-- Slider JavaScript -->
   <script src="js/jquery.cycle2.js"></script>
-   <!-- Comment JavaScript -->
-  <script src="js/comment.js"></script>
 </body>
 </html>
