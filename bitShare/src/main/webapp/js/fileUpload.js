@@ -25,9 +25,8 @@ $(function(){
              },
              success: function(response,status){
                  submitbutton.removeAttr('disabled');
-                 $('#successCheck').modal();
                  $('#upload').modal('toggle');
-                 
+                 $('#successCheck').modal();
              },
              error: function(){
              }                               

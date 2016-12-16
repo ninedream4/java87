@@ -16,3 +16,7 @@ function logoutUserSubmit(){
 function addContentSubmit() {
 	document.addContentForm.submit();
 }
+
+function getContentListSubmit() {
+	document.getContentListForm.submit();
+}

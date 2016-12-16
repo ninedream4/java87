@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import bitcamp.java87.project01.domain.Page;
 import bitcamp.java87.project01.domain.Search;
@@ -61,7 +62,7 @@ public class UserController {
 			session.setAttribute("user", user);
 		}
 
-		return "redirect:/login.jsp";
+		return "redirect:/index.jsp";
 	}
 
 	@RequestMapping(value="login", method=RequestMethod.POST)
@@ -74,7 +75,7 @@ public class UserController {
 		
 		if(dbUser != null) {
 			session.setAttribute("user", dbUser);
-			return "redirect:/login.jsp";
+			return "redirect:/index.jsp";
 		}
 		
 		return "redirect:/common/error.jsp";
@@ -91,17 +92,15 @@ public class UserController {
 		return "redirect:/index.jsp";
 	}
 
-	@RequestMapping(value="checkDuplication", method=RequestMethod.POST)
-	public String checkDuplication(@RequestParam("email") String email, Model model) throws Exception {
+	@RequestMapping(value="checkDuplication")
+	public @ResponseBody Boolean checkDuplication(String email) throws Exception {
 
 		System.out.println("/user/checkDuplication : POST");
 		
 		// Business Logic
 		boolean result = userService.checkDuplication(email);
-		model.addAttribute("result", new Boolean(result));
-		model.addAttribute("email", email);
-
-		return "forward:/user/checkDuplication.jsp";
+	
+	  return result;
 	}
 
 	@RequestMapping(value="listUserByTag")

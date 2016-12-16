@@ -63,7 +63,7 @@ public class LogonCheckInterceptor extends HandlerInterceptorAdapter {
 			if(		uri.indexOf("addUser") != -1 ||	uri.indexOf("login") != -1 		|| 
 					uri.indexOf("checkDuplication") != -1 ){
 				System.out.println("[... ]");
-				System.out.println("[ LogonCheckInterceptor end........]\n");
+				System.out.println("[ LogonCheckInterceptor true end........]\n");
 				return true;
 			}
 			

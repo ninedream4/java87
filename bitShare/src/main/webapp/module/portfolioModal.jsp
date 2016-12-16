@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <div w3-include-html="content.html"></div>
-
-
+	
 <div class="slide modal" id="modalView" tabindex="-1" role="dialog"
 	aria-hidden="true">
 	<div class="modal-dialog">
@@ -70,6 +69,7 @@
   </div>
 </div>
 
+<<<<<<< HEAD
 
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -89,6 +89,15 @@
 		<div class="close-modal" data-dismiss="modal">
 			<div class="lr">
 				<div class="rl"></div>
+=======
+	<div class="portfolio-modal modal fade" id="modalView" tabindex="-1"
+		role="dialog" aria-hidden="true">
+		<div class="modal-content">
+			<div class="close-modal" data-dismiss="modal">
+				<div class="lr">
+					<div class="rl"></div>
+				</div>
+>>>>>>> e1183d6e28b92a09131039f6ffd27c363421cf83
 			</div>
 		</div>
 		<div class="container">
@@ -98,6 +107,7 @@
 				</div>
 			</div>
 		</div>
+<<<<<<< HEAD
 	</div>
 </div>
 
@@ -122,3 +132,7 @@
 		</div>
 	</div>
 </div>
+=======
+		
+		
+>>>>>>> e1183d6e28b92a09131039f6ffd27c363421cf83

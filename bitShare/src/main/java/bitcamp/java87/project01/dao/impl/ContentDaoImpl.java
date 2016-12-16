@@ -39,7 +39,21 @@ public class ContentDaoImpl implements ContentDao {
 	}
 	
 	public Content getContent(String title) throws Exception {
-		return sqlSession.selectOne("ContentMapper.getContent", title);
+		Content content = sqlSession.selectOne("ContentMapper.getContentList", title);
+		System.out.println("너왜안뜨냐");
+		System.out.println(content);
+		return content;
+	}
+	
+	
+	
+	
+	
+	
+	
+	@Override
+	public List<Content> getContentList(Search search) throws Exception {
+		return sqlSession.selectList("contentMapper.getContentList", search);
 	}
 
 	public void deleteContent(int contentId) throws Exception {
@@ -62,11 +76,7 @@ public class ContentDaoImpl implements ContentDao {
     return null;
   }
 
-  @Override
-  public List<Content> getContentList(Search search) throws Exception {
-    // TODO Auto-generated method stub
-    return null;
-  }
+ 
 
   @Override
   public int getTotalCount(Search search) throws Exception {

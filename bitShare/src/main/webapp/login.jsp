@@ -284,8 +284,7 @@
         <div class="modal-body">
         
            
-        <form name="logoutForm" method="post"  action="/user/logout">
-        	 로그아웃 하시겠 습니까(뺄생각임)
+        <form name="logoutForm" id="logoutForm" method="post"  action="/user/logout">        	
         </form>
           <br/>
         </div>
@@ -469,7 +468,7 @@
   <script src="js/slide.js" id="slide"></script>
   <script src="js/modal.js" id="modalView"></script>  
   <script src="js/fileUploadButton.js" id="input_file"></script>
-  <script src="js/userSubmit.js"></script>
+  <script src="js/submit.js"></script>
   <script src="js/userValidationCheck.js"></script>
 </body>
 </html>
