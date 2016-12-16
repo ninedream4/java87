@@ -5,6 +5,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -121,20 +122,20 @@ public class ContentController {
 		}
 		search.setPageSize(pageSize);
 		
-		// Business logic ����
-		Map<String , Object> map=contentService.getContentList(search);
-		
-		System.out.println(" map : "+map);
-		Page resultPage = new Page( search.getCurrentPage(), ((Integer)map.get("totalCount")).intValue(), pageUnit, pageSize);
-		System.out.println(resultPage);
-		
-		// Model �� View ����
-		model.addAttribute("list", map.get("list"));
-		model.addAttribute("resultPage", resultPage);
-		model.addAttribute("search", search);
-		
-		System.out.println("contentlist 완료");
-		return "forward:/user/listUser.jsp";
+//		// Business logic ����
+//		Map<String , Object> map=contentService.getContentList(search);
+//		
+//		System.out.println(" map : "+map);
+//		Page resultPage = new Page( search.getCurrentPage(), ((Integer)map.get("totalCount")).intValue(), pageUnit, pageSize);
+//		System.out.println(resultPage);
+//		
+//		// Model �� View ����
+//		model.addAttribute("list", map.get("list"));
+//		model.addAttribute("resultPage", resultPage);
+//		model.addAttribute("search", search);
+//		
+//		System.out.println("contentlist 완료");
+		return "forward:/search.jsp";
 	}
 
 }

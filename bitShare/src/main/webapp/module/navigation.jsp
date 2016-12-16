@@ -13,7 +13,7 @@
 					<span class="sr-only">Toggle navigation</span> Menu <i
 						class="fa fa-bars"></i>
 				</button>
-				<a class="navbar-brand" href="index.html">Bit Share</a>
+				<a class="navbar-brand" href="index.jsp">Bit Share</a>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="menuBar">
