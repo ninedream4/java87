@@ -8,6 +8,7 @@
 
 	<resultMap id="contentSelectMap" type="content">
 		<result property="contentId" column="BRD_ID" jdbcType="NUMERIC" />
+		<result property="userId" column="USER_ID" jdbcType="VARCHAR" />
 		<result property="title" column="TLE" jdbcType="VARCHAR" />
 		<result property="fileDesc" column="DES" jdbcType="VARCHAR" />
 		<result property="category" column="CATE" jdbcType="VARCHAR" />
@@ -21,9 +22,9 @@
 	<insert id="addContent" parameterType="content" keyColumn="BRD_ID"
 		keyProperty="contentId" useGeneratedKeys="true">
 		INSERT
-		INTO BRDS( TLE , DES ,
+		INTO BRDS( TLE , USER_ID , DES ,
 		FILE_PATH , FILE_NAME, CATE , REG_DATE)
-		VALUES (#{title:VARCHAR} ,
+		VALUES (#{title:VARCHAR} , #{userId:VARCHAR} ,
 		#{fileDesc:VARCHAR} , #{filePath:VARCHAR},
 		#{fileName:VARCHAR} , #{category:VARCHAR} ,
 		SYSDATE )
