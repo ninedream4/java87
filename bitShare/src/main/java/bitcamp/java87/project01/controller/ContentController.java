@@ -2,7 +2,11 @@ package bitcamp.java87.project01.controller;
 
 import java.util.Map;
 
+<<<<<<< HEAD
 import javax.servlet.http.HttpServletRequest;
+=======
+import javax.servlet.http.HttpSession;
+>>>>>>> 2b84cc91e554c6867f26c3b3c9ff8e4d6ff56d9e
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -18,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import bitcamp.java87.project01.domain.Content;
 import bitcamp.java87.project01.domain.Page;
 import bitcamp.java87.project01.domain.Search;
+import bitcamp.java87.project01.domain.User;
 import bitcamp.java87.project01.service.ContentService;
 
 @Controller
@@ -40,12 +45,14 @@ public class ContentController {
 	int pageSize;
 	
 	@RequestMapping(value = "addContent", method = RequestMethod.POST)
-	public String addContent(@ModelAttribute("content") Content content, @RequestParam("file") MultipartFile file) throws Exception {
+	public String addContent(@ModelAttribute("content") Content content, HttpSession session, @RequestParam("file") MultipartFile file) throws Exception {
 		
 		System.out.println("/content/addContent : POST");
 		// Business Logic
+		User user = (User)session.getAttribute("user");
+		content.setUserId(user.getUserId());
 		contentService.addContent(content, file);
-		System.out.println("add finish!!");
+		
 		return "redirect:/index.jsp";
 	}
 
